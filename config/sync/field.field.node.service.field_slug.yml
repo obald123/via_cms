@@ -1,0 +1,19 @@
+uuid: ba8e741e-19ad-422f-b020-89935c76787d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slug
+    - node.type.service
+id: node.service.field_slug
+field_name: field_slug
+entity_type: node
+bundle: service
+label: 'URL slug'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

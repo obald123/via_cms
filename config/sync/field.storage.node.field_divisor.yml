@@ -1,0 +1,20 @@
+uuid: ee6dddb6-a716-49dd-ac81-398fd521d65b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_divisor
+field_name: field_divisor
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

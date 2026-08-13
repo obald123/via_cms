@@ -1,0 +1,11 @@
+uuid: b9ee62ea-6b97-4273-87e7-06c0c4d60377
+langcode: en
+status: true
+dependencies: {  }
+name: 'Funding allocation'
+type: funding_allocation
+description: 'A slice of the funding allocation pie chart.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

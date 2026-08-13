@@ -1,0 +1,19 @@
+uuid: 3a793b06-626e-445f-8568-361742f04fa7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slug
+    - node.type.project
+id: node.project.field_slug
+field_name: field_slug
+entity_type: node
+bundle: project
+label: 'URL slug'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

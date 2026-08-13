@@ -1,0 +1,11 @@
+uuid: c138a78f-1771-4aa9-84ba-0ee196b9b011
+langcode: en
+status: true
+dependencies: {  }
+name: 'Yearly progress'
+type: yearly_progress
+description: 'A point on the cumulative progress area chart.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

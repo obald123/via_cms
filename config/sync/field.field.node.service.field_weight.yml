@@ -1,0 +1,23 @@
+uuid: 78aba9fe-ff0d-4684-a9d2-25faeb057bd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.service
+id: node.service.field_weight
+field_name: field_weight
+entity_type: node
+bundle: service
+label: Order
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

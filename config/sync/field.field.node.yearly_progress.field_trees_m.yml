@@ -1,0 +1,23 @@
+uuid: daafd615-b708-4e0a-8776-3ddda070ce5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_trees_m
+    - node.type.yearly_progress
+id: node.yearly_progress.field_trees_m
+field_name: field_trees_m
+entity_type: node
+bundle: yearly_progress
+label: 'Trees (millions)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

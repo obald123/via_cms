@@ -1,0 +1,23 @@
+uuid: 861912c8-070e-4ae9-96bc-bcef3e52340d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.yearly_progress
+id: node.yearly_progress.field_weight
+field_name: field_weight
+entity_type: node
+bundle: yearly_progress
+label: Order
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

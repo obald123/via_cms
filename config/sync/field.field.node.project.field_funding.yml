@@ -1,0 +1,19 @@
+uuid: 35b7c4ed-d1e5-4db6-a72d-f051c39bf92f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_funding
+    - node.type.project
+id: node.project.field_funding
+field_name: field_funding
+entity_type: node
+bundle: project
+label: Funding
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,11 @@
+uuid: 63aeeaeb-bbf1-4dcd-b3c4-4973cc10ae66
+langcode: en
+status: true
+dependencies: {  }
+name: 'Hero stat'
+type: hero_stat
+description: 'A counter in the homepage hero.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

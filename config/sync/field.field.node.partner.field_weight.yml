@@ -1,0 +1,23 @@
+uuid: 22f04d49-37d9-49cc-bc3b-a6badb99596f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.partner
+id: node.partner.field_weight
+field_name: field_weight
+entity_type: node
+bundle: partner
+label: Order
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

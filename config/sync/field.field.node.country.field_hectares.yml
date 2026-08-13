@@ -1,0 +1,19 @@
+uuid: 98b3b550-6927-4495-9a42-5ca83f62d34e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hectares
+    - node.type.country
+id: node.country.field_hectares
+field_name: field_hectares
+entity_type: node
+bundle: country
+label: 'Hectares (display, e.g. 22,000)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

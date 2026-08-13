@@ -1,0 +1,21 @@
+uuid: 8b7394c4-ebcd-4477-b12f-d2a1e606db5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_icon
+    - node.type.impact_card
+  module:
+    - options
+id: node.impact_card.field_icon
+field_name: field_icon
+entity_type: node
+bundle: impact_card
+label: Icon
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

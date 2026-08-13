@@ -1,0 +1,23 @@
+uuid: ca64bd36-a4ba-44ab-9e5a-8398227a6e8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_projects
+    - node.type.country
+id: node.country.field_projects
+field_name: field_projects
+entity_type: node
+bundle: country
+label: Projects
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

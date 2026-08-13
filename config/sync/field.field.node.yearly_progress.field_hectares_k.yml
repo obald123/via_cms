@@ -1,0 +1,23 @@
+uuid: f5ec514e-f814-496a-af1f-df6aa9d9f3de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hectares_k
+    - node.type.yearly_progress
+id: node.yearly_progress.field_hectares_k
+field_name: field_hectares_k
+entity_type: node
+bundle: yearly_progress
+label: 'Hectares (thousands)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

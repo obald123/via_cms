@@ -1,0 +1,20 @@
+uuid: ca21f5b0-fb66-4395-a08c-d478cc3cccdb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_lat
+field_name: field_lat
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 5
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

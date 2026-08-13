@@ -1,0 +1,11 @@
+uuid: 40c4327d-9ceb-49d7-a79a-4931e827d620
+langcode: en
+status: true
+dependencies: {  }
+name: Partner
+type: partner
+description: 'A partner organisation shown in the logo marquee.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

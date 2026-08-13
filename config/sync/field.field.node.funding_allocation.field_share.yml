@@ -1,0 +1,23 @@
+uuid: 5fcb082c-1e14-4959-a4a0-5395da6b9c51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_share
+    - node.type.funding_allocation
+id: node.funding_allocation.field_share
+field_name: field_share
+entity_type: node
+bundle: funding_allocation
+label: 'Share (%)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

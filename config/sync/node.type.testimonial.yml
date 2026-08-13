@@ -1,0 +1,11 @@
+uuid: ce1e649d-a30c-431a-af13-e331f88b0b42
+langcode: en
+status: true
+dependencies: {  }
+name: Testimonial
+type: testimonial
+description: 'A partner testimonial quote.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,11 @@
+uuid: 3361f204-4749-4308-b2bc-507a9310538f
+langcode: en
+status: true
+dependencies: {  }
+name: 'News item'
+type: news
+description: 'News and publications.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

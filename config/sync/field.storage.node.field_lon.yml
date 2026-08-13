@@ -1,0 +1,20 @@
+uuid: 693d42fb-bea8-42b6-a6e0-e90d8d084dd4
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_lon
+field_name: field_lon
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 5
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

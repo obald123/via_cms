@@ -1,0 +1,19 @@
+uuid: cbeeb26a-0135-44f3-9771-b0279b1bb815
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_trees
+    - node.type.project
+id: node.project.field_trees
+field_name: field_trees
+entity_type: node
+bundle: project
+label: Trees
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

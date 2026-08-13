@@ -1,0 +1,19 @@
+uuid: 4ea0001f-95df-4b89-9796-a20178e3ba4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slug
+    - node.type.news
+id: node.news.field_slug
+field_name: field_slug
+entity_type: node
+bundle: news
+label: 'URL slug'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

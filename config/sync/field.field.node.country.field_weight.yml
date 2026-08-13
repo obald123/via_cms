@@ -1,0 +1,23 @@
+uuid: 54ca7c4a-7399-4df9-ae7f-18f8c6313bb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.country
+id: node.country.field_weight
+field_name: field_weight
+entity_type: node
+bundle: country
+label: Order
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

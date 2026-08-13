@@ -1,0 +1,9 @@
+uuid: 2dcd28e6-2994-4100-b0da-cac3e80e193b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Project country'
+vid: project_country
+description: null
+weight: 0
+new_revision: false

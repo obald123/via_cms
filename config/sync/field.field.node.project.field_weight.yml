@@ -1,0 +1,23 @@
+uuid: dc44f4cb-9ab3-40eb-b05b-54565eb24166
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.project
+id: node.project.field_weight
+field_name: field_weight
+entity_type: node
+bundle: project
+label: Order
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

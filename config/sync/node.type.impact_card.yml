@@ -1,0 +1,11 @@
+uuid: ff3ff8be-5959-4eae-af26-b2a830120d5e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Impact card'
+type: impact_card
+description: 'A card in the impact grid.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

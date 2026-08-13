@@ -1,0 +1,22 @@
+# Composer-managed — rebuilt with `composer install` on each environment.
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+
+# Per-environment, contains credentials.
+/web/sites/*/settings.php
+/web/sites/*/settings.local.php
+/web/sites/*/services.yml
+
+# Uploaded and generated files.
+/web/sites/*/files/
+/web/sites/*/private/
+
+# Generated from the frontend repo's scripts/export-content.mjs.
+/seed/content.json
+
+.DS_Store
+Thumbs.db

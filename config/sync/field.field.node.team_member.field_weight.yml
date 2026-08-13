@@ -1,0 +1,23 @@
+uuid: 38c0f142-e711-4611-9977-29c5975ff133
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.team_member
+id: node.team_member.field_weight
+field_name: field_weight
+entity_type: node
+bundle: team_member
+label: Order
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

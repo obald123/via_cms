@@ -1,0 +1,23 @@
+uuid: 6aa4bc44-5d8d-490d-9efa-605bc2cdd8a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.hero_stat
+id: node.hero_stat.field_weight
+field_name: field_weight
+entity_type: node
+bundle: hero_stat
+label: Order
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

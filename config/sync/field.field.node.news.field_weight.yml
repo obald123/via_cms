@@ -1,0 +1,23 @@
+uuid: 93a07004-f1bd-4dcb-93b6-d041190cc2a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.news
+id: node.news.field_weight
+field_name: field_weight
+entity_type: node
+bundle: news
+label: Order
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

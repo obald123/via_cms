@@ -1,0 +1,23 @@
+uuid: 1e9d44be-fa53-4d4d-abc3-6c81e72d4562
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.impact_card
+id: node.impact_card.field_weight
+field_name: field_weight
+entity_type: node
+bundle: impact_card
+label: Order
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

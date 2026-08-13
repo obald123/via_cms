@@ -1,0 +1,11 @@
+uuid: 82cdcb27-ba5c-4d6a-89d0-a249a4a9d420
+langcode: en
+status: true
+dependencies: {  }
+name: 'Team member'
+type: team_member
+description: 'A member of the VIA Foundation team.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

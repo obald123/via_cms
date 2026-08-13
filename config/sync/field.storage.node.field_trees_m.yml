@@ -1,0 +1,20 @@
+uuid: 43cdae44-528b-4a54-bf48-cd025a7f6f57
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_trees_m
+field_name: field_trees_m
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,45 @@
+uuid: 53fa7b20-0e0a-4e04-9604-33e34d4770df
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_icon
+field_name: field_icon
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: DollarSign
+      label: DollarSign
+    -
+      value: Shield
+      label: Shield
+    -
+      value: Globe
+      label: Globe
+    -
+      value: Layers
+      label: Layers
+    -
+      value: Leaf
+      label: Leaf
+    -
+      value: Users
+      label: Users
+    -
+      value: TrendingUp
+      label: TrendingUp
+    -
+      value: TreePine
+      label: TreePine
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

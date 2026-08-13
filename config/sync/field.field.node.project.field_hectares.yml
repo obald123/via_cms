@@ -1,0 +1,19 @@
+uuid: f266f5bf-7ce7-411b-8b6f-215c0dfc39a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hectares
+    - node.type.project
+id: node.project.field_hectares
+field_name: field_hectares
+entity_type: node
+bundle: project
+label: Hectares
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: 06915230-26fe-44cf-8a98-c9fe07e3bc0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_funder
+    - node.type.project
+id: node.project.field_funder
+field_name: field_funder
+entity_type: node
+bundle: project
+label: Funder
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

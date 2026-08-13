@@ -1,0 +1,19 @@
+uuid: c6d536e6-6619-418f-b245-1e32d97059ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_color
+    - node.type.funding_allocation
+id: node.funding_allocation.field_color
+field_name: field_color
+entity_type: node
+bundle: funding_allocation
+label: 'Colour (hex)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

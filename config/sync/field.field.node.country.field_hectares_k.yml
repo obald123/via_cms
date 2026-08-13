@@ -1,0 +1,23 @@
+uuid: bb3b8c5a-953d-464d-b6d6-7b30c7a1cf8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hectares_k
+    - node.type.country
+id: node.country.field_hectares_k
+field_name: field_hectares_k
+entity_type: node
+bundle: country
+label: 'Hectares (thousands, for the chart)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

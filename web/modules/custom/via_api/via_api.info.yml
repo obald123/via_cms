@@ -1,0 +1,10 @@
+name: 'VIA API'
+type: module
+description: 'Serves the aggregated site content payload and the partner enquiry endpoint consumed by the React frontend.'
+package: 'VIA Foundation'
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:file
+  - webform:webform

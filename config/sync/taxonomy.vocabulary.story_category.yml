@@ -1,0 +1,9 @@
+uuid: cc7c4e8d-7a5b-4d2e-9baf-9d87d2596fd0
+langcode: en
+status: true
+dependencies: {  }
+name: 'Story category'
+vid: story_category
+description: null
+weight: 0
+new_revision: false

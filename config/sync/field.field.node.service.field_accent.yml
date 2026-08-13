@@ -1,0 +1,19 @@
+uuid: c54d2188-c1d1-4c14-9f78-43089a6c1c4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accent
+    - node.type.service
+id: node.service.field_accent
+field_name: field_accent
+entity_type: node
+bundle: service
+label: 'Accent colour (hex)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

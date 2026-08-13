@@ -1,0 +1,19 @@
+uuid: 09699536-4861-45d9-ac8c-b801bf3a195f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sub
+    - node.type.impact_card
+id: node.impact_card.field_sub
+field_name: field_sub
+entity_type: node
+bundle: impact_card
+label: Sub-label
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

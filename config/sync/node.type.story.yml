@@ -1,0 +1,11 @@
+uuid: fd420568-aacf-472b-9bda-d4050afb442d
+langcode: en
+status: true
+dependencies: {  }
+name: Story
+type: story
+description: 'A field story from the VIA Foundation portfolio.'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

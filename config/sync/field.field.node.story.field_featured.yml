@@ -1,0 +1,21 @@
+uuid: c1a4b25b-b180-4b71-84df-0e495fa288ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured
+    - node.type.story
+id: node.story.field_featured
+field_name: field_featured
+entity_type: node
+bundle: story
+label: Featured
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

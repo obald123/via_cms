@@ -1,0 +1,23 @@
+uuid: 89a809e6-c9b8-4677-af5b-c20197a567f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_weight
+    - node.type.story
+id: node.story.field_weight
+field_name: field_weight
+entity_type: node
+bundle: story
+label: Order
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

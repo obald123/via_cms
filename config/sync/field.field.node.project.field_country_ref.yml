@@ -1,0 +1,24 @@
+uuid: 0a8129dc-0f60-4911-b365-0b4ba82a6bcf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_country_ref
+    - node.type.project
+    - taxonomy.vocabulary.project_country
+id: node.project.field_country_ref
+field_name: field_country_ref
+entity_type: node
+bundle: project
+label: Country
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      project_country: project_country
+field_type: entity_reference

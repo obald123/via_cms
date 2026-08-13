@@ -1,0 +1,19 @@
+uuid: 048c2287-5e50-4dc3-8827-fc0ac5f0d5ca
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slug
+    - node.type.story
+id: node.story.field_slug
+field_name: field_slug
+entity_type: node
+bundle: story
+label: 'URL slug'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

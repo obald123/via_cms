@@ -1,0 +1,23 @@
+uuid: b344d0d8-92fb-44a8-afe5-b4fb414fe576
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_divisor
+    - node.type.hero_stat
+id: node.hero_stat.field_divisor
+field_name: field_divisor
+entity_type: node
+bundle: hero_stat
+label: 'Divisor (display value = target / divisor)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

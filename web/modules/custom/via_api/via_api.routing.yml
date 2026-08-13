@@ -1,0 +1,18 @@
+via_api.site_content:
+  path: '/api/v1/site-content'
+  defaults:
+    _controller: '\Drupal\via_api\Controller\SiteContentController::get'
+  methods: [GET]
+  requirements:
+    _permission: 'access content'
+
+via_api.contact:
+  path: '/api/v1/contact'
+  defaults:
+    _controller: '\Drupal\via_api\Controller\ContactController::post'
+  methods: [POST]
+  requirements:
+    # The endpoint is deliberately open to anonymous visitors — it is a public
+    # contact form. Abuse is handled by the honeypot field and flood control in
+    # the controller rather than by an access check.
+    _access: 'TRUE'

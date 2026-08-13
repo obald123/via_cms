@@ -1,0 +1,19 @@
+uuid: da6f3f50-754e-44ad-bcf2-53653c33c03d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date_label
+    - node.type.news
+id: node.news.field_date_label
+field_name: field_date_label
+entity_type: node
+bundle: news
+label: 'Date label'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
