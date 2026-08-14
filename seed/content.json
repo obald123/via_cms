@@ -1,0 +1,681 @@
+{
+  "heroStats": [
+    {
+      "label": "Projects Supported",
+      "end": 131,
+      "suffix": "+",
+      "divisor": 1,
+      "decimals": 0
+    },
+    {
+      "label": "Hectares Restored",
+      "end": 64,
+      "suffix": "K+",
+      "divisor": 1,
+      "decimals": 0
+    },
+    {
+      "label": "Trees Restored",
+      "end": 182,
+      "suffix": "M+",
+      "divisor": 10,
+      "decimals": 1
+    },
+    {
+      "label": "Jobs Created",
+      "end": 12,
+      "suffix": "K+",
+      "divisor": 1,
+      "decimals": 0
+    }
+  ],
+  "services": [
+    {
+      "slug": "flexible-funding",
+      "title": "Flexible Funding",
+      "icon": "DollarSign",
+      "accent": "#56B44B",
+      "desc": "Catalytic grants and concessional finance tailored to locally-led restoration champions across Africa's diverse landscapes.",
+      "body": [
+        "VIA Foundation deploys grant and concessional capital directly to the organisations doing restoration work on the ground — cooperatives, social enterprises, and community associations that traditional finance overlooks.",
+        "Funding is structured around each grantee's growth stage, from early seed grants that de-risk a first pilot to larger multi-year commitments that help proven models scale across new landscapes.",
+        "Every disbursement is paired with clear, achievable milestones co-designed with the grantee, so capital keeps pace with real capacity rather than forcing premature scale."
+      ]
+    },
+    {
+      "slug": "technical-assistance",
+      "title": "Technical Assistance",
+      "icon": "Shield",
+      "accent": "#C8A45A",
+      "desc": "Hands-on capacity building, knowledge transfer and implementation support to strengthen restoration organizations at scale.",
+      "body": [
+        "Money alone doesn't restore land — organisations need financial systems, monitoring capability, and technical know-how to deploy it well. VIA Foundation's technical assistance team works side-by-side with grantees to build exactly that.",
+        "Support spans everything from nursery management and agroforestry techniques to financial reporting, governance structures, and safeguarding practices, delivered through in-person workshops, peer exchanges, and remote coaching.",
+        "The goal is durable institutional strength: organisations that can manage larger grants, attract other funders, and outlast any single VIA Foundation partnership."
+      ]
+    },
+    {
+      "slug": "monitoring-verification",
+      "title": "Monitoring & Verification",
+      "icon": "Globe",
+      "accent": "#56B44B",
+      "desc": "Rigorous impact measurement, satellite monitoring and third-party verification ensuring accountability and transparency.",
+      "body": [
+        "Every hectare VIA Foundation finances is tracked through a combination of satellite imagery, remote sensing, and community-reported field data, giving funders and partners a transparent, real-time view of progress.",
+        "Independent third-party verification confirms survival rates, land-tenure legitimacy, and community benefit-sharing, so reported outcomes hold up to external scrutiny.",
+        "This same monitoring backbone also flags underperforming sites early, allowing VIA Foundation and its grantees to adapt before problems compound."
+      ]
+    },
+    {
+      "slug": "blended-finance",
+      "title": "Blended Finance",
+      "icon": "Layers",
+      "accent": "#C8A45A",
+      "desc": "Innovative financial instruments that mobilize private capital alongside public funding for maximum restoration leverage.",
+      "body": [
+        "VIA Foundation structures blended finance vehicles that combine catalytic public and philanthropic capital with private investment, reducing risk for commercial funders entering restoration for the first time.",
+        "Instruments range from first-loss guarantees and outcome-based payments to co-investment facilities designed alongside development banks and impact investors.",
+        "By absorbing early-stage risk, VIA Foundation helps unlock capital at a scale that grants alone could never reach."
+      ]
+    }
+  ],
+  "partners": [
+    {
+      "name": "African Union",
+      "weight": 0
+    },
+    {
+      "name": "AFR100",
+      "weight": 1
+    },
+    {
+      "name": "UNEP",
+      "weight": 2
+    },
+    {
+      "name": "World Bank Group",
+      "weight": 3
+    },
+    {
+      "name": "African Dev. Bank",
+      "weight": 4
+    },
+    {
+      "name": "GEF",
+      "weight": 5
+    },
+    {
+      "name": "Green Climate Fund",
+      "weight": 6
+    },
+    {
+      "name": "IUCN",
+      "weight": 7
+    },
+    {
+      "name": "WWF Africa",
+      "weight": 8
+    },
+    {
+      "name": "USAID",
+      "weight": 9
+    },
+    {
+      "name": "EU Commission",
+      "weight": 10
+    },
+    {
+      "name": "UNDP",
+      "weight": 11
+    },
+    {
+      "name": "GIZ",
+      "weight": 12
+    },
+    {
+      "name": "Norad",
+      "weight": 13
+    },
+    {
+      "name": "Ford Foundation",
+      "weight": 14
+    },
+    {
+      "name": "Bezos Earth Fund",
+      "weight": 15
+    }
+  ],
+  "impactCards": [
+    {
+      "icon": "TreePine",
+      "value": "131+",
+      "label": "Projects",
+      "sub": "Supported",
+      "weight": 0
+    },
+    {
+      "icon": "Users",
+      "value": "890+",
+      "label": "Communities",
+      "sub": "Empowered",
+      "weight": 1
+    },
+    {
+      "icon": "Leaf",
+      "value": "18.2M+",
+      "label": "Trees",
+      "sub": "Restored",
+      "weight": 2
+    },
+    {
+      "icon": "TrendingUp",
+      "value": "12K+",
+      "label": "Jobs",
+      "sub": "Created",
+      "weight": 3
+    },
+    {
+      "icon": "Users",
+      "value": "68%",
+      "label": "Women",
+      "sub": "Beneficiaries",
+      "weight": 4
+    },
+    {
+      "icon": "Globe",
+      "value": "2.4MT",
+      "label": "Carbon",
+      "sub": "CO₂ Sequestered",
+      "weight": 5
+    }
+  ],
+  "countries": [
+    {
+      "country": "Ethiopia",
+      "lon": 40.49,
+      "lat": 9.14,
+      "projects": 12,
+      "trees": "3.2M",
+      "ha": "22,000",
+      "hectaresK": 22,
+      "showInChart": true
+    },
+    {
+      "country": "Kenya",
+      "lon": 36.82,
+      "lat": -1.28,
+      "projects": 18,
+      "trees": "2.8M",
+      "ha": "12,200",
+      "hectaresK": 12.2,
+      "showInChart": true
+    },
+    {
+      "country": "Tanzania",
+      "lon": 34.89,
+      "lat": -6.37,
+      "projects": 15,
+      "trees": "2.1M",
+      "ha": "10,800",
+      "hectaresK": 10.8,
+      "showInChart": true
+    },
+    {
+      "country": "Uganda",
+      "lon": 32.29,
+      "lat": 1.37,
+      "projects": 9,
+      "trees": "1.4M",
+      "ha": "5,600",
+      "hectaresK": 5.6,
+      "showInChart": false
+    },
+    {
+      "country": "DRC",
+      "lon": 23.65,
+      "lat": -2.88,
+      "projects": 22,
+      "trees": "4.8M",
+      "ha": "28,400",
+      "hectaresK": 28.4,
+      "showInChart": true
+    },
+    {
+      "country": "Senegal",
+      "lon": -14.45,
+      "lat": 14.5,
+      "projects": 10,
+      "trees": "1.6M",
+      "ha": "9,200",
+      "hectaresK": 9.2,
+      "showInChart": true
+    },
+    {
+      "country": "Ghana",
+      "lon": -1.02,
+      "lat": 7.95,
+      "projects": 8,
+      "trees": "1.4M",
+      "ha": "5,600",
+      "hectaresK": 5.6,
+      "showInChart": true
+    },
+    {
+      "country": "Nigeria",
+      "lon": 8.68,
+      "lat": 9.08,
+      "projects": 14,
+      "trees": "1.9M",
+      "ha": "8,400",
+      "hectaresK": 8.4,
+      "showInChart": true
+    },
+    {
+      "country": "Mozambique",
+      "lon": 35.53,
+      "lat": -17.27,
+      "projects": 9,
+      "trees": "1.2M",
+      "ha": "4,800",
+      "hectaresK": 4.8,
+      "showInChart": false
+    },
+    {
+      "country": "Zambia",
+      "lon": 27.85,
+      "lat": -13.13,
+      "projects": 7,
+      "trees": "1.1M",
+      "ha": "18,500",
+      "hectaresK": 18.5,
+      "showInChart": true
+    },
+    {
+      "country": "Cameroon",
+      "lon": 18.73,
+      "lat": 3.86,
+      "projects": 6,
+      "trees": "0.9M",
+      "ha": "3,200",
+      "hectaresK": 3.2,
+      "showInChart": false
+    },
+    {
+      "country": "Rwanda",
+      "lon": 28.23,
+      "lat": -3.38,
+      "projects": 5,
+      "trees": "0.7M",
+      "ha": "2,100",
+      "hectaresK": 2.1,
+      "showInChart": false
+    }
+  ],
+  "projects": [
+    {
+      "slug": "miombo-woodland-restoration",
+      "name": "Miombo Woodland Restoration",
+      "image": "https://images.unsplash.com/photo-1761998892650-2dbe15c9c26e?w=800&h=600&fit=crop&auto=format",
+      "country": "Zambia",
+      "category": "Forest",
+      "funding": "$2.4M",
+      "funder": "Green Climate Fund",
+      "status": "Active",
+      "communities": 24,
+      "trees": "1.1M",
+      "hectares": "18,500",
+      "progress": 78,
+      "result": "18,500 ha restored",
+      "body": [
+        "The Miombo Woodland Restoration project works across 24 communities in Zambia's Copperbelt and Central provinces to reverse decades of charcoal-driven deforestation in one of Africa's largest dry-forest ecosystems.",
+        "Local cooperatives combine assisted natural regeneration with selective replanting of indigenous Brachystegia and Julbernardia species, restoring canopy cover while protecting the miombo woodland's role as a carbon sink and water catchment.",
+        "Funded through a Green Climate Fund grant channelled by VIA Foundation, the project has restored 18,500 hectares to date and is on track to reach its full 24,000-hectare target by 2026."
+      ]
+    },
+    {
+      "slug": "sahel-regreening-initiative",
+      "name": "Sahel Regreening Initiative",
+      "image": "https://images.unsplash.com/photo-1603980186326-c613ce08dcb3?w=800&h=600&fit=crop&auto=format",
+      "country": "Senegal",
+      "category": "Drylands",
+      "funding": "$1.8M",
+      "funder": "USAID",
+      "status": "Active",
+      "communities": 18,
+      "trees": "2.1M",
+      "hectares": "9,200",
+      "progress": 65,
+      "result": "2.1M trees planted",
+      "body": [
+        "In Senegal's arid Louga and Matam regions, the Sahel Regreening Initiative supports 18 farming communities using farmer-managed natural regeneration (FMNR) — a low-cost technique that revives dormant tree stumps and root systems instead of relying solely on new planting.",
+        "The approach has proven far more resilient to drought than conventional tree-planting, with survival rates above 80% even in years of below-average rainfall.",
+        "Backed by USAID funding channelled through VIA Foundation, the project has regenerated over 2.1 million trees, improving soil fertility and crop yields for thousands of smallholder farming households."
+      ]
+    },
+    {
+      "slug": "great-rift-valley-landscape",
+      "name": "Great Rift Valley Landscape",
+      "image": "https://images.unsplash.com/photo-1672388144534-78e131140d78?w=800&h=600&fit=crop&auto=format",
+      "country": "Kenya",
+      "category": "Watershed",
+      "funding": "$3.2M",
+      "funder": "World Bank",
+      "status": "Active",
+      "communities": 31,
+      "trees": "2.8M",
+      "hectares": "12,200",
+      "progress": 88,
+      "result": "12,200 ha restored",
+      "body": [
+        "The Great Rift Valley Landscape project protects and restores critical watersheds feeding Lake Naivasha and the surrounding Rift Valley floor, an area under intense pressure from agriculture and flower-farming expansion.",
+        "Thirty-one communities are engaged in riverbank buffer planting, terracing, and agroforestry on steep slopes to reduce erosion and sedimentation that had been silting up the lake and downstream irrigation systems.",
+        "With World Bank co-financing, the project has restored 12,200 hectares and is the furthest along of VIA Foundation's active portfolio, at 88% of its total target."
+      ]
+    },
+    {
+      "slug": "congo-basin-agroforestry",
+      "name": "Congo Basin Agroforestry",
+      "image": "https://images.unsplash.com/photo-1528543413928-5447744645a0?w=800&h=600&fit=crop&auto=format",
+      "country": "DRC",
+      "category": "Agroforestry",
+      "funding": "$4.1M",
+      "funder": "EU Commission",
+      "status": "Active",
+      "communities": 45,
+      "trees": "5.8M",
+      "hectares": "28,400",
+      "progress": 52,
+      "result": "5.8M trees planted",
+      "body": [
+        "VIA Foundation's largest active project, the Congo Basin Agroforestry programme, works with 45 communities across the DRC's Kasaï and Kwilu provinces to introduce cocoa, oil palm, and native timber agroforestry systems on land degraded by slash-and-burn agriculture.",
+        "By interplanting food and cash crops with fast-growing native trees, farming households earn income from year one while long-lived species rebuild forest structure over a decade.",
+        "EU Commission co-financing supports the project's scale, with 5.8 million trees planted so far across a 28,400-hectare landscape — just over half of the total area targeted."
+      ]
+    },
+    {
+      "slug": "ethiopian-highlands-initiative",
+      "name": "Ethiopian Highlands Initiative",
+      "image": "https://images.unsplash.com/photo-1570500420808-ee3240d5d3cc?w=800&h=600&fit=crop&auto=format",
+      "country": "Ethiopia",
+      "category": "Highlands",
+      "funding": "$2.9M",
+      "funder": "GEF",
+      "status": "Completed",
+      "communities": 38,
+      "trees": "3.2M",
+      "hectares": "22,000",
+      "progress": 100,
+      "result": "22,000 ha restored",
+      "body": [
+        "The Ethiopian Highlands Initiative restored steep, erosion-prone farmland across the Amhara highlands using terracing, check-dams, and exclosure zones that allowed degraded hillsides to regenerate naturally.",
+        "Thirty-eight communities took part in labour-intensive soil and water conservation works alongside tree planting, sharply reducing runoff into downstream river systems and improving groundwater recharge.",
+        "Completed in 2024 with GEF funding, the initiative restored its full 22,000-hectare target and now serves as a reference model VIA Foundation is replicating in other highland landscapes."
+      ]
+    },
+    {
+      "slug": "tanzania-coastal-mangroves",
+      "name": "Tanzania Coastal Mangroves",
+      "image": "https://images.unsplash.com/photo-1490117111868-45df3258f7c1?w=800&h=600&fit=crop&auto=format",
+      "country": "Tanzania",
+      "category": "Coastal",
+      "funding": "$1.5M",
+      "funder": "Norad",
+      "status": "Active",
+      "communities": 22,
+      "trees": "0.8M",
+      "hectares": "4,800",
+      "progress": 41,
+      "result": "4,800 ha restored",
+      "body": [
+        "Along Tanzania's Rufiji Delta and Bagamoyo coastline, the Tanzania Coastal Mangroves project restores mangrove forests that protect fishing communities from storm surge and provide critical breeding grounds for coastal fisheries.",
+        "Twenty-two coastal communities are involved in mangrove nursery propagation and replanting, paired with alternative-livelihood support — beekeeping and aquaculture — to reduce pressure on remaining mangrove stands.",
+        "With Norad funding, the project has restored 4,800 hectares of the 11,700-hectare target area, and early monitoring shows fish catch volumes recovering in replanted zones."
+      ]
+    }
+  ],
+  "stories": [
+    {
+      "slug": "leading-restoration-tanzania",
+      "title": "How One Woman is Leading the Restoration of 10,000 Hectares in Tanzania",
+      "image": "https://images.unsplash.com/photo-1651838677683-f642527059c6?w=1200&h=800&fit=crop&auto=format",
+      "category": "Community",
+      "date": "March 2024",
+      "featured": true,
+      "excerpt": "Amina Njau started with three seedlings and a dream. Today her cooperative employs 340 women and has restored a watershed sustaining five villages in the Kilosa district.",
+      "body": [
+        "When Amina Njau planted her first three tree seedlings behind her home in Kilosa district in 2016, she had no way of knowing it would grow into one of Tanzania's largest women-led restoration cooperatives.",
+        "Eight years later, the Kilosa Women's Restoration Cooperative that Amina founded employs 340 women across five villages, running tree nurseries, managing a 10,000-hectare watershed restoration area, and training neighbouring communities in agroforestry techniques.",
+        "\"We started because our rivers were drying up and our children were walking further every year for water,\" Amina says. \"Now those same rivers run again in the dry season.\"",
+        "VIA Foundation began supporting the cooperative in 2021 with a technical assistance grant, followed by multi-year flexible funding that allowed Amina's team to purchase nursery equipment and formalise land-tenure agreements with local government — a critical step that secured the cooperative's long-term access to the land it restores."
+      ]
+    },
+    {
+      "slug": "satellite-technology-restoration",
+      "title": "Satellite Technology Transforms How Africa Measures Restoration",
+      "image": "https://images.unsplash.com/photo-1515657834497-26509e295154?w=600&h=400&fit=crop&auto=format",
+      "category": "Innovation",
+      "date": "February 2024",
+      "featured": false,
+      "excerpt": "VIA Foundation's monitoring framework combines satellite imagery with community data.",
+      "body": [
+        "For years, verifying restoration outcomes across remote African landscapes meant costly, infrequent field visits — leaving long gaps where degradation or project failure could go unnoticed.",
+        "VIA Foundation's monitoring and verification team has built a framework that layers satellite imagery, machine-learning canopy analysis, and community-reported field data into a single dashboard updated monthly across all active project sites.",
+        "The system flags underperforming plots automatically, letting field teams intervene early rather than discovering a failed planting a year later — and gives funders real-time, independently verifiable confidence in reported outcomes."
+      ]
+    },
+    {
+      "slug": "blended-finance-sahel",
+      "title": "Blended Finance Model Unlocks $12M for Sahel Restoration",
+      "image": "https://images.unsplash.com/photo-1473605768212-7e1f2c756179?w=600&h=400&fit=crop&auto=format",
+      "category": "Finance",
+      "date": "January 2024",
+      "featured": false,
+      "excerpt": "A first-of-its-kind financial structure de-risks investment in dryland ecosystems.",
+      "body": [
+        "Dryland restoration has historically struggled to attract commercial capital — returns are slow, and the ecological risk profile is unfamiliar to most investors.",
+        "VIA Foundation's new blended finance facility pairs a philanthropic first-loss layer with co-investment from regional development banks, absorbing early risk so private capital can enter with confidence.",
+        "The structure has mobilised $12M for dryland restoration projects across the Sahel in its first year, a model VIA Foundation now plans to replicate for coastal and highland landscapes."
+      ]
+    },
+    {
+      "slug": "training-youth-restoration-leaders",
+      "title": "Training 5,000 Youth as Africa's Next Generation of Restoration Leaders",
+      "image": "https://images.unsplash.com/photo-1740741704198-bbaaa54d1a4a?w=600&h=400&fit=crop&auto=format",
+      "category": "Youth",
+      "date": "December 2023",
+      "featured": false,
+      "excerpt": "A pan-African training program builds ecological expertise and creates green jobs.",
+      "body": [
+        "VIA Foundation's Restoration Leaders programme has trained over 5,000 young people across six countries in nursery management, agroforestry, remote-sensing monitoring, and restoration project finance since it launched in 2022.",
+        "Graduates go on to found their own restoration enterprises, join partner organisations as field technicians, or become community trainers themselves — creating a multiplier effect well beyond the programme's direct reach.",
+        "The programme is now VIA Foundation's largest single source of new green jobs, and a growing share of the Foundation's own field staff and grantee leadership are programme alumni."
+      ]
+    }
+  ],
+  "news": [
+    {
+      "slug": "2024-annual-impact-report",
+      "title": "2024 Annual Impact Report: A Decade of Restoration Finance in Africa",
+      "image": "https://images.unsplash.com/photo-1490117111868-45df3258f7c1?w=600&h=400&fit=crop&auto=format",
+      "category": "Report",
+      "date": "April 2024",
+      "body": [
+        "VIA Foundation's 2024 Annual Impact Report reviews a decade of restoration finance across the continent, covering 131+ funded projects, 26 countries, and over $28M in deployed capital.",
+        "The report details methodology updates to the Foundation's monitoring framework, country-level breakdowns of hectares restored and jobs created, and lessons learned from projects that underperformed their targets.",
+        "The full report, including downloadable data tables, will be available on the Annual Reports page."
+      ]
+    },
+    {
+      "slug": "financing-afr100-commitment",
+      "title": "Financing the AFR100 Commitment: Opportunities and Pathways",
+      "image": "https://images.unsplash.com/photo-1594068337983-b24ff1207b1b?w=600&h=400&fit=crop&auto=format",
+      "category": "Publication",
+      "date": "March 2024",
+      "body": [
+        "This publication examines the financing gap standing between AFR100's pan-African restoration pledge and its 2030 targets, and sets out the blended finance pathways VIA Foundation believes can close it.",
+        "It draws on VIA Foundation's own portfolio data to model how catalytic capital, deployed early, can mobilise a multiple of private co-investment across different landscape types.",
+        "The publication is aimed at funders, development finance institutions, and policymakers evaluating where restoration capital can have the greatest leverage."
+      ]
+    },
+    {
+      "slug": "cop29-nature-based-solutions",
+      "title": "VIA Foundation Joins Global Coalition for Nature-Based Solutions at COP29",
+      "image": "https://images.unsplash.com/photo-1570500420808-ee3240d5d3cc?w=600&h=400&fit=crop&auto=format",
+      "category": "News",
+      "date": "February 2024",
+      "body": [
+        "VIA Foundation has joined the Global Coalition for Nature-Based Solutions, a coalition of restoration financiers, NGOs, and governments committing to coordinated action ahead of COP29.",
+        "As part of the coalition, VIA Foundation will share its monitoring and verification methodology as an open reference framework for other restoration funders operating in Africa.",
+        "\"Restoration finance works best when funders aren't duplicating measurement systems or competing for the same grantees,\" said VIA Foundation CEO Assumpta Uzamukunda. \"This coalition is about pulling in the same direction.\""
+      ]
+    }
+  ],
+  "fundingAllocation": [
+    {
+      "name": "Flexible Funding",
+      "value": 35,
+      "color": "#56B44B",
+      "weight": 0
+    },
+    {
+      "name": "Blended Finance",
+      "value": 28,
+      "color": "#C8A45A",
+      "weight": 1
+    },
+    {
+      "name": "Tech. Assistance",
+      "value": 22,
+      "color": "#2F5D3A",
+      "weight": 2
+    },
+    {
+      "name": "M&E",
+      "value": 15,
+      "color": "#8B6A45",
+      "weight": 3
+    }
+  ],
+  "yearlyProgress": [
+    {
+      "year": "2019",
+      "hectares": 5.2,
+      "trees": 1.2
+    },
+    {
+      "year": "2020",
+      "hectares": 12.4,
+      "trees": 3.1
+    },
+    {
+      "year": "2021",
+      "hectares": 25.8,
+      "trees": 6.8
+    },
+    {
+      "year": "2022",
+      "hectares": 38.5,
+      "trees": 10.2
+    },
+    {
+      "year": "2023",
+      "hectares": 52,
+      "trees": 14.5
+    },
+    {
+      "year": "2024",
+      "hectares": 64,
+      "trees": 18.2
+    }
+  ],
+  "testimonials": [
+    {
+      "initials": "WK",
+      "name": "Dr. Wanjiru Kamau",
+      "role": "Executive Director, Kenya Restoration Network",
+      "quote": "VIA Foundation's support transformed our capacity. We went from planting 50,000 trees a year to over 2 million. Their flexible funding model and technical expertise are unlike anything else in the space.",
+      "weight": 0
+    },
+    {
+      "initials": "MD",
+      "name": "Moussa Diallo",
+      "role": "Founder, Sahel Restoration Alliance, Senegal",
+      "quote": "The blended finance structure VIA Foundation helped us design unlocked resources we never thought possible. We are now able to scale our work across five countries in the Sahel.",
+      "weight": 1
+    }
+  ],
+  "team": [
+    {
+      "name": "Assumpta Uzamukunda",
+      "role": "Chief Executive Officer",
+      "location": "Kigali, Rwanda",
+      "featured": true,
+      "bio": "Assumpta leads VIA Foundation's mission to finance and support Africa's locally-led restoration champions. She brings deep expertise in climate finance, community development, and pan-African conservation strategy.",
+      "image": "https://via-foundation.org/wp-content/uploads/2026/04/Assumpta-Uzamukunda.jpg",
+      "weight": 0
+    },
+    {
+      "name": "Jeannette Ayinkamiye",
+      "role": "Senior Manager, Finance & Operations",
+      "location": "Kigali, Rwanda",
+      "featured": false,
+      "bio": "",
+      "image": "https://via-foundation.org/wp-content/uploads/2026/04/Jeannette-Ayinkamiye.jpg",
+      "weight": 1
+    },
+    {
+      "name": "Ange Kayitesi Kalitanyi",
+      "role": "Lead Project Manager & TerraFund Liaison",
+      "location": "Kigali, Rwanda",
+      "featured": false,
+      "bio": "",
+      "image": "https://via-foundation.org/wp-content/uploads/2026/04/Ange-Kayitesi-Kalitanyi.jpg",
+      "weight": 2
+    },
+    {
+      "name": "Paloma Ayisi-Offei",
+      "role": "Project Manager, Ghana",
+      "location": "Accra, Ghana",
+      "featured": false,
+      "bio": "",
+      "image": "https://via-foundation.org/wp-content/uploads/2026/04/Paloma-Ayisi-Offei.jpg",
+      "weight": 3
+    },
+    {
+      "name": "Jackline Omondi",
+      "role": "Project Manager, Kenya",
+      "location": "Nairobi, Kenya",
+      "featured": false,
+      "bio": "",
+      "image": "https://via-foundation.org/wp-content/uploads/2026/04/Jackline-Omondi.jpeg",
+      "weight": 4
+    },
+    {
+      "name": "Edidia Dusabe",
+      "role": "Project Manager, Rwanda",
+      "location": "Kigali, Rwanda",
+      "featured": false,
+      "bio": "",
+      "image": "https://via-foundation.org/wp-content/uploads/2026/04/Edidia-Dusabe.jpg",
+      "weight": 5
+    },
+    {
+      "name": "Roland Murigande",
+      "role": "Grant & Finance Specialist",
+      "location": "Kigali, Rwanda",
+      "featured": false,
+      "bio": "",
+      "image": "https://via-foundation.org/wp-content/uploads/2026/04/Roland-Murigande.jpg",
+      "weight": 6
+    },
+    {
+      "name": "Placide Ineza Kwizera",
+      "role": "Grant & Finance Specialist",
+      "location": "Kigali, Rwanda",
+      "featured": false,
+      "bio": "",
+      "image": "https://via-foundation.org/wp-content/uploads/2026/04/Placide-Ineza-Kwizera.jpg",
+      "weight": 7
+    }
+  ]
+}
