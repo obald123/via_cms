@@ -58,32 +58,27 @@ class SiteContentController extends ControllerBase {
         'weight' => (int) $this->val($n, 'field_weight'),
       ]),
 
+      // Coordinates only — the figures shown per country are derived from the
+      // project list on the frontend, so there is one source of truth.
       'countries' => $this->map('country', fn(NodeInterface $n) => [
         'country' => $n->label(),
         'lon' => (float) $this->val($n, 'field_lon'),
         'lat' => (float) $this->val($n, 'field_lat'),
-        'projects' => (int) $this->val($n, 'field_projects'),
-        'trees' => (string) $this->val($n, 'field_trees'),
-        'ha' => (string) $this->val($n, 'field_hectares'),
-        'hectaresK' => (float) $this->val($n, 'field_hectares_k'),
-        'showInChart' => (bool) $this->val($n, 'field_show_in_chart'),
       ]),
 
+      // A TerraFund champion organisation. Trees, hectares and jobs are the
+      // commitments made for the project, not results delivered to date.
       'projects' => $this->map('project', fn(NodeInterface $n) => [
         'slug' => (string) $this->val($n, 'field_slug'),
         'name' => $n->label(),
-        'image' => $this->imageUrl($n, 'field_image'),
         'country' => $this->termName($n, 'field_country_ref'),
-        'category' => $this->termName($n, 'field_category'),
-        'funding' => (string) $this->val($n, 'field_funding'),
-        'funder' => (string) $this->val($n, 'field_funder'),
-        'status' => (string) $this->val($n, 'field_status'),
-        'communities' => (int) $this->val($n, 'field_communities'),
+        'cohort' => (string) $this->val($n, 'field_cohort'),
+        'orgType' => (string) $this->val($n, 'field_org_type'),
         'trees' => (string) $this->val($n, 'field_trees'),
         'hectares' => (string) $this->val($n, 'field_hectares'),
-        'progress' => (int) $this->val($n, 'field_progress'),
-        'result' => (string) $this->val($n, 'field_result'),
-        'body' => $this->multi($n, 'field_body'),
+        'jobs' => (string) $this->val($n, 'field_jobs'),
+        'website' => (string) $this->val($n, 'field_website'),
+        'excerpt' => (string) $this->val($n, 'field_excerpt'),
       ]),
 
       'stories' => $this->map('story', fn(NodeInterface $n) => [
@@ -104,27 +99,6 @@ class SiteContentController extends ControllerBase {
         'category' => $this->termName($n, 'field_category'),
         'date' => (string) $this->val($n, 'field_date_label'),
         'body' => $this->multi($n, 'field_body'),
-      ]),
-
-      'fundingAllocation' => $this->map('funding_allocation', fn(NodeInterface $n) => [
-        'name' => $n->label(),
-        'value' => (int) $this->val($n, 'field_share'),
-        'color' => (string) $this->val($n, 'field_color'),
-        'weight' => (int) $this->val($n, 'field_weight'),
-      ]),
-
-      'yearlyProgress' => $this->map('yearly_progress', fn(NodeInterface $n) => [
-        'year' => $n->label(),
-        'hectares' => (float) $this->val($n, 'field_hectares_k'),
-        'trees' => (float) $this->val($n, 'field_trees_m'),
-      ]),
-
-      'testimonials' => $this->map('testimonial', fn(NodeInterface $n) => [
-        'initials' => (string) $this->val($n, 'field_initials'),
-        'name' => $n->label(),
-        'role' => (string) $this->val($n, 'field_role'),
-        'quote' => (string) $this->val($n, 'field_quote'),
-        'weight' => (int) $this->val($n, 'field_weight'),
       ]),
 
       'team' => $this->map('team_member', fn(NodeInterface $n) => [

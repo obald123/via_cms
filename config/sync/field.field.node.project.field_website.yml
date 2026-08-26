@@ -1,0 +1,19 @@
+uuid: 060c3195-94c8-41d5-94eb-8fd8b743478c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_website
+    - node.type.project
+id: node.project.field_website
+field_name: field_website
+entity_type: node
+bundle: project
+label: Website
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

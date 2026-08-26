@@ -84,9 +84,15 @@ $image = function (string $url) use ($httpClient, $fileSystem, &$stats): ?int {
   return (int) $file->id();
 };
 
+/**
+ * Node ids this run created or updated, keyed by bundle. Used by the prune step
+ * at the bottom to spot leftovers from earlier seeds.
+ */
+$touched = [];
+
 /** Creates or updates one node, matching on slug when the bundle has one. */
 $upsert = function (string $bundle, string $title, array $fields, ?string $slug = NULL)
-    use ($nodeStorage, &$stats): void {
+    use ($nodeStorage, &$stats, &$touched): void {
   $properties = ['type' => $bundle];
   if ($slug !== NULL) {
     $properties['field_slug'] = $slug;
@@ -113,6 +119,7 @@ $upsert = function (string $bundle, string $title, array $fields, ?string $slug 
     }
   }
   $node->save();
+  $touched[$bundle][] = (int) $node->id();
 };
 
 foreach ($data['heroStats'] as $i => $s) {
@@ -151,32 +158,27 @@ foreach ($data['impactCards'] as $c) {
 
 foreach ($data['countries'] as $i => $c) {
   $upsert('country', $c['country'], [
-    'field_lat' => $c['lat'],
     'field_lon' => $c['lon'],
-    'field_projects' => $c['projects'],
-    'field_trees' => $c['trees'],
-    'field_hectares' => $c['ha'],
-    'field_hectares_k' => $c['hectaresK'],
-    'field_show_in_chart' => $c['showInChart'] ? 1 : 0,
+    'field_lat' => $c['lat'],
     'field_weight' => $i,
   ]);
 }
 
+// TerraFund champion organisations. The superseded fields (funding, funder,
+// status, communities, progress, result, image, category, body) still exist on
+// the bundle with their old content, but nothing reads them any more — see
+// scripts/add-project-fields.php.
 foreach ($data['projects'] as $i => $p) {
   $upsert('project', $p['name'], [
     'field_slug' => $p['slug'],
-    'field_image' => $image($p['image']),
     'field_country_ref' => $term('project_country', $p['country']),
-    'field_category' => $term('project_category', $p['category']),
-    'field_funding' => $p['funding'],
-    'field_funder' => $p['funder'],
-    'field_status' => $p['status'],
-    'field_communities' => $p['communities'],
+    'field_cohort' => $p['cohort'],
+    'field_org_type' => $p['orgType'],
     'field_trees' => $p['trees'],
     'field_hectares' => $p['hectares'],
-    'field_progress' => $p['progress'],
-    'field_result' => $p['result'],
-    'field_body' => $p['body'],
+    'field_jobs' => $p['jobs'],
+    'field_website' => $p['website'],
+    'field_excerpt' => $p['excerpt'],
     'field_weight' => $i,
   ], $p['slug']);
 }
@@ -205,31 +207,6 @@ foreach ($data['news'] as $i => $n) {
   ], $n['slug']);
 }
 
-foreach ($data['fundingAllocation'] as $f) {
-  $upsert('funding_allocation', $f['name'], [
-    'field_share' => $f['value'],
-    'field_color' => $f['color'],
-    'field_weight' => $f['weight'],
-  ]);
-}
-
-foreach ($data['yearlyProgress'] as $i => $y) {
-  $upsert('yearly_progress', $y['year'], [
-    'field_hectares_k' => $y['hectares'],
-    'field_trees_m' => $y['trees'],
-    'field_weight' => $i,
-  ]);
-}
-
-foreach ($data['testimonials'] as $t) {
-  $upsert('testimonial', $t['name'], [
-    'field_initials' => $t['initials'],
-    'field_role' => $t['role'],
-    'field_quote' => $t['quote'],
-    'field_weight' => $t['weight'],
-  ]);
-}
-
 foreach ($data['team'] as $m) {
   $upsert('team_member', $m['name'], [
     'field_role' => $m['role'],
@@ -241,7 +218,55 @@ foreach ($data['team'] as $m) {
   ]);
 }
 
+/**
+ * Upserting alone can only ever add. Renaming a hero stat or dropping a partner
+ * from content.json leaves the old node behind, still published, still in the
+ * API response — so the site shows both the old and the new.
+ *
+ * These bundles are generated wholly from content.json, so anything this run did
+ * not touch is a leftover and safe to remove. `project` is on the list because
+ * the portfolio is generated in full from the TerraFund export — a project not
+ * in that export is not a project VIA supports.
+ *
+ * The bundles editors author directly (news, story, team_member, service,
+ * testimonial) are deliberately excluded: a Careers vacancy written in Drupal
+ * must survive a reseed.
+ *
+ * Reports by default; deletes only when asked:
+ *   SEED_PRUNE=1 drush php:script scripts/seed-content.php
+ */
+$prunable = ['hero_stat', 'impact_card', 'partner', 'country', 'funding_allocation', 'yearly_progress', 'project'];
+$prune = getenv('SEED_PRUNE') === '1';
+$stale = [];
+
+foreach ($prunable as $bundle) {
+  $all = $nodeStorage->loadByProperties(['type' => $bundle]);
+  foreach ($all as $nid => $node) {
+    if (!in_array((int) $nid, $touched[$bundle] ?? [], TRUE)) {
+      $stale[] = [$bundle, (int) $nid, $node->label()];
+    }
+  }
+}
+
 echo "Seed complete.\n";
 foreach ($stats as $what => $n) {
   echo sprintf("  %-12s %d\n", $what . ':', $n);
+}
+
+if (!$stale) {
+  echo "  no stale nodes\n";
+}
+elseif ($prune) {
+  foreach ($stale as [$bundle, $nid, $label]) {
+    $nodeStorage->load($nid)->delete();
+    echo "  deleted  $bundle #$nid \"$label\"\n";
+  }
+  echo sprintf("  pruned:      %d\n", count($stale));
+}
+else {
+  echo sprintf("\n%d stale node(s) left over from an earlier seed:\n", count($stale));
+  foreach ($stale as [$bundle, $nid, $label]) {
+    echo "  $bundle #$nid \"$label\"\n";
+  }
+  echo "\nRe-run with SEED_PRUNE=1 to delete them.\n";
 }

@@ -1,0 +1,19 @@
+uuid: 88f37b64-6d0a-4318-8bcd-a7c432ab06c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_org_type
+    - node.type.project
+id: node.project.field_org_type
+field_name: field_org_type
+entity_type: node
+bundle: project
+label: 'Organisation type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

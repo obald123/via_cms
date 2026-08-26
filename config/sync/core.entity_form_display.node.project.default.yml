@@ -5,17 +5,22 @@ dependencies:
   config:
     - field.field.node.project.field_body
     - field.field.node.project.field_category
+    - field.field.node.project.field_cohort
     - field.field.node.project.field_communities
     - field.field.node.project.field_country_ref
+    - field.field.node.project.field_excerpt
     - field.field.node.project.field_funder
     - field.field.node.project.field_funding
     - field.field.node.project.field_hectares
     - field.field.node.project.field_image
+    - field.field.node.project.field_jobs
+    - field.field.node.project.field_org_type
     - field.field.node.project.field_progress
     - field.field.node.project.field_result
     - field.field.node.project.field_slug
     - field.field.node.project.field_status
     - field.field.node.project.field_trees
+    - field.field.node.project.field_website
     - field.field.node.project.field_weight
     - image.style.thumbnail
     - node.type.project
@@ -51,6 +56,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_cohort:
+    type: string_textfield
+    weight: 40
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_communities:
     type: number
     weight: 8
@@ -67,6 +78,12 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_excerpt:
+    type: string_textarea
+    weight: 44
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_funder:
     type: string_textfield
@@ -99,6 +116,18 @@ content:
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_jobs:
+    type: string_textfield
+    weight: 42
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_org_type:
+    type: string_textfield
+    weight: 41
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_progress:
     type: number
@@ -136,6 +165,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_website:
+    type: string_textfield
+    weight: 43
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_weight:
     type: number

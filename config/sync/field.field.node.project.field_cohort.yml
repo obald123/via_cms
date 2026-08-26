@@ -1,0 +1,19 @@
+uuid: fe2a7a56-d484-4480-811f-1ab03e33f0c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cohort
+    - node.type.project
+id: node.project.field_cohort
+field_name: field_cohort
+entity_type: node
+bundle: project
+label: Cohort
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
