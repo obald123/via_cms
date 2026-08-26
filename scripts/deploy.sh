@@ -24,7 +24,22 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 echo "==> git pull"
+before=$(git rev-parse HEAD)
 git pull
+after=$(git rev-parse HEAD)
+
+# Bash reads this file incrementally as it runs, not all at once — if git pull
+# just rewrote it underneath the running process, the interpreter's read
+# position can land mid-line in the new version and silently skip or garble
+# whatever comes next. (This is exactly what happened the first time this ran:
+# it jumped straight from add-page-hero-fields.php to seed-content.php,
+# skipping add-gallery-fields.php entirely, with no error.) Re-exec into the
+# freshly pulled copy so everything after this point is read cleanly from a
+# file that will not change again mid-run.
+if [[ "$before" != "$after" ]]; then
+  echo "    new commits pulled — restarting from the updated script"
+  exec bash "$0" "$@"
+fi
 
 echo "==> add-project-fields.php"
 ./vendor/bin/drush php:script scripts/add-project-fields.php
