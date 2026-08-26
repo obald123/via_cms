@@ -166,6 +166,188 @@
       "subtitle": "The organisations VIA Foundation supports through TerraFund cohorts two and three, across Burundi, DRC, Ghana, Kenya and Rwanda."
     }
   ],
+  "gallery": [
+    {
+      "slug": "gishwati-forest-story",
+      "type": "video",
+      "src": "gishwati-forest-story.mp4",
+      "poster": "gishwati-forest-story-poster.jpg",
+      "title": "Protecting the Forest of Hope, Gishwati",
+      "caption": "Community forest protection in Gishwati, Rwanda.",
+      "featured": true,
+      "weight": 0
+    },
+    {
+      "slug": "via-brand-reveal",
+      "type": "video",
+      "src": "via-brand-reveal.mp4",
+      "poster": "via-brand-reveal-poster.jpg",
+      "title": "Restoration, from the ground up",
+      "caption": "VIA Foundation, seen from above.",
+      "featured": true,
+      "weight": 1
+    },
+    {
+      "slug": "dji-0123-forest-hills",
+      "type": "photo",
+      "src": "dji-0123-forest-hills.jpg",
+      "poster": "",
+      "title": "Restored forest hills",
+      "caption": "Restored forest hills from above.",
+      "featured": false,
+      "weight": 2
+    },
+    {
+      "slug": "0x8a4251-tree-nursery",
+      "type": "photo",
+      "src": "0x8a4251-tree-nursery.jpg",
+      "poster": "",
+      "title": "Community tree nursery",
+      "caption": "Tending seedlings in a community tree nursery.",
+      "featured": false,
+      "weight": 3
+    },
+    {
+      "slug": "0x8a4081-planting-seedling",
+      "type": "photo",
+      "src": "0x8a4081-planting-seedling.jpg",
+      "poster": "",
+      "title": "Planting a seedling",
+      "caption": "Planting a seedling on restored land.",
+      "featured": false,
+      "weight": 4
+    },
+    {
+      "slug": "dji-0214-young-plantings",
+      "type": "photo",
+      "src": "dji-0214-young-plantings.jpg",
+      "poster": "",
+      "title": "Young plantings",
+      "caption": "Young saplings planted across cleared ground.",
+      "featured": false,
+      "weight": 5
+    },
+    {
+      "slug": "ines-nkombo-community",
+      "type": "photo",
+      "src": "ines-nkombo-community.jpg",
+      "poster": "",
+      "title": "Nkombo Island",
+      "caption": "Community members on Nkombo Island.",
+      "featured": false,
+      "weight": 6
+    },
+    {
+      "slug": "0x8a4068-seedling-portrait",
+      "type": "photo",
+      "src": "0x8a4068-seedling-portrait.jpg",
+      "poster": "",
+      "title": "A seedling, ready",
+      "caption": "A seedling ready for planting.",
+      "featured": false,
+      "weight": 7
+    },
+    {
+      "slug": "dji-0253-waterfall-cliff",
+      "type": "photo",
+      "src": "dji-0253-waterfall-cliff.jpg",
+      "poster": "",
+      "title": "Waterfall cliff",
+      "caption": "Waterfall cliff over restored land.",
+      "featured": false,
+      "weight": 8
+    },
+    {
+      "slug": "ddtt1286-nursery-work",
+      "type": "photo",
+      "src": "ddtt1286-nursery-work.jpg",
+      "poster": "",
+      "title": "Nursery work",
+      "caption": "Nursery work in the field.",
+      "featured": false,
+      "weight": 9
+    },
+    {
+      "slug": "0x8a3565-community-meeting",
+      "type": "photo",
+      "src": "0x8a3565-community-meeting.jpg",
+      "poster": "",
+      "title": "A meeting in the field",
+      "caption": "A community meeting in the field.",
+      "featured": false,
+      "weight": 10
+    },
+    {
+      "slug": "dji-0155-waterfall-canopy",
+      "type": "photo",
+      "src": "dji-0155-waterfall-canopy.jpg",
+      "poster": "",
+      "title": "Through the canopy",
+      "caption": "Waterfall through the forest canopy.",
+      "featured": false,
+      "weight": 11
+    },
+    {
+      "slug": "ines-rusizi-seedling-boat",
+      "type": "photo",
+      "src": "ines-rusizi-seedling-boat.jpg",
+      "poster": "",
+      "title": "Seedlings on the Rusizi",
+      "caption": "Transporting seedlings along the Rusizi.",
+      "featured": false,
+      "weight": 12
+    },
+    {
+      "slug": "7k5a9858-soil-in-hand",
+      "type": "photo",
+      "src": "7k5a9858-soil-in-hand.jpg",
+      "poster": "",
+      "title": "Healthy soil",
+      "caption": "Healthy soil, held in hand.",
+      "featured": false,
+      "weight": 13
+    },
+    {
+      "slug": "dji-0209-restoration-plots",
+      "type": "photo",
+      "src": "dji-0209-restoration-plots.jpg",
+      "poster": "",
+      "title": "Restoration plots",
+      "caption": "Restoration plots seen from above.",
+      "featured": false,
+      "weight": 14
+    },
+    {
+      "slug": "ddtt1322-community-work",
+      "type": "photo",
+      "src": "ddtt1322-community-work.jpg",
+      "poster": "",
+      "title": "Community work",
+      "caption": "Community restoration work.",
+      "featured": false,
+      "weight": 15
+    },
+    {
+      "slug": "dji-0154-waterfall-aerial",
+      "type": "photo",
+      "src": "dji-0154-waterfall-aerial.jpg",
+      "poster": "",
+      "title": "Forest waterfall",
+      "caption": "Aerial view of a forest waterfall.",
+      "featured": false,
+      "weight": 16
+    },
+    {
+      "slug": "dji-0107-landscape",
+      "type": "photo",
+      "src": "dji-0107-landscape.jpg",
+      "poster": "",
+      "title": "Restoration landscape",
+      "caption": "Restoration landscape from above.",
+      "featured": false,
+      "weight": 17
+    }
+  ],
   "projects": [
     {
       "slug": "the-network-for-natural-gums-and-resins-in-africa-ngara",

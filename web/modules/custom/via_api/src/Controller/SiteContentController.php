@@ -75,6 +75,18 @@ class SiteContentController extends ControllerBase {
         'subtitle' => (string) $this->val($n, 'field_subtitle'),
       ]),
 
+      // Gallery photos and videos. Files live in Drupal, so src/poster are
+      // absolute URLs here — the frontend passes them through unchanged.
+      'gallery' => $this->map('gallery_item', fn(NodeInterface $n) => [
+        'slug' => (string) $this->val($n, 'field_slug'),
+        'type' => (string) $this->val($n, 'field_media_type', 'photo'),
+        'src' => $this->fileUrl($n, 'field_media'),
+        'poster' => $this->imageUrl($n, 'field_poster'),
+        'title' => $n->label(),
+        'caption' => (string) $this->val($n, 'field_caption'),
+        'featured' => (bool) $this->val($n, 'field_featured'),
+      ]),
+
       // A TerraFund champion organisation. Trees, hectares and jobs are the
       // commitments made for the project, not results delivered to date.
       'projects' => $this->map('project', fn(NodeInterface $n) => [
@@ -164,6 +176,19 @@ class SiteContentController extends ControllerBase {
     }
     $term = $node->get($field)->entity;
     return $term ? $term->label() : '';
+  }
+
+  /**
+   * Absolute URL for a plain file field (video), as opposed to an image field.
+   * Same idea as imageUrl(), but file fields store the entity directly rather
+   * than through an image-specific item type.
+   */
+  protected function fileUrl(NodeInterface $node, string $field): string {
+    if (!$node->hasField($field) || $node->get($field)->isEmpty()) {
+      return '';
+    }
+    $file = $node->get($field)->entity;
+    return $file ? $this->fileUrlGenerator->generateAbsoluteString($file->getFileUri()) : '';
   }
 
   /** Absolute URL, because the frontend is served from a different origin. */

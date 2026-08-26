@@ -85,6 +85,42 @@ $image = function (string $url) use ($httpClient, $fileSystem, &$stats): ?int {
 };
 
 /**
+ * Registers a file shipped in seed/gallery/ and returns its file id.
+ *
+ * Gallery media is committed to this repo rather than downloaded, so unlike
+ * $image() there is no network involved — the file is copied into Drupal's
+ * public files and registered once. Re-runs find the existing record and reuse
+ * it instead of copying again.
+ */
+$localFile = function (string $filename) use ($fileSystem, &$stats): ?int {
+  if ($filename === '') {
+    return NULL;
+  }
+  $source = __DIR__ . '/../seed/gallery/' . $filename;
+  if (!file_exists($source)) {
+    echo "  ! missing gallery file: $filename\n";
+    $stats['imageFailed']++;
+    return NULL;
+  }
+
+  $directory = 'public://gallery';
+  $destination = "$directory/$filename";
+
+  $existing = \Drupal::entityTypeManager()->getStorage('file')
+    ->loadByProperties(['uri' => $destination]);
+  if ($existing) {
+    return (int) reset($existing)->id();
+  }
+
+  $fileSystem->prepareDirectory($directory, \Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY);
+  $fileSystem->saveData(file_get_contents($source), $destination, \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
+  $file = File::create(['uri' => $destination, 'status' => 1]);
+  $file->save();
+  $stats['images']++;
+  return (int) $file->id();
+};
+
+/**
  * Node ids this run created or updated, keyed by bundle. Used by the prune step
  * at the bottom to spot leftovers from earlier seeds.
  */
@@ -173,6 +209,18 @@ foreach ($data['pageHeroes'] as $i => $h) {
   ], $h['slug']);
 }
 
+foreach ($data['gallery'] as $g) {
+  $upsert('gallery_item', $g['title'], [
+    'field_slug' => $g['slug'],
+    'field_media_type' => $g['type'],
+    'field_media' => $localFile($g['src']),
+    'field_poster' => $localFile($g['poster']),
+    'field_caption' => $g['caption'],
+    'field_featured' => $g['featured'] ? 1 : 0,
+    'field_weight' => $g['weight'],
+  ], $g['slug']);
+}
+
 // TerraFund champion organisations. The superseded fields (funding, funder,
 // status, communities, progress, result, image, category, body) still exist on
 // the bundle with their old content, but nothing reads them any more — see
@@ -244,7 +292,7 @@ foreach ($data['team'] as $m) {
  * Reports by default; deletes only when asked:
  *   SEED_PRUNE=1 drush php:script scripts/seed-content.php
  */
-$prunable = ['hero_stat', 'impact_card', 'partner', 'country', 'funding_allocation', 'yearly_progress', 'project', 'page_hero'];
+$prunable = ['hero_stat', 'impact_card', 'partner', 'country', 'funding_allocation', 'yearly_progress', 'project', 'page_hero', 'gallery_item'];
 $prune = getenv('SEED_PRUNE') === '1';
 $stale = [];
 
