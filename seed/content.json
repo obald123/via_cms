@@ -158,6 +158,14 @@
       "lat": -2.88
     }
   ],
+  "pageHeroes": [
+    {
+      "slug": "projects",
+      "eyebrow": "Featured Projects",
+      "title": "Restoration in Action",
+      "subtitle": "The organisations VIA Foundation supports through TerraFund cohorts two and three, across Burundi, DRC, Ghana, Kenya and Rwanda."
+    }
+  ],
   "projects": [
     {
       "slug": "the-network-for-natural-gums-and-resins-in-africa-ngara",
@@ -1600,6 +1608,19 @@
     }
   ],
   "news": [
+    {
+      "slug": "hiring-portfolio-grants-officer",
+      "title": "We're Hiring: Portfolio & Grants Officer",
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop&auto=format",
+      "category": "Careers",
+      "date": "August 2026",
+      "body": [
+        "VIA Foundation is hiring a Portfolio & Grants Officer to support due diligence, disbursement, and monitoring across our portfolio of restoration organisations in Burundi, DRC, Ghana, Kenya and Rwanda.",
+        "You'll work closely with grantees through each stage of the grant cycle — reviewing applications, tracking disbursement milestones against agreed restoration targets, and preparing the country-level reporting that feeds into our annual impact review.",
+        "Location: Kigali, Rwanda (hybrid). Type: Full-time. Reports to: Head of Programs. Application deadline: 30 September 2026.",
+        "To apply, send a CV and short cover letter to info@via-foundation.org with \"Portfolio & Grants Officer\" in the subject line."
+      ]
+    },
     {
       "slug": "2024-annual-impact-report",
       "title": "2024 Annual Impact Report: A Decade of Restoration Finance in Africa",

@@ -164,6 +164,15 @@ foreach ($data['countries'] as $i => $c) {
   ]);
 }
 
+foreach ($data['pageHeroes'] as $i => $h) {
+  $upsert('page_hero', $h['title'], [
+    'field_slug' => $h['slug'],
+    'field_eyebrow' => $h['eyebrow'],
+    'field_subtitle' => $h['subtitle'],
+    'field_weight' => $i,
+  ], $h['slug']);
+}
+
 // TerraFund champion organisations. The superseded fields (funding, funder,
 // status, communities, progress, result, image, category, body) still exist on
 // the bundle with their old content, but nothing reads them any more — see
@@ -235,7 +244,7 @@ foreach ($data['team'] as $m) {
  * Reports by default; deletes only when asked:
  *   SEED_PRUNE=1 drush php:script scripts/seed-content.php
  */
-$prunable = ['hero_stat', 'impact_card', 'partner', 'country', 'funding_allocation', 'yearly_progress', 'project'];
+$prunable = ['hero_stat', 'impact_card', 'partner', 'country', 'funding_allocation', 'yearly_progress', 'project', 'page_hero'];
 $prune = getenv('SEED_PRUNE') === '1';
 $stale = [];
 

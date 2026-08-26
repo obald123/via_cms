@@ -66,6 +66,15 @@ class SiteContentController extends ControllerBase {
         'lat' => (float) $this->val($n, 'field_lat'),
       ]),
 
+      // Editable section headings, keyed by slug — see field_slug on this
+      // bundle for which page/section each row is for.
+      'pageHeroes' => $this->map('page_hero', fn(NodeInterface $n) => [
+        'slug' => (string) $this->val($n, 'field_slug'),
+        'eyebrow' => (string) $this->val($n, 'field_eyebrow'),
+        'title' => $n->label(),
+        'subtitle' => (string) $this->val($n, 'field_subtitle'),
+      ]),
+
       // A TerraFund champion organisation. Trees, hectares and jobs are the
       // commitments made for the project, not results delivered to date.
       'projects' => $this->map('project', fn(NodeInterface $n) => [
