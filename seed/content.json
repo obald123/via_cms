@@ -2,31 +2,31 @@
   "heroStats": [
     {
       "label": "Projects Supported",
-      "end": 115,
-      "suffix": "",
+      "end": 131,
+      "suffix": "+",
       "divisor": 1,
       "decimals": 0
     },
     {
-      "label": "Trees to Be Grown",
-      "end": 168,
-      "suffix": "M",
+      "label": "Hectares Put Under Restoration",
+      "end": 64,
+      "suffix": "K+",
+      "divisor": 1,
+      "decimals": 0
+    },
+    {
+      "label": "Trees Grown",
+      "end": 182,
+      "suffix": "M+",
       "divisor": 10,
       "decimals": 1
     },
     {
-      "label": "Hectares Under Restoration",
-      "end": 582,
-      "suffix": "K",
-      "divisor": 10,
-      "decimals": 1
-    },
-    {
-      "label": "Jobs to Be Created",
-      "end": 576,
-      "suffix": "K",
-      "divisor": 10,
-      "decimals": 1
+      "label": "Jobs Created",
+      "end": 12,
+      "suffix": "K+",
+      "divisor": 1,
+      "decimals": 0
     }
   ],
   "services": [
@@ -104,24 +104,31 @@
   "impactCards": [
     {
       "icon": "TreePine",
-      "value": "115",
+      "value": "131+",
       "label": "Projects",
       "sub": "Supported",
       "weight": 0
     },
     {
       "icon": "Leaf",
-      "value": "16.8M",
+      "value": "18.2M+",
       "label": "Trees",
-      "sub": "To Be Grown",
+      "sub": "Grown",
       "weight": 1
     },
     {
       "icon": "Globe",
-      "value": "58,200",
+      "value": "64K+",
       "label": "Hectares",
-      "sub": "Under Restoration",
+      "sub": "Put Under Restoration",
       "weight": 2
+    },
+    {
+      "icon": "Users",
+      "value": "12K+",
+      "label": "Jobs",
+      "sub": "Created",
+      "weight": 3
     }
   ],
   "countries": [
