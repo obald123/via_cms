@@ -49,41 +49,6 @@ $term = function (string $vid, string $name) use ($termStorage): ?int {
   return (int) $new->id();
 };
 
-/** Downloads a remote image once and returns a file id. */
-$image = function (string $url) use ($httpClient, $fileSystem, &$stats): ?int {
-  if ($url === '') {
-    return NULL;
-  }
-  // A stable filename keyed on the URL means re-runs reuse the same file
-  // instead of downloading it again.
-  $extension = pathinfo(parse_url($url, PHP_URL_PATH) ?: '', PATHINFO_EXTENSION);
-  $extension = preg_match('/^(jpg|jpeg|png|webp|gif)$/i', $extension) ? strtolower($extension) : 'jpg';
-  $name = substr(hash('sha256', $url), 0, 16) . '.' . $extension;
-  $directory = 'public://seed-images';
-  $destination = "$directory/$name";
-
-  $existing = \Drupal::entityTypeManager()->getStorage('file')
-    ->loadByProperties(['uri' => $destination]);
-  if ($existing) {
-    return (int) reset($existing)->id();
-  }
-
-  $fileSystem->prepareDirectory($directory, \Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY);
-  try {
-    $bytes = $httpClient->get($url, ['timeout' => 30])->getBody()->getContents();
-  }
-  catch (\Throwable $e) {
-    echo "  ! image failed: $url ({$e->getMessage()})\n";
-    $stats['imageFailed']++;
-    return NULL;
-  }
-  $fileSystem->saveData($bytes, $destination, \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
-  $file = File::create(['uri' => $destination, 'status' => 1]);
-  $file->save();
-  $stats['images']++;
-  return (int) $file->id();
-};
-
 /**
  * Registers a file shipped in seed/gallery/ and returns its file id.
  *
@@ -114,6 +79,52 @@ $localFile = function (string $filename) use ($fileSystem, &$stats): ?int {
 
   $fileSystem->prepareDirectory($directory, \Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY);
   $fileSystem->saveData(file_get_contents($source), $destination, \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
+  $file = File::create(['uri' => $destination, 'status' => 1]);
+  $file->save();
+  $stats['images']++;
+  return (int) $file->id();
+};
+
+/**
+ * Returns a file id for an image reference.
+ *
+ * Absolute URLs are downloaded once and cached. Anything else is treated as a
+ * file shipped in seed/gallery/ — video thumbnails, for instance, are stored
+ * with the repo rather than fetched, and arrive here as a path like
+ * "/videos/abc.jpg". Without this they were handed to the HTTP client, which
+ * failed on every one and left those nodes with no image at all.
+ */
+$image = function (string $url) use ($httpClient, $fileSystem, &$stats, &$localFile): ?int {
+  if ($url === '') {
+    return NULL;
+  }
+  if (!preg_match('#^https?://#i', $url)) {
+    return $localFile(basename($url));
+  }
+  // A stable filename keyed on the URL means re-runs reuse the same file
+  // instead of downloading it again.
+  $extension = pathinfo(parse_url($url, PHP_URL_PATH) ?: '', PATHINFO_EXTENSION);
+  $extension = preg_match('/^(jpg|jpeg|png|webp|gif)$/i', $extension) ? strtolower($extension) : 'jpg';
+  $name = substr(hash('sha256', $url), 0, 16) . '.' . $extension;
+  $directory = 'public://seed-images';
+  $destination = "$directory/$name";
+
+  $existing = \Drupal::entityTypeManager()->getStorage('file')
+    ->loadByProperties(['uri' => $destination]);
+  if ($existing) {
+    return (int) reset($existing)->id();
+  }
+
+  $fileSystem->prepareDirectory($directory, \Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY);
+  try {
+    $bytes = $httpClient->get($url, ['timeout' => 30])->getBody()->getContents();
+  }
+  catch (\Throwable $e) {
+    echo "  ! image failed: $url ({$e->getMessage()})\n";
+    $stats['imageFailed']++;
+    return NULL;
+  }
+  $fileSystem->saveData($bytes, $destination, \Drupal\Core\File\FileSystemInterface::EXISTS_REPLACE);
   $file = File::create(['uri' => $destination, 'status' => 1]);
   $file->save();
   $stats['images']++;
@@ -201,7 +212,12 @@ foreach ($data['countries'] as $i => $c) {
 }
 
 foreach ($data['pageHeroes'] as $i => $h) {
-  $upsert('page_hero', $h['title'], [
+  // A page hero may legitimately carry no display title — the "team" entry
+  // exists only to hold an intro line the frontend hides while it is blank.
+  // Drupal still needs a node title, so fall back to the slug as an admin
+  // label; the frontend reads field_slug and the other fields, never this.
+  $title = trim((string) $h['title']) !== '' ? $h['title'] : $h['slug'];
+  $upsert('page_hero', $title, [
     'field_slug' => $h['slug'],
     'field_eyebrow' => $h['eyebrow'],
     'field_subtitle' => $h['subtitle'],
@@ -236,6 +252,9 @@ foreach ($data['projects'] as $i => $p) {
     'field_jobs' => $p['jobs'],
     'field_website' => $p['website'],
     'field_excerpt' => $p['excerpt'],
+    'field_trees_done' => $p['treesDone'] ?? '',
+    'field_hectares_done' => $p['hectaresDone'] ?? '',
+    'field_jobs_done' => $p['jobsDone'] ?? '',
     'field_weight' => $i,
   ], $p['slug']);
 }
@@ -249,6 +268,9 @@ foreach ($data['stories'] as $i => $s) {
     'field_featured' => $s['featured'] ? 1 : 0,
     'field_excerpt' => $s['excerpt'],
     'field_body' => $s['body'],
+    'field_youtube_id' => $s['youtubeId'] ?? '',
+    'field_published_at' => $s['publishedAt'] ?? '',
+    'field_duration' => $s['duration'] ?? '',
     'field_weight' => $i,
   ], $s['slug']);
 }
@@ -275,6 +297,17 @@ foreach ($data['team'] as $m) {
   ]);
 }
 
+// Home page before/after strip. field_image reuses the same local files as
+// gallery — $localFile() looks in seed/gallery/ either way.
+foreach ($data['restorationTimeline'] as $r) {
+  $upsert('restoration_photo', $r['alt'], [
+    'field_slug' => $r['slug'],
+    'field_image' => $localFile($r['image']),
+    'field_year' => $r['year'],
+    'field_weight' => $r['weight'],
+  ], $r['slug']);
+}
+
 /**
  * Upserting alone can only ever add. Renaming a hero stat or dropping a partner
  * from content.json leaves the old node behind, still published, still in the
@@ -292,7 +325,7 @@ foreach ($data['team'] as $m) {
  * Reports by default; deletes only when asked:
  *   SEED_PRUNE=1 drush php:script scripts/seed-content.php
  */
-$prunable = ['hero_stat', 'impact_card', 'partner', 'country', 'funding_allocation', 'yearly_progress', 'project', 'page_hero', 'gallery_item'];
+$prunable = ['hero_stat', 'impact_card', 'partner', 'country', 'funding_allocation', 'yearly_progress', 'project', 'page_hero', 'gallery_item', 'restoration_photo'];
 $prune = getenv('SEED_PRUNE') === '1';
 $stale = [];
 

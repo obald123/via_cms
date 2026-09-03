@@ -100,6 +100,9 @@ class SiteContentController extends ControllerBase {
         'jobs' => (string) $this->val($n, 'field_jobs'),
         'website' => (string) $this->val($n, 'field_website'),
         'excerpt' => (string) $this->val($n, 'field_excerpt'),
+        'treesDone' => (string) $this->val($n, 'field_trees_done'),
+        'hectaresDone' => (string) $this->val($n, 'field_hectares_done'),
+        'jobsDone' => (string) $this->val($n, 'field_jobs_done'),
       ]),
 
       'stories' => $this->map('story', fn(NodeInterface $n) => [
@@ -111,6 +114,9 @@ class SiteContentController extends ControllerBase {
         'featured' => (bool) $this->val($n, 'field_featured'),
         'excerpt' => (string) $this->val($n, 'field_excerpt'),
         'body' => $this->multi($n, 'field_body'),
+        'youtubeId' => (string) $this->val($n, 'field_youtube_id'),
+        'duration' => (string) $this->val($n, 'field_duration'),
+        'publishedAt' => (string) $this->val($n, 'field_published_at'),
       ]),
 
       'news' => $this->map('news', fn(NodeInterface $n) => [
@@ -131,6 +137,35 @@ class SiteContentController extends ControllerBase {
         'image' => $this->imageUrl($n, 'field_image'),
         'weight' => (int) $this->val($n, 'field_weight'),
       ]),
+
+      // Open roles, entered directly in Drupal by staff — never seeded from
+      // the frontend's data.ts, same as news/story/team_member. Newest
+      // posting first rather than by field_weight: staff adding a vacancy
+      // are very unlikely to also go set an ordering weight for it.
+      'jobPostings' => $this->map('job_posting', fn(NodeInterface $n) => [
+        'slug' => (string) $this->val($n, 'field_slug'),
+        'title' => $n->label(),
+        'department' => (string) $this->val($n, 'field_department'),
+        'location' => (string) $this->val($n, 'field_location'),
+        'employmentType' => (string) $this->val($n, 'field_employment_type'),
+        'summary' => (string) $this->val($n, 'field_excerpt'),
+        'body' => $this->multi($n, 'field_body'),
+        'responsibilities' => $this->multi($n, 'field_responsibilities'),
+        'requirements' => $this->multi($n, 'field_requirements'),
+        'status' => (string) $this->val($n, 'field_job_status', 'Open'),
+        'publishedAt' => (string) $this->val($n, 'field_published_at'),
+        'closingAt' => (string) $this->val($n, 'field_closing_at'),
+      ], 'field_published_at', 'DESC'),
+
+      // The home page's before/after strip, between Trusted Partners and
+      // About. Title doubles as alt text — see restoration_photo's build in
+      // scripts/build-content-model.php.
+      'restorationTimeline' => $this->map('restoration_photo', fn(NodeInterface $n) => [
+        'slug' => (string) $this->val($n, 'field_slug'),
+        'image' => $this->imageUrl($n, 'field_image'),
+        'alt' => $n->label(),
+        'year' => (string) $this->val($n, 'field_year'),
+      ]),
     ];
 
     $response = new CacheableJsonResponse($payload);
@@ -143,14 +178,14 @@ class SiteContentController extends ControllerBase {
   /**
    * Loads every published node of a bundle in editor-defined order and maps it.
    */
-  protected function map(string $bundle, callable $mapper): array {
+  protected function map(string $bundle, callable $mapper, string $sortField = 'field_weight', string $sortDirection = 'ASC'): array {
     $storage = $this->entityTypeManager()->getStorage('node');
     $ids = $storage->getQuery()
       ->accessCheck(TRUE)
       ->condition('type', $bundle)
       ->condition('status', NodeInterface::PUBLISHED)
-      ->sort('field_weight')
-      ->sort('nid')
+      ->sort($sortField, $sortDirection)
+      ->sort('nid', $sortDirection)
       ->execute();
 
     return array_values(array_map($mapper, $storage->loadMultiple($ids)));

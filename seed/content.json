@@ -2,28 +2,28 @@
   "heroStats": [
     {
       "label": "Projects Supported",
-      "end": 131,
+      "end": 130,
       "suffix": "+",
       "divisor": 1,
       "decimals": 0
     },
     {
-      "label": "Hectares Put Under Restoration",
-      "end": 64,
+      "label": "Trees to Be Grown",
+      "end": 168,
+      "suffix": "M",
+      "divisor": 10,
+      "decimals": 1
+    },
+    {
+      "label": "Hectares to Be Put Under Restoration",
+      "end": 60,
       "suffix": "K+",
       "divisor": 1,
       "decimals": 0
     },
     {
-      "label": "Trees Grown",
-      "end": 182,
-      "suffix": "M+",
-      "divisor": 10,
-      "decimals": 1
-    },
-    {
-      "label": "Jobs Created",
-      "end": 12,
+      "label": "Jobs to Be Created",
+      "end": 57,
       "suffix": "K+",
       "divisor": 1,
       "decimals": 0
@@ -104,30 +104,30 @@
   "impactCards": [
     {
       "icon": "TreePine",
-      "value": "131+",
+      "value": "130+",
       "label": "Projects",
       "sub": "Supported",
       "weight": 0
     },
     {
       "icon": "Leaf",
-      "value": "18.2M+",
+      "value": "16.8M",
       "label": "Trees",
-      "sub": "Grown",
+      "sub": "To Be Grown",
       "weight": 1
     },
     {
       "icon": "Globe",
-      "value": "64K+",
+      "value": "60K+",
       "label": "Hectares",
-      "sub": "Put Under Restoration",
+      "sub": "To Be Put Under Restoration",
       "weight": 2
     },
     {
       "icon": "Users",
-      "value": "12K+",
+      "value": "57K+",
       "label": "Jobs",
-      "sub": "Created",
+      "sub": "To Be Created",
       "weight": 3
     }
   ],
@@ -160,10 +160,22 @@
   ],
   "pageHeroes": [
     {
+      "slug": "about",
+      "eyebrow": "About VIA Foundation",
+      "title": "Africa's First Dedicated Restoration Finance Institution",
+      "subtitle": "Ensuring that resources reach the people restoring Africa's landscapes."
+    },
+    {
+      "slug": "team",
+      "eyebrow": "",
+      "title": "",
+      "subtitle": ""
+    },
+    {
       "slug": "projects",
       "eyebrow": "Featured Projects",
       "title": "Restoration in Action",
-      "subtitle": "The organisations VIA Foundation supports through TerraFund cohorts two and three, across Burundi, DRC, Ghana, Kenya and Rwanda."
+      "subtitle": "We take pride in technically and financially supporting targeted, high quality, locally led land restoration across Africa."
     }
   ],
   "gallery": [
@@ -359,7 +371,10 @@
       "hectares": "500",
       "jobs": "600",
       "website": "https://ngara.org/",
-      "excerpt": "Africa supplies much of the world’s natural gum, aloe, and resins. But these high-quality crops are grown in drylands, which suffer from inconsistent rains and pervasive poverty. Non-profit organization NGARA helps African countries that produce natural gum and resins to find sustainable ways of growing, harvesting and marketing them to improve community livelihoods and conserve precious water."
+      "excerpt": "Africa supplies much of the world’s natural gum, aloe, and resins. But these high-quality crops are grown in drylands, which suffer from inconsistent rains and pervasive poverty. Non-profit organization NGARA helps African countries that produce natural gum and resins to find sustainable ways of growing, harvesting and marketing them to improve community livelihoods and conserve precious water.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "nature-kenya-the-east-africa-natural-history-society-eanhs",
@@ -371,7 +386,10 @@
       "hectares": "320",
       "jobs": "4,000",
       "website": "https://www.naturekenya.org",
-      "excerpt": "Nature Kenya is Africa's oldest environmental society. Established in 1909, the organization aims is to promote the study and conservation of nature in Eastern Africa. Nature Kenya’s biodiversity conservation focuses on globally recognized Important Bird Areas (IBAs) and Key Biodiversity Areas (KBAs). The organization has restored 10,000 hectares of land in the last three years and grown 10,000,000 trees."
+      "excerpt": "Nature Kenya is Africa's oldest environmental society. Established in 1909, the organization aims is to promote the study and conservation of nature in Eastern Africa. Nature Kenya’s biodiversity conservation focuses on globally recognized Important Bird Areas (IBAs) and Key Biodiversity Areas (KBAs). The organization has restored 10,000 hectares of land in the last three years and grown 10,000,000 trees.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "orchard-juice",
@@ -383,7 +401,10 @@
       "hectares": "1,942",
       "jobs": "9,640",
       "website": "https://www.orchardjuice.com",
-      "excerpt": "Orchard Juice partners with farmers to grow fruit trees that restore depleted soils, using its harvest to make and sell freshly squeezed juice. In two years, the company has increased the number of farmers it engages with from 15,500 to 49,800. This investment will support Orchard Juice’s existing efforts to plant more mango trees on smallholder farms and add exotic trees around the crops to protect them from strong winds."
+      "excerpt": "Orchard Juice partners with farmers to grow fruit trees that restore depleted soils, using its harvest to make and sell freshly squeezed juice. In two years, the company has increased the number of farmers it engages with from 15,500 to 49,800. This investment will support Orchard Juice’s existing efforts to plant more mango trees on smallholder farms and add exotic trees around the crops to protect them from strong winds.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "association-rwandaise-pour-le-developpement-endogene-arde-kubaho",
@@ -395,7 +416,10 @@
       "hectares": "1,500",
       "jobs": "507",
       "website": "",
-      "excerpt": "ARDE/KUBAHO was established in 2007 with a vision to create self-reliant communities and better livelihoods throughout Rwanda. One of its four main areas of focus is environmental protection and sustainable agriculture. With this grant from TerraFund, ARDE/KUBAHO will partner with smallholder farmers and local authorities on agroforestry projects across Rwanda’s Rubavu District, growing fruit and native trees on farmland and clumping bamboo on land affected by gullies."
+      "excerpt": "ARDE/KUBAHO was established in 2007 with a vision to create self-reliant communities and better livelihoods throughout Rwanda. One of its four main areas of focus is environmental protection and sustainable agriculture. With this grant from TerraFund, ARDE/KUBAHO will partner with smallholder farmers and local authorities on agroforestry projects across Rwanda’s Rubavu District, growing fruit and native trees on farmland and clumping bamboo on land affected by gullies.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "institut-d-enseignement-superieur-de-ruhengeri-ines-ruhengeri",
@@ -407,7 +431,10 @@
       "hectares": "705",
       "jobs": "4,368",
       "website": "https://www.ines.ac.rw",
-      "excerpt": "INES-RUHENGERI is an applied sciences institution in Rwanda’s Northern Province. Through different departments, it implements projects on environmental conservation, land management, and construction. Through this grant, INES-RUHENGERI will work with Green Cover Initiative Rwanda, a non-profit organization that specializes in conducting technical trainings for farmers, to restore degraded landscapes in the mountainous Nkanka sector and Ishywa Island in Nkombo sector."
+      "excerpt": "INES-RUHENGERI is an applied sciences institution in Rwanda’s Northern Province. Through different departments, it implements projects on environmental conservation, land management, and construction. Through this grant, INES-RUHENGERI will work with Green Cover Initiative Rwanda, a non-profit organization that specializes in conducting technical trainings for farmers, to restore degraded landscapes in the mountainous Nkanka sector and Ishywa Island in Nkombo sector.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "african-evangelistic-enterprise-aee-rwanda",
@@ -419,7 +446,10 @@
       "hectares": "1,125",
       "jobs": "120",
       "website": "https://aeerwanda.ngo/",
-      "excerpt": "AEE Rwanda is a local Christian non-profit organization founded in 1984. With a focus on improving food security, AEE Rwanda partners with households and farmers to grow more crops for home use, local markets, and international exports. AEE Rwanda will use this grant to rehabilitate communal lands and farms in the country’s Rutsiro and Rusizi Districts."
+      "excerpt": "AEE Rwanda is a local Christian non-profit organization founded in 1984. With a focus on improving food security, AEE Rwanda partners with households and farmers to grow more crops for home use, local markets, and international exports. AEE Rwanda will use this grant to rehabilitate communal lands and farms in the country’s Rutsiro and Rusizi Districts.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "birdlife-international-kenya-nature-rwanda",
@@ -431,7 +461,10 @@
       "hectares": "604",
       "jobs": "400",
       "website": "https://www.birdlife.org",
-      "excerpt": "Nature Rwanda’s vision is to build communities where human beings can coexist with nature without compromising the well-being of future generations. Through conservation projects, the organization looks to build climate resilience, reduce air pollution, and secure clean water for local residents. With its second grant from TerraFund, Nature Rwanda is partnering with BirdLife International, a global partnership that strives to protect birds and their habitats worldwide."
+      "excerpt": "Nature Rwanda’s vision is to build communities where human beings can coexist with nature without compromising the well-being of future generations. Through conservation projects, the organization looks to build climate resilience, reduce air pollution, and secure clean water for local residents. With its second grant from TerraFund, Nature Rwanda is partnering with BirdLife International, a global partnership that strives to protect birds and their habitats worldwide.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "association-protection-des-ressources-naturelles-pour-le-bien-et",
@@ -443,7 +476,10 @@
       "hectares": "200",
       "jobs": "127",
       "website": "https://aprn-bepb.bi/",
-      "excerpt": "In 2019, 3C joined forces with (APRN/BEPB, a non-profit organization with over 20 years of experience in conservation, to create a consortium dedicated to advancing environmental protection in Burundi. To preserve the natural world – an important part of Burundi's heritage – the partnership aims to create a lasting place for it within the local economy."
+      "excerpt": "In 2019, 3C joined forces with (APRN/BEPB, a non-profit organization with over 20 years of experience in conservation, to create a consortium dedicated to advancing environmental protection in Burundi. To preserve the natural world – an important part of Burundi's heritage – the partnership aims to create a lasting place for it within the local economy.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "rwanda-rural-rehabilitation-initiative-rwarri",
@@ -455,7 +491,10 @@
       "hectares": "336",
       "jobs": "2,200",
       "website": "https://rwarri.com/",
-      "excerpt": "RWARRI is a non-profit organization in Rwanda with a mission to achieve sustainable livelihoods for low-income households. It partners with them to introduce income-generating activities like agroforestry, bee keeping and water harvesting. Over the last three years, the organization has grown about 2.3 million trees and engaged 308,000 community members in restoration projects."
+      "excerpt": "RWARRI is a non-profit organization in Rwanda with a mission to achieve sustainable livelihoods for low-income households. It partners with them to introduce income-generating activities like agroforestry, bee keeping and water harvesting. Over the last three years, the organization has grown about 2.3 million trees and engaged 308,000 community members in restoration projects.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "association-pour-le-developpement-integral-des-communautes-adic",
@@ -467,7 +506,10 @@
       "hectares": "350",
       "jobs": "580",
       "website": "",
-      "excerpt": "Starting in 2006, ADIC has employed a three-pronged “People, Planet, and Profit” approach to unite environmental protection, community capacity building, and sustainable income generation in Burundi. ADIC also partners with local government bodies to create co-management agreements for its projects, equitably distributing responsibility among community members."
+      "excerpt": "Starting in 2006, ADIC has employed a three-pronged “People, Planet, and Profit” approach to unite environmental protection, community capacity building, and sustainable income generation in Burundi. ADIC also partners with local government bodies to create co-management agreements for its projects, equitably distributing responsibility among community members.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "goshen-global-vision-ggv",
@@ -479,7 +521,10 @@
       "hectares": "8,096",
       "jobs": "1,271",
       "website": "http://www.goglobalvision.org",
-      "excerpt": "Goshen Global Vision, a non-profit organization in Ghana's Western Region, aims to build resilience through community-based natural resource management and tree growing. The group works directly in the field with farmers, especially women and youth, to restore degraded land and forest reserves damaged by agricultural expansion."
+      "excerpt": "Goshen Global Vision, a non-profit organization in Ghana's Western Region, aims to build resilience through community-based natural resource management and tree growing. The group works directly in the field with farmers, especially women and youth, to restore degraded land and forest reserves damaged by agricultural expansion.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "hen-mpoano-our-coast",
@@ -491,7 +536,10 @@
       "hectares": "60",
       "jobs": "60",
       "website": "http://www.henmpoano.org",
-      "excerpt": "Hen Mpoano, or Our Coast, is a Ghanaian non-profit organization that partners with local communities to sustainably manage coastal and marine ecosystems. In the past three years, Hen Mpoano has grown 153,000 trees and established more than 64 village savings and loan associations within Ghana’s coastal landscapes. The organization has also grown more than 900,000 mangroves through partnerships with several organizations and community members."
+      "excerpt": "Hen Mpoano, or Our Coast, is a Ghanaian non-profit organization that partners with local communities to sustainably manage coastal and marine ecosystems. In the past three years, Hen Mpoano has grown 153,000 trees and established more than 64 village savings and loan associations within Ghana’s coastal landscapes. The organization has also grown more than 900,000 mangroves through partnerships with several organizations and community members.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "plate-forme-diobass-au-kivu",
@@ -503,7 +551,10 @@
       "hectares": "200",
       "jobs": "120",
       "website": "https://www.diobasskivu.org",
-      "excerpt": "Since its creation in 1996, Plateforme Diobass au Kivu has sought to facilitate knowledge sharing between Congolese and international groups. The organization is one branch within the Diobass network across Africa, with an approach that emphasizes community-based solutions to social and economic problems, cultural values, and local resources."
+      "excerpt": "Since its creation in 1996, Plateforme Diobass au Kivu has sought to facilitate knowledge sharing between Congolese and international groups. The organization is one branch within the Diobass network across Africa, with an approach that emphasizes community-based solutions to social and economic problems, cultural values, and local resources.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "reseau-burundi-2000-plus",
@@ -515,7 +566,10 @@
       "hectares": "777",
       "jobs": "400",
       "website": "https://rbu2000plus.org/",
-      "excerpt": "Réseau Burundi 2000 Plus aims to improve the livelihoods of farming families through technical and financial support. Working under multiple themes, such as community health, job creation, and long-term environmental protection, the group supports communities in the Gihanga commune of Bubanza Province. Using this grant from TerraFund, Réseau Burundi 2000 Plus will use agroforestry, reforestation to restore smallholder farmers’ land and riparian areas in Bubanza Province."
+      "excerpt": "Réseau Burundi 2000 Plus aims to improve the livelihoods of farming families through technical and financial support. Working under multiple themes, such as community health, job creation, and long-term environmental protection, the group supports communities in the Gihanga commune of Bubanza Province. Using this grant from TerraFund, Réseau Burundi 2000 Plus will use agroforestry, reforestation to restore smallholder farmers’ land and riparian areas in Bubanza Province.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "emfed-farms-and-trading-company",
@@ -527,7 +581,10 @@
       "hectares": "500",
       "jobs": "70",
       "website": "https://emfedfarms.com/",
-      "excerpt": "Emfed Farms is an agricultural services company founded in Ghana in 2012. It provides full-farm management services to smallholder cocoa farmers who cannot take care of their land or pay upfront management costs. The business improves soil fertility, eliminates pests, and strengthens existing cocoa trees by pruning, composting and planting other tree species that provide shade."
+      "excerpt": "Emfed Farms is an agricultural services company founded in Ghana in 2012. It provides full-farm management services to smallholder cocoa farmers who cannot take care of their land or pay upfront management costs. The business improves soil fertility, eliminates pests, and strengthens existing cocoa trees by pruning, composting and planting other tree species that provide shade.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "association-pour-la-promotion-des-cultures-vivrieres-aprocuvi",
@@ -539,7 +596,10 @@
       "hectares": "302",
       "jobs": "2,500",
       "website": "https://www.aprocuvi.bi",
-      "excerpt": "Since 2002, APROCUVI has demonstrated a long-standing commitment to revitalizing Burundi’s landscapes. With a focus on women and youth, APROCUVI supports farmers in crop management and processing, develops marketing for producers, and provides training and education to cooperatives. While APROCUVI works across the entire country, this grant will be used to restore the base of the Murangara-Ruramata mountains, a region consistently threatened by periods of both drought and flooding."
+      "excerpt": "Since 2002, APROCUVI has demonstrated a long-standing commitment to revitalizing Burundi’s landscapes. With a focus on women and youth, APROCUVI supports farmers in crop management and processing, develops marketing for producers, and provides training and education to cooperatives. While APROCUVI works across the entire country, this grant will be used to restore the base of the Murangara-Ruramata mountains, a region consistently threatened by periods of both drought and flooding.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "goshen-farm-exporters",
@@ -551,7 +611,10 @@
       "hectares": "1,250",
       "jobs": "42",
       "website": "https://www.goshen.co.ke",
-      "excerpt": "Goshen Farm Exporters creates businesses opportunities for smallholder farmers by processing surplus tropical fruits into premium snacks. The company’s restoration efforts promote responsible sourcing, providing resilient seedlings to its network of farming partners. Goshen’s ultimate mission is to create an inclusive market for over 4,800 smallholder farmers in rural southeastern and coastal Kenya while minimizing food loss."
+      "excerpt": "Goshen Farm Exporters creates businesses opportunities for smallholder farmers by processing surplus tropical fruits into premium snacks. The company’s restoration efforts promote responsible sourcing, providing resilient seedlings to its network of farming partners. Goshen’s ultimate mission is to create an inclusive market for over 4,800 smallholder farmers in rural southeastern and coastal Kenya while minimizing food loss.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "plant-with-purpose",
@@ -563,7 +626,10 @@
       "hectares": "720",
       "jobs": "0",
       "website": "https://www.plantwithpurpose.org",
-      "excerpt": "Plant with Purpose is a Christian non-profit organization formed in 1984. It has partnered with over 81,000 smallholder farming families in nine countries to reverse the impacts of deforestation: Burundi, the DRC, the Dominican Republic, Ethiopia, Haiti, Mexico, Tanzania, and Thailand. With this second grant from TerraFund, Plant with Purpose’s local affiliate Floresta Burundi will spearhead tree growing in the provinces of Bujumbura and Bururi."
+      "excerpt": "Plant with Purpose is a Christian non-profit organization formed in 1984. It has partnered with over 81,000 smallholder farming families in nine countries to reverse the impacts of deforestation: Burundi, the DRC, the Dominican Republic, Ethiopia, Haiti, Mexico, Tanzania, and Thailand. With this second grant from TerraFund, Plant with Purpose’s local affiliate Floresta Burundi will spearhead tree growing in the provinces of Bujumbura and Bururi.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "world-wide-fund-for-nature-kenya-wwf-kenya",
@@ -575,7 +641,10 @@
       "hectares": "531",
       "jobs": "80",
       "website": "https://www.wwfkenya.org",
-      "excerpt": "WWF-Kenya is a Kenyan non-governmental conservation organization, and an affiliate of WWF International. With 60 years of experience in Kenya, the organization has worked with local communities, the government, private sector organizations and civil society to conserve the environment – and has grown nearly 3,000,000 trees over the last three years."
+      "excerpt": "WWF-Kenya is a Kenyan non-governmental conservation organization, and an affiliate of WWF International. With 60 years of experience in Kenya, the organization has worked with local communities, the government, private sector organizations and civil society to conserve the environment – and has grown nearly 3,000,000 trees over the last three years.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "farmlife-health-services",
@@ -587,7 +656,10 @@
       "hectares": "950",
       "jobs": "260",
       "website": "https://www.farmlifehealthservices.co.ke",
-      "excerpt": "Farmlife Health Services is dedicated to empowering smallholder farmers through climate-smart agriculture, sustainable land restoration, and value addition, with a strong focus on improving livelihoods, food security, and resilience to climate change. With four years of experience, the organization has built a reputation for innovative approaches, robust community partnerships, and facilitating access to premium markets."
+      "excerpt": "Farmlife Health Services is dedicated to empowering smallholder farmers through climate-smart agriculture, sustainable land restoration, and value addition, with a strong focus on improving livelihoods, food security, and resilience to climate change. With four years of experience, the organization has built a reputation for innovative approaches, robust community partnerships, and facilitating access to premium markets.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "rwanda-environmental-conservation-organization-recor",
@@ -599,7 +671,10 @@
       "hectares": "500",
       "jobs": "1,000",
       "website": "https://www.rwandaenvironment.net/",
-      "excerpt": "For over 20 years, RECOR has partnered with local leaders and community members to find sustainable environmental solutions that benefit people across Rwanda. RECOR will use its second TerraFund grant to restore the degraded shores and upper lands of Lake Kivu, protecting water supply and biodiversity. They will also promote agroforestry among farmers by providing them with grafted fruit trees and organic compost, which will improve soil quality and increase crop yields."
+      "excerpt": "For over 20 years, RECOR has partnered with local leaders and community members to find sustainable environmental solutions that benefit people across Rwanda. RECOR will use its second TerraFund grant to restore the degraded shores and upper lands of Lake Kivu, protecting water supply and biodiversity. They will also promote agroforestry among farmers by providing them with grafted fruit trees and organic compost, which will improve soil quality and increase crop yields.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "the-rural-development-interdiocesan-service-rdis",
@@ -611,7 +686,10 @@
       "hectares": "605",
       "jobs": "405",
       "website": "https://www.rdis.org.rw/",
-      "excerpt": "The Rural Development Interdiocesan Service (RDIS) is a Rwandan NGO established by five Anglican dioceses, with a mission to safeguard the environment and promote sustainable, holistic community development. With over a decade of experience, RDIS has built a strong reputation for advancing environmental protection through landscape restoration, climate-smart agriculture, and socio-economic empowerment."
+      "excerpt": "The Rural Development Interdiocesan Service (RDIS) is a Rwandan NGO established by five Anglican dioceses, with a mission to safeguard the environment and promote sustainable, holistic community development. With over a decade of experience, RDIS has built a strong reputation for advancing environmental protection through landscape restoration, climate-smart agriculture, and socio-economic empowerment.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "green-belt-movement-gbm",
@@ -623,7 +701,10 @@
       "hectares": "162",
       "jobs": "2,400",
       "website": "http://www.greenbeltmovement.org",
-      "excerpt": "GBM is an environmental organization in Kenya that empowers communities, especially women, to conserve the environment and improve livelihoods. It was founded by Professor Wangari Maathai in 1977 under the auspices of the National Council of Women of Kenya to respond to the needs of rural women dealing with the consequences of environmental degradation."
+      "excerpt": "GBM is an environmental organization in Kenya that empowers communities, especially women, to conserve the environment and improve livelihoods. It was founded by Professor Wangari Maathai in 1977 under the auspices of the National Council of Women of Kenya to respond to the needs of rural women dealing with the consequences of environmental degradation.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "unissons-nous-pour-la-promotion-des-batwa-uniproba",
@@ -635,7 +716,10 @@
       "hectares": "310",
       "jobs": "380",
       "website": "https://www.uniproba.bi",
-      "excerpt": "Founded in 1999, UNIPROBA is dedicated to improving the livelihoods and political representation of the Indigenous Batwa community in Burundi, all while safeguarding the natural environment. They protect the biodiverse Kibira National Park from degradation and work with Batwa communities to plant fruit trees in the Kirundo and Bujumbura provinces."
+      "excerpt": "Founded in 1999, UNIPROBA is dedicated to improving the livelihoods and political representation of the Indigenous Batwa community in Burundi, all while safeguarding the natural environment. They protect the biodiverse Kibira National Park from degradation and work with Batwa communities to plant fruit trees in the Kirundo and Bujumbura provinces.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "albertine-rift-conservation-society-arcos-network",
@@ -647,7 +731,10 @@
       "hectares": "772",
       "jobs": "780",
       "website": "http://www.arcosnetwork.org",
-      "excerpt": "With this funding, FCPEEP and the ARCOS Network are partnering on new project to reforest the Luiro River watershed in the DRC. By growing trees along the riverbank, the two organizations will reduce the area’s vulnerability to landslides. FCPEEP, a non-profit environmental protection organization from the DRC, will lead implementation and design learning case studies to evaluate the impacts of this work."
+      "excerpt": "With this funding, FCPEEP and the ARCOS Network are partnering on new project to reforest the Luiro River watershed in the DRC. By growing trees along the riverbank, the two organizations will reduce the area’s vulnerability to landslides. FCPEEP, a non-profit environmental protection organization from the DRC, will lead implementation and design learning case studies to evaluate the impacts of this work.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "y-m-regeneration",
@@ -659,7 +746,10 @@
       "hectares": "200",
       "jobs": "515",
       "website": "https://ynmregeneration.com/",
-      "excerpt": "Y&M Regeneration is a women-led company in Ghana that produces timber and tree crop seedlings for plantations, agroforestry systems, and forest restoration projects. Since founding its first nursery in 2009, the company has supplied seedlings that have been planted across over 1,000 hectares, built several new nurseries, and grown a variety of agricultural products for sale on the market, including cashews and corn."
+      "excerpt": "Y&M Regeneration is a women-led company in Ghana that produces timber and tree crop seedlings for plantations, agroforestry systems, and forest restoration projects. Since founding its first nursery in 2009, the company has supplied seedlings that have been planted across over 1,000 hectares, built several new nurseries, and grown a variety of agricultural products for sale on the market, including cashews and corn.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "herp-ghana",
@@ -671,7 +761,10 @@
       "hectares": "400",
       "jobs": "450",
       "website": "https://www.herpghana.org/",
-      "excerpt": "Herp-Ghana advocates for reptile and amphibian conservation within Ghanaian communities. Its mission is to establish new protected areas and restore priority habitats that benefit people and safeguard these species. This second grant from TerraFund will equip Herp-Ghana to restore degraded forests within the Wenchi Municipality. The project will offer employment opportunities for over 100 women and youth and improve the livelihoods of the town’s farmers."
+      "excerpt": "Herp-Ghana advocates for reptile and amphibian conservation within Ghanaian communities. Its mission is to establish new protected areas and restore priority habitats that benefit people and safeguard these species. This second grant from TerraFund will equip Herp-Ghana to restore degraded forests within the Wenchi Municipality. The project will offer employment opportunities for over 100 women and youth and improve the livelihoods of the town’s farmers.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "organisation-de-defense-de-l-environnement-et-le-developpement-d",
@@ -683,7 +776,10 @@
       "hectares": "305",
       "jobs": "1,518",
       "website": "https://www.odeb.org",
-      "excerpt": "ODEB is a nonprofit operating in 9 communities in Burundi’s Bubanza Province. Using adaptable and community-based solutions, the organization’s mission is to protect the sustainable management of natural resources within the region. With two guiding principles, urgency and sustainable development, its interventions address water quality, hygiene and sanitation, food security, climate adaptation, and community well-being."
+      "excerpt": "ODEB is a nonprofit operating in 9 communities in Burundi’s Bubanza Province. Using adaptable and community-based solutions, the organization’s mission is to protect the sustainable management of natural resources within the region. With two guiding principles, urgency and sustainable development, its interventions address water quality, hygiene and sanitation, food security, climate adaptation, and community well-being.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "prime-biodiversity-conservation-pbc",
@@ -695,7 +791,10 @@
       "hectares": "260",
       "jobs": "1,810",
       "website": "https://www.primebiodiversityconservation.org",
-      "excerpt": "Founded by a group of passionate conservationists in 2018, PBC is dedicated to protecting the rich biodiversity of Rwanda and beyond. Over the last five years, PBC has educated young people on how to embrace environmental conservation practices like growing trees and caring for saplings in nurseries. PBC will use this grant to grow native trees with children in schools and at home with their families."
+      "excerpt": "Founded by a group of passionate conservationists in 2018, PBC is dedicated to protecting the rich biodiversity of Rwanda and beyond. Over the last five years, PBC has educated young people on how to embrace environmental conservation practices like growing trees and caring for saplings in nurseries. PBC will use this grant to grow native trees with children in schools and at home with their families.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "rural-development-initiative-rdi",
@@ -707,7 +806,10 @@
       "hectares": "285",
       "jobs": "500",
       "website": "https://ruraldevelopmentinitiative.org/",
-      "excerpt": "Rural Development Initiative (RDI) is a youth- and sustainable agriculture-focused NGO dedicated to empowering rural communities by promoting environmentally responsible practices and improving livelihoods. With seven years of experience, RDI has built a strong reputation for transforming subsistence farming into market-oriented agriculture, providing training, and connecting smallholder farmers to markets."
+      "excerpt": "Rural Development Initiative (RDI) is a youth- and sustainable agriculture-focused NGO dedicated to empowering rural communities by promoting environmentally responsible practices and improving livelihoods. With seven years of experience, RDI has built a strong reputation for transforming subsistence farming into market-oriented agriculture, providing training, and connecting smallholder farmers to markets.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "tropenbos-ghana-programme-tbg",
@@ -719,7 +821,10 @@
       "hectares": "150",
       "jobs": "50",
       "website": "http://www.tropenbosghana.org/",
-      "excerpt": "Established in 2001, Tropenbos Ghana brings knowledge from its international network of experts and community leaders to transform landscapes. In Ghana, it restores the Juabeso-Bia and Sefwi-Wiawso landscapes, where cocoa farms have expanded into natural forests, threatening biodiversity and the long-term health and prosperity of farming communities."
+      "excerpt": "Established in 2001, Tropenbos Ghana brings knowledge from its international network of experts and community leaders to transform landscapes. In Ghana, it restores the Juabeso-Bia and Sefwi-Wiawso landscapes, where cocoa farms have expanded into natural forests, threatening biodiversity and the long-term health and prosperity of farming communities.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "communities-of-hope",
@@ -731,7 +836,10 @@
       "hectares": "350",
       "jobs": "1,100",
       "website": "https://www.communitiesofhope.bi",
-      "excerpt": "Founded 10 years ago in Burundi, Communities of Hope transforms landscapes and lives by providing low-income families with land, seeds and other forms of support for sustainable living. The organization has engaged 36,000 community members in their activities over the last three years and grown 120,000 trees. Communities of Hope will use this grant to restore land in Burundi’s Bubanza and Cibitoke Provinces by expanding agroforestry, silvopasture and reforestation around Kibira National Park."
+      "excerpt": "Founded 10 years ago in Burundi, Communities of Hope transforms landscapes and lives by providing low-income families with land, seeds and other forms of support for sustainable living. The organization has engaged 36,000 community members in their activities over the last three years and grown 120,000 trees. Communities of Hope will use this grant to restore land in Burundi’s Bubanza and Cibitoke Provinces by expanding agroforestry, silvopasture and reforestation around Kibira National Park.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "conservation-cocoa-association",
@@ -743,7 +851,10 @@
       "hectares": "225",
       "jobs": "50",
       "website": "",
-      "excerpt": "Conservation Cocoa Association is a well-established organization with over a decade of experience in environmental restoration, climate change mitigation, and community empowerment. Their mission centers on solving environmental challenges, promoting sustainable land use, and advocating for the rights of marginalized rural communities."
+      "excerpt": "Conservation Cocoa Association is a well-established organization with over a decade of experience in environmental restoration, climate change mitigation, and community empowerment. Their mission centers on solving environmental challenges, promoting sustainable land use, and advocating for the rights of marginalized rural communities.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "kula-project",
@@ -755,7 +866,10 @@
       "hectares": "76",
       "jobs": "80",
       "website": "https://www.kulaproject.org",
-      "excerpt": "Kula Project’s mission is to eradicate poverty by empowering entrepreneurs in Rwanda's smallholder coffee communities. Through its Kula Fellowship, the group partners with primarily women coffee farmers to provide agronomy training, financial investment, and one-on-one mentorship. After entering the program, participants have seen their coffee yields double and tripled their household incomes."
+      "excerpt": "Kula Project’s mission is to eradicate poverty by empowering entrepreneurs in Rwanda's smallholder coffee communities. Through its Kula Fellowship, the group partners with primarily women coffee farmers to provide agronomy training, financial investment, and one-on-one mentorship. After entering the program, participants have seen their coffee yields double and tripled their household incomes.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "action-pour-la-protection-de-l-environnement-et-la-promotion-des",
@@ -767,7 +881,10 @@
       "hectares": "402",
       "jobs": "2,065",
       "website": "https://www.apefarwanda.org",
-      "excerpt": "Established in 2008, APEFA aims to build resilient farming systems and long-lasting food security in Rwanda. The group focuses on giving vulnerable communities the knowledge and tools that they need. With this grant, APEFA will work to restore and protect the banks and watersheds of the Rusizi River. By training local farmers to grow bamboo, silky oak, and fruit trees among their crops, the organization will improve water quality for all who live near the river basin."
+      "excerpt": "Established in 2008, APEFA aims to build resilient farming systems and long-lasting food security in Rwanda. The group focuses on giving vulnerable communities the knowledge and tools that they need. With this grant, APEFA will work to restore and protect the banks and watersheds of the Rusizi River. By training local farmers to grow bamboo, silky oak, and fruit trees among their crops, the organization will improve water quality for all who live near the river basin.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "moto-feeds",
@@ -779,7 +896,10 @@
       "hectares": "600",
       "jobs": "260",
       "website": "https://motofeeds.wixsite.com/my-site-1",
-      "excerpt": "Moto Feeds collaborates with local Maasai pastoralist communities in Kenya to rejuvenate degraded grasslands through affordable fodder solutions. In partnership with the Maasai, the company grows a highly nutritious and rapidly regenerating grass for animal feed and provides an all-season soil cover known as Boma Rhodes grass. This contributes to the community's financial well-being, as its members can also sell surplus grass bales for income."
+      "excerpt": "Moto Feeds collaborates with local Maasai pastoralist communities in Kenya to rejuvenate degraded grasslands through affordable fodder solutions. In partnership with the Maasai, the company grows a highly nutritious and rapidly regenerating grass for animal feed and provides an all-season soil cover known as Boma Rhodes grass. This contributes to the community's financial well-being, as its members can also sell surplus grass bales for income.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "organization-for-support-to-the-environmental-protection-and-cli",
@@ -791,7 +911,10 @@
       "hectares": "280",
       "jobs": "200",
       "website": "",
-      "excerpt": "OSEPCCA builds partnerships with government and private institutions to implement landscape restoration, environmental protection, and food security projects in Rwanda. With this grant, the group will work with farmers and communities across the district of Rutsiro to restore depleted croplands, woodlots, and river networks. OSEPCCA will focus on propagating native seedlings that are favored by the local community."
+      "excerpt": "OSEPCCA builds partnerships with government and private institutions to implement landscape restoration, environmental protection, and food security projects in Rwanda. With this grant, the group will work with farmers and communities across the district of Rutsiro to restore depleted croplands, woodlots, and river networks. OSEPCCA will focus on propagating native seedlings that are favored by the local community.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "rural-environmental-and-development-organization-redo",
@@ -803,7 +926,10 @@
       "hectares": "725",
       "jobs": "364",
       "website": "https://www.redo.org.rw",
-      "excerpt": "Founded in 1999, REDO is a Rwandan non-profit organization that works with local communities to earn a living while also working towards environmental conservation. These include disseminating improved stoves that use less energy, tree planting, bee keeping, water harvesting and soil conservation. With this grant, REDO will construct tree nurseries and engage the local community in growing trees to revitalize Lake Kivu Catchment in the Rusizi District."
+      "excerpt": "Founded in 1999, REDO is a Rwandan non-profit organization that works with local communities to earn a living while also working towards environmental conservation. These include disseminating improved stoves that use less energy, tree planting, bee keeping, water harvesting and soil conservation. With this grant, REDO will construct tree nurseries and engage the local community in growing trees to revitalize Lake Kivu Catchment in the Rusizi District.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "eden-reforestation-projects",
@@ -815,7 +941,10 @@
       "hectares": "75",
       "jobs": "28",
       "website": "http://www.edenprojects.org",
-      "excerpt": "Eden Reforestation Projects is a global organization that strives to cultivate healthy relationships between people and the forests they depend on. Since 2004, Eden has scaled its restoration programming to bring an estimated 76,000 hectares of degraded forest land under active restoration around the globe. It began working in Kenya in 2019 and now operates throughout the country in both its mangrove and afromontane forest landscapes."
+      "excerpt": "Eden Reforestation Projects is a global organization that strives to cultivate healthy relationships between people and the forests they depend on. Since 2004, Eden has scaled its restoration programming to bring an estimated 76,000 hectares of degraded forest land under active restoration around the globe. It began working in Kenya in 2019 and now operates throughout the country in both its mangrove and afromontane forest landscapes.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "a-rocha-ghana-arg",
@@ -827,7 +956,10 @@
       "hectares": "1,566",
       "jobs": "330",
       "website": "https://ghana.arocha.org/",
-      "excerpt": "A Rocha Ghana has dedicated itself to preserving the Earth’s sustainable resources since 1999. With four project offices spread out across the country, the organization’s objective is to inspire and empower people to care for nature, while promoting and supporting sustainable natural resource management."
+      "excerpt": "A Rocha Ghana has dedicated itself to preserving the Earth’s sustainable resources since 1999. With four project offices spread out across the country, the organization’s objective is to inspire and empower people to care for nature, while promoting and supporting sustainable natural resource management.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "ecological-nest",
@@ -839,7 +971,10 @@
       "hectares": "180",
       "jobs": "300",
       "website": "https://www.ecologicalnest.org",
-      "excerpt": "Ecological Nest is a conservation-focused organization based in Accra, dedicated to promoting the sustainable use of natural resources and supporting communities that depend on nature. With a decade of experience, the organization emphasizes science-driven restoration, strategic partnerships, and community engagement. Guided by a five-member board led by a respected conservation scientist, Ecological Nest operates under a five-year strategy that prioritizes ecorestoration."
+      "excerpt": "Ecological Nest is a conservation-focused organization based in Accra, dedicated to promoting the sustainable use of natural resources and supporting communities that depend on nature. With a decade of experience, the organization emphasizes science-driven restoration, strategic partnerships, and community engagement. Guided by a five-member board led by a respected conservation scientist, Ecological Nest operates under a five-year strategy that prioritizes ecorestoration.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "solidaridad-east-and-central-africa",
@@ -851,7 +986,10 @@
       "hectares": "250",
       "jobs": "35",
       "website": "https://www.solidaridadnetwork.org/",
-      "excerpt": "Recognizing how farmers in developing countries struggle to access markets, Solidaridad partners with communities to improve value chains and find sustainable markets for their produce. The TerraFund grant will expand its “Shade 4 Vegetables” (SAVE) project, which restore degraded catchments using agroforestry systems."
+      "excerpt": "Recognizing how farmers in developing countries struggle to access markets, Solidaridad partners with communities to improve value chains and find sustainable markets for their produce. The TerraFund grant will expand its “Shade 4 Vegetables” (SAVE) project, which restore degraded catchments using agroforestry systems.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "biodiversity-conservation-organization-biocoor",
@@ -863,7 +1001,10 @@
       "hectares": "200",
       "jobs": "240",
       "website": "https://www.biocoor.rw/",
-      "excerpt": "BIOCOOR is a youth-led non-profit organization in Rwanda. Focusing on the districts surrounding Nyungwe National Park, the group is dedicated to conserving biodiversity, promoting ecotourism, improving community health, and mitigating climate change. BIOCOOR will use this grant to revitalize Rwanda’s Nyamasheke district with native tree species. In a region afflicted by declining crop yields, this project will create job opportunities in tree growing, agroforestry, and ecotourism."
+      "excerpt": "BIOCOOR is a youth-led non-profit organization in Rwanda. Focusing on the districts surrounding Nyungwe National Park, the group is dedicated to conserving biodiversity, promoting ecotourism, improving community health, and mitigating climate change. BIOCOOR will use this grant to revitalize Rwanda’s Nyamasheke district with native tree species. In a region afflicted by declining crop yields, this project will create job opportunities in tree growing, agroforestry, and ecotourism.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "groots-kenya-association",
@@ -875,7 +1016,10 @@
       "hectares": "243",
       "jobs": "1,024",
       "website": "https://www.grootskenya.org",
-      "excerpt": "Established in 1995, GROOTS Kenya is a women-led non-profit organization that addresses the lack of visibility of grassroots women in processes that affect their lives. The group uses a bottom-up model that places women at the center of decision-making, allowing them to take charge of their own development. It works with over 1,500 women farmers in restoration by encouraging sustainable farming and agroforestry."
+      "excerpt": "Established in 1995, GROOTS Kenya is a women-led non-profit organization that addresses the lack of visibility of grassroots women in processes that affect their lives. The group uses a bottom-up model that places women at the center of decision-making, allowing them to take charge of their own development. It works with over 1,500 women farmers in restoration by encouraging sustainable farming and agroforestry.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "association-pour-la-promotion-de-l-agriculture-de-conservation-e",
@@ -887,7 +1031,10 @@
       "hectares": "410",
       "jobs": "320",
       "website": "",
-      "excerpt": "PACPE is a community-focused organization with eight years of experience at the intersection of rural development, food security, and ecological restoration. Its mission centers on sustainable agriculture, climate resilience, reforestation, and agroforestry on degraded lands, with a strong emphasis on gender equity and community empowerment. PACPE employs participatory and adaptive approaches, co-designing projects with local communities and valuing traditional knowledge."
+      "excerpt": "PACPE is a community-focused organization with eight years of experience at the intersection of rural development, food security, and ecological restoration. Its mission centers on sustainable agriculture, climate resilience, reforestation, and agroforestry on degraded lands, with a strong emphasis on gender equity and community empowerment. PACPE employs participatory and adaptive approaches, co-designing projects with local communities and valuing traditional knowledge.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "community-socio-environmental-organization-coseo",
@@ -899,7 +1046,10 @@
       "hectares": "100",
       "jobs": "300",
       "website": "",
-      "excerpt": "Since its establishment in 2005, COSEO has cultivated over 5 million saplings in the rolling hills of Kenya’s Baringo County. The organization’s expertise also lies in bamboo seedlings, which it has sold and donated for planting within degraded sections of the Lembus Forest watershed. With this grant, COSEO will carry out a degradation survey and develop a restoration plan for the Lembus Forest."
+      "excerpt": "Since its establishment in 2005, COSEO has cultivated over 5 million saplings in the rolling hills of Kenya’s Baringo County. The organization’s expertise also lies in bamboo seedlings, which it has sold and donated for planting within degraded sections of the Lembus Forest watershed. With this grant, COSEO will carry out a degradation survey and develop a restoration plan for the Lembus Forest.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "laikipia-wildlife-forum-lwf",
@@ -911,7 +1061,10 @@
       "hectares": "171",
       "jobs": "100",
       "website": "https://www.laikipia.org",
-      "excerpt": "LWF supports conservation efforts and natural resource management initiatives in the Laikipia region of Kenya’s Greater Rift Valley. Its mission is to nurture and support stakeholder institutions that champion wildlife conservation and sustainable natural resource management. With this grant, LWF will restore wildlife habitats in the Upper Ewaso Ng'iro Basin through reforestation, agroforestry, silvopasture and assisted natural regeneration."
+      "excerpt": "LWF supports conservation efforts and natural resource management initiatives in the Laikipia region of Kenya’s Greater Rift Valley. Its mission is to nurture and support stakeholder institutions that champion wildlife conservation and sustainable natural resource management. With this grant, LWF will restore wildlife habitats in the Upper Ewaso Ng'iro Basin through reforestation, agroforestry, silvopasture and assisted natural regeneration.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "paran-women-group",
@@ -923,7 +1076,10 @@
       "hectares": "150",
       "jobs": "158",
       "website": "https://www.paranwomen.org",
-      "excerpt": "In 2005, a group of Indigenous women in Ololulunga, a village in Kenya’s Narok County, formed Paran Women Group to involve their peers in tree growing and re-greening projects. The organization has worked with marginalized communities in the Mau Forest by educating them about Indigenous rights, training them on forest conservation, and providing energy efficient cookstoves to cut their reliance on firewood for cooking fuel."
+      "excerpt": "In 2005, a group of Indigenous women in Ololulunga, a village in Kenya’s Narok County, formed Paran Women Group to involve their peers in tree growing and re-greening projects. The organization has worked with marginalized communities in the Mau Forest by educating them about Indigenous rights, training them on forest conservation, and providing energy efficient cookstoves to cut their reliance on firewood for cooking fuel.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "leona-foundation",
@@ -935,7 +1091,10 @@
       "hectares": "161",
       "jobs": "189",
       "website": "https://www.leonafoundation.org",
-      "excerpt": "Leona Foundation seeks to promote community transformation in Kenya, collaborating with marginalized groups to safeguard the environment. The organization has partnered with several community forest associations to carry out restoration projects, impacting more than 300,000 members within the Mau Forest ecosystem. Over the last three years, the organization has grown 646,000 trees and restored 804 hectares of land."
+      "excerpt": "Leona Foundation seeks to promote community transformation in Kenya, collaborating with marginalized groups to safeguard the environment. The organization has partnered with several community forest associations to carry out restoration projects, impacting more than 300,000 members within the Mau Forest ecosystem. Over the last three years, the organization has grown 646,000 trees and restored 804 hectares of land.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "rwanda-organic-agriculture-movement-roam",
@@ -947,7 +1106,10 @@
       "hectares": "491",
       "jobs": "50",
       "website": "https://www.roam.org.rw/",
-      "excerpt": "For years, members of Rwanda's organic agriculture industry, including farmers, processors, and exporters, faced limited avenues to showcase their products. In 2007, ROAM was established to provide an organized and more focused movement dedicated to promoting organic agriculture. It is a member of the International Federation of Organic Agriculture Movement (IFOAM), a global umbrella organization for organic agriculture movements that represents nearly 800 affiliates in 117 countries."
+      "excerpt": "For years, members of Rwanda's organic agriculture industry, including farmers, processors, and exporters, faced limited avenues to showcase their products. In 2007, ROAM was established to provide an organized and more focused movement dedicated to promoting organic agriculture. It is a member of the International Federation of Organic Agriculture Movement (IFOAM), a global umbrella organization for organic agriculture movements that represents nearly 800 affiliates in 117 countries.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "women-in-water-and-natural-resources-conservation-wwanc",
@@ -959,7 +1121,10 @@
       "hectares": "220",
       "jobs": "220",
       "website": "https://www.wwanc.co.ke",
-      "excerpt": "Women in Water and Natural Resources Conservation (WWANC) is a women-led organization dedicated to empowering women and girls through sustainable community development, with a strong emphasis on climate resilience, conservation, and restoration. With over a decade of experience, WWANC has established itself as a leader in participatory, women-centered approaches to environmental stewardship, equipping grassroots women with the knowledge and skills to protect ecosystems and drive positive change."
+      "excerpt": "Women in Water and Natural Resources Conservation (WWANC) is a women-led organization dedicated to empowering women and girls through sustainable community development, with a strong emphasis on climate resilience, conservation, and restoration. With over a decade of experience, WWANC has established itself as a leader in participatory, women-centered approaches to environmental stewardship, equipping grassroots women with the knowledge and skills to protect ecosystems and drive positive change.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "rwanda-climate-change-and-development-network-rccdn",
@@ -971,7 +1136,10 @@
       "hectares": "400",
       "jobs": "600",
       "website": "https://www.rccdnetwork.org",
-      "excerpt": "The Rwanda Climate Change and Development Network (RCCDN) leads a consortium with RBI and REAO, combining expertise in environmental management, community engagement, and sustainable livelihoods. RCCDN oversees coordination, financial management, and reporting, leveraging its experience in managing large-scale restoration projects, including planting over 1.2 million trees and restoring 3,500 hectares."
+      "excerpt": "The Rwanda Climate Change and Development Network (RCCDN) leads a consortium with RBI and REAO, combining expertise in environmental management, community engagement, and sustainable livelihoods. RCCDN oversees coordination, financial management, and reporting, leveraging its experience in managing large-scale restoration projects, including planting over 1.2 million trees and restoring 3,500 hectares.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "horizon-business-ventures-hbv",
@@ -983,7 +1151,10 @@
       "hectares": "130",
       "jobs": "68",
       "website": "",
-      "excerpt": "Horizon Business Ventures (HBV) is a Kenyan company with eight years of experience in sustainable enterprise, focusing on essential oils production that integrates biodiversity, business, and community wellbeing. HBV’s mission is to provide high-quality, eco-friendly products while promoting economic and environmental sustainability in rural areas."
+      "excerpt": "Horizon Business Ventures (HBV) is a Kenyan company with eight years of experience in sustainable enterprise, focusing on essential oils production that integrates biodiversity, business, and community wellbeing. HBV’s mission is to provide high-quality, eco-friendly products while promoting economic and environmental sustainability in rural areas.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "pan-african-climate-justice-alliance-pacja",
@@ -995,7 +1166,10 @@
       "hectares": "100",
       "jobs": "10",
       "website": "https://www.pacja.org",
-      "excerpt": "PACJA is a consortium of more than 1,000 organizations from 48 African countries. The alliance brings its members together over a shared vision: a people-centered, rights-based approach to address the environmental challenges facing humanity. With this grant, PACJA will work with local communities to rehabilitate the degraded lands of Kenya’s West Pokot County."
+      "excerpt": "PACJA is a consortium of more than 1,000 organizations from 48 African countries. The alliance brings its members together over a shared vision: a people-centered, rights-based approach to address the environmental challenges facing humanity. With this grant, PACJA will work with local communities to rehabilitate the degraded lands of Kenya’s West Pokot County.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "itombwe-generation-pour-l-humanite-igh",
@@ -1007,7 +1181,10 @@
       "hectares": "450",
       "jobs": "75",
       "website": "https://igh-itombwe.org/",
-      "excerpt": "IGH is a non-profit organization in the DRC. Its main mission is to protect the biodiversity and forest habitat of the Itombwe Mountains, which run west of the Rusizi River Basin. Since its establishment in 2014, the organization has involved more than 7,000 local community members through forestry committee training programs. IGH will use its grant from TerraFund to increase forest cover in South Kivu Province and improve food security by working with farmers to grow trees among their crops."
+      "excerpt": "IGH is a non-profit organization in the DRC. Its main mission is to protect the biodiversity and forest habitat of the Itombwe Mountains, which run west of the Rusizi River Basin. Since its establishment in 2014, the organization has involved more than 7,000 local community members through forestry committee training programs. IGH will use its grant from TerraFund to increase forest cover in South Kivu Province and improve food security by working with farmers to grow trees among their crops.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "ogiek-peoples-development-program-opdp",
@@ -1019,7 +1196,10 @@
       "hectares": "75",
       "jobs": "150",
       "website": "https://www.ogiekpeoples.org",
-      "excerpt": "OPDP is a Kenya-based non-profit organization founded in 1999. Led by elders, thought leaders, and professionals from the Ogiek Indigenous community, the group was formed in the wake of historical injustices that stripped the population of their land rights. OPDP’s work centers on promoting Ogiek culture, securing community participation in all sectors, championing land rights, and advocating for sustainable development."
+      "excerpt": "OPDP is a Kenya-based non-profit organization founded in 1999. Led by elders, thought leaders, and professionals from the Ogiek Indigenous community, the group was formed in the wake of historical injustices that stripped the population of their land rights. OPDP’s work centers on promoting Ogiek culture, securing community participation in all sectors, championing land rights, and advocating for sustainable development.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "plant-for-the-planet-ghana",
@@ -1031,7 +1211,10 @@
       "hectares": "150",
       "jobs": "200",
       "website": "https://www.plant-for-the-planet.org/plant-for-ghana/",
-      "excerpt": "Plant-for-the-Planet Ghana is dedicated to restoring degraded landscapes, combating climate change, and empowering local communities through tree planting and sustainable land use. With five years of experience, the organization has established a strong track record in ecological restoration, focusing on community nurseries, agroforestry, and inclusive engagement of youth and women."
+      "excerpt": "Plant-for-the-Planet Ghana is dedicated to restoring degraded landscapes, combating climate change, and empowering local communities through tree planting and sustainable land use. With five years of experience, the organization has established a strong track record in ecological restoration, focusing on community nurseries, agroforestry, and inclusive engagement of youth and women.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "youth-in-agroecology-and-business-learning-track-africa-yalta",
@@ -1043,7 +1226,10 @@
       "hectares": "400",
       "jobs": "147",
       "website": "",
-      "excerpt": "Youth in Agroecology and Business Learning Track Africa (YALTA) Rwanda is dedicated to empowering youth and women to restore degraded landscapes through agroecological innovation. With four years of experience, YALTA has established itself as a leader in combining restoration with entrepreneurship, capacity building, and inclusive governance."
+      "excerpt": "Youth in Agroecology and Business Learning Track Africa (YALTA) Rwanda is dedicated to empowering youth and women to restore degraded landscapes through agroecological innovation. With four years of experience, YALTA has established itself as a leader in combining restoration with entrepreneurship, capacity building, and inclusive governance.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "sustainable-agroforestry-initiative-safi",
@@ -1055,7 +1241,10 @@
       "hectares": "100",
       "jobs": "30",
       "website": "https://www.safighana.org/",
-      "excerpt": "This proposed project will focus planting activities for the first 2-years and continue monitoring the project for the next 3-years to ensure planted trees are well established and free to grow from competing weeds. Our restoration implementation activities are determined and designed through series of education, town hall meetings, focus group discussion and baseline study involving the local people and the traditional authorities."
+      "excerpt": "This proposed project will focus planting activities for the first 2-years and continue monitoring the project for the next 3-years to ensure planted trees are well established and free to grow from competing weeds. Our restoration implementation activities are determined and designed through series of education, town hall meetings, focus group discussion and baseline study involving the local people and the traditional authorities.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "the-big-thunder-mining-company",
@@ -1067,7 +1256,10 @@
       "hectares": "625",
       "jobs": "80",
       "website": "http://bigthundernuts.co.ke",
-      "excerpt": "The Big Thunder Mining Company is dedicated to sustainable macadamia processing and community-driven environmental restoration. With five years of experience, the organization has established itself as a leader in promoting traceability, empowering farming communities, and advancing reforestation efforts. Their operations include processing high-quality macadamia kernels for export, upcycling shells into biomass energy, and producing premium cosmetic oil from grade B kernels."
+      "excerpt": "The Big Thunder Mining Company is dedicated to sustainable macadamia processing and community-driven environmental restoration. With five years of experience, the organization has established itself as a leader in promoting traceability, empowering farming communities, and advancing reforestation efforts. Their operations include processing high-quality macadamia kernels for export, upcycling shells into biomass energy, and producing premium cosmetic oil from grade B kernels.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "mission-of-hope-for-society-international-foundation-mihoso-inte",
@@ -1079,7 +1271,10 @@
       "hectares": "150",
       "jobs": "250",
       "website": "https://www.mihosointernational.org",
-      "excerpt": "MIHOSO International is committed to building a safe world for women, youth, and children. It carries out social development programs across seven regions in Ghana, working with over 1,000 communities to improve their well-being. With this funding, MIHOSO will conduct a baseline survey in forest fringe and cocoa-growing communities to determine the underlying causes of degradation and its impacts on local residents."
+      "excerpt": "MIHOSO International is committed to building a safe world for women, youth, and children. It carries out social development programs across seven regions in Ghana, working with over 1,000 communities to improve their well-being. With this funding, MIHOSO will conduct a baseline survey in forest fringe and cocoa-growing communities to determine the underlying causes of degradation and its impacts on local residents.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "sakam-savana",
@@ -1091,7 +1286,10 @@
       "hectares": "100",
       "jobs": "377",
       "website": "https://www.sakamsavana.org",
-      "excerpt": "Sakam Savana is a Ghanaian company that grows commercial trees and facilitates agroforestry on smallholder farms. Its mission is to improve economic livelihoods for rural communities residing on the outskirts of degraded forests while also protecting their water sources. This investment will enable Sakam Savana to revitalize a watershed in Afram Headwaters Forest Reserve, tying water conservation and land restoration together."
+      "excerpt": "Sakam Savana is a Ghanaian company that grows commercial trees and facilitates agroforestry on smallholder farms. Its mission is to improve economic livelihoods for rural communities residing on the outskirts of degraded forests while also protecting their water sources. This investment will enable Sakam Savana to revitalize a watershed in Afram Headwaters Forest Reserve, tying water conservation and land restoration together.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "unis-pour-l-education-socioenvironnementale-de-la-femme-uesef",
@@ -1103,7 +1301,10 @@
       "hectares": "100",
       "jobs": "421",
       "website": "https://www.uesef.org",
-      "excerpt": "UESEF is a Congolese nonprofit whose vision is to provide environmental education, economic opportunities, and improved livelihoods to women and young people. They restore forest and aquatic ecosystems by promoting climate-smart agriculture and bolstering women’s involvement in natural resource management and access to social and health services."
+      "excerpt": "UESEF is a Congolese nonprofit whose vision is to provide environmental education, economic opportunities, and improved livelihoods to women and young people. They restore forest and aquatic ecosystems by promoting climate-smart agriculture and bolstering women’s involvement in natural resource management and access to social and health services.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "nabahya-food-institute-nfi",
@@ -1115,7 +1316,10 @@
       "hectares": "83",
       "jobs": "784",
       "website": "https://www.nabahyafoodinstitute.org",
-      "excerpt": "NFI’s mission is to empower local agricultural cooperatives and reduce food insecurity in the DRC. Recognizing that food production is tied to environmental degradation, the organization is committed to addressing this dual challenge. NFI’s primary activities include regenerative agriculture, food security, clean energy, forest restoration initiatives, and investment in rural women."
+      "excerpt": "NFI’s mission is to empower local agricultural cooperatives and reduce food insecurity in the DRC. Recognizing that food production is tied to environmental degradation, the organization is committed to addressing this dual challenge. NFI’s primary activities include regenerative agriculture, food security, clean energy, forest restoration initiatives, and investment in rural women.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "advocates-for-biodiversity-conservation",
@@ -1127,7 +1331,10 @@
       "hectares": "1,250",
       "jobs": "150",
       "website": "https://www.biodiversityadvocates.org/",
-      "excerpt": "Advocates for Biodiversity Conservation (ABC) is a non-profit organization based in Accra, Ghana, dedicated to biodiversity conservation and the mitigation of environmental degradation, with a strong emphasis on supporting sustainable livelihoods and empowering women in agriculture."
+      "excerpt": "Advocates for Biodiversity Conservation (ABC) is a non-profit organization based in Accra, Ghana, dedicated to biodiversity conservation and the mitigation of environmental degradation, with a strong emphasis on supporting sustainable livelihoods and empowering women in agriculture.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "agrointroductions-ghana-aig",
@@ -1139,7 +1346,10 @@
       "hectares": "350",
       "jobs": "400",
       "website": "https://www.agrointroductionsgh.org",
-      "excerpt": "Agrointroductions Ghana (AIG) is a well-established non-profit environmental organization with a decade of experience advancing sustainable environmental practices in Ghana. Since 2014, AIG has focused on nature-based solutions, including reforestation, agroforestry, and agroecology, working in partnership with respected organizations such as the Green Climate Fund, UNDP GEF, and WWF."
+      "excerpt": "Agrointroductions Ghana (AIG) is a well-established non-profit environmental organization with a decade of experience advancing sustainable environmental practices in Ghana. Since 2014, AIG has focused on nature-based solutions, including reforestation, agroforestry, and agroecology, working in partnership with respected organizations such as the Green Climate Fund, UNDP GEF, and WWF.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "ahadi-achievers-empowerment-aae",
@@ -1151,7 +1361,10 @@
       "hectares": "100",
       "jobs": "45",
       "website": "https://ahadiachieverscbo.org/",
-      "excerpt": "In 2021, fifteen local development leaders from Kenya’s Makueni County came together to form AAE. Now, this community-based organization works with over 39 community self-help groups. Its mission is to empower and improve the quality of life of local communities through sustainable development initiatives, youth and women empowerment, and social inclusion."
+      "excerpt": "In 2021, fifteen local development leaders from Kenya’s Makueni County came together to form AAE. Now, this community-based organization works with over 39 community self-help groups. Its mission is to empower and improve the quality of life of local communities through sustainable development initiatives, youth and women empowerment, and social inclusion.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "climate-change-africa-opportunities-ccao",
@@ -1163,7 +1376,10 @@
       "hectares": "200",
       "jobs": "580",
       "website": "https://www.climatechangeafricaopportunities.org/",
-      "excerpt": "Since 2015, CCAO has fought to protect biodiversity, promote socioeconomic development, and safeguard vulnerable ecosystems in the Democratic Republic of the Congo. CCAO employs a climate justice model, working especially with indigenous communities to build long-term climate resilience. This second TerraFund grant will allow CCAO to expand its restoration work in the Rusizi Basin, bringing life back to an area that thousands of people rely on for food."
+      "excerpt": "Since 2015, CCAO has fought to protect biodiversity, promote socioeconomic development, and safeguard vulnerable ecosystems in the Democratic Republic of the Congo. CCAO employs a climate justice model, working especially with indigenous communities to build long-term climate resilience. This second TerraFund grant will allow CCAO to expand its restoration work in the Rusizi Basin, bringing life back to an area that thousands of people rely on for food.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "fanteakwa-district-ccp-cooperative-cocoa-farmers-and-marketing",
@@ -1175,7 +1391,10 @@
       "hectares": "1,074",
       "jobs": "19",
       "website": "",
-      "excerpt": "Formed in 2011, this cooperative is a Ghanaian non-profit organization that brings together 2,046 members from 25 societies. The group is devoted to working alongside local communities to promote cocoa farmers’ wellbeing, encourage youth to join the agribusiness sector, and enhance quality chocolate manufacturing. With this grant, the union will work to incorporate native shade trees throughout cocoa farms in the districts of Fanteakwa, Atiwa, and Abuakwa."
+      "excerpt": "Formed in 2011, this cooperative is a Ghanaian non-profit organization that brings together 2,046 members from 25 societies. The group is devoted to working alongside local communities to promote cocoa farmers’ wellbeing, encourage youth to join the agribusiness sector, and enhance quality chocolate manufacturing. With this grant, the union will work to incorporate native shade trees throughout cocoa farms in the districts of Fanteakwa, Atiwa, and Abuakwa.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "initiatives-et-actions-pour-le-developpement-local-iadl",
@@ -1187,7 +1406,10 @@
       "hectares": "185",
       "jobs": "75",
       "website": "",
-      "excerpt": "IADL is a Congolese nonprofit working to improve food security and protect natural resources in the Kabare and Walungu Territories of South Kivu Province. To achieve this, IADL joins with grassroots partners and agricultural organizations to promote resilient, sustainable farming systems. IADL will use this grant to expand its existing restoration efforts in Kabare Territory, a highly degraded mountainous region."
+      "excerpt": "IADL is a Congolese nonprofit working to improve food security and protect natural resources in the Kabare and Walungu Territories of South Kivu Province. To achieve this, IADL joins with grassroots partners and agricultural organizations to promote resilient, sustainable farming systems. IADL will use this grant to expand its existing restoration efforts in Kabare Territory, a highly degraded mountainous region.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "nature-and-development-foundation-ndf",
@@ -1199,7 +1421,10 @@
       "hectares": "128",
       "jobs": "200",
       "website": "https://ndfwestafrica.org",
-      "excerpt": "Nature and Development Foundation (NDF) is a conservation organization with eight years of experience promoting responsible land use and biodiversity conservation through science-based field demonstrations and partnerships. With a mission to protect biodiversity while supporting local communities, NDF has established institutional credibility and has engaged in restoration activities, including collaborations with partners such as Emfed Farms on farm rehabilitation."
+      "excerpt": "Nature and Development Foundation (NDF) is a conservation organization with eight years of experience promoting responsible land use and biodiversity conservation through science-based field demonstrations and partnerships. With a mission to protect biodiversity while supporting local communities, NDF has established institutional credibility and has engaged in restoration activities, including collaborations with partners such as Emfed Farms on farm rehabilitation.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "initiative-pour-la-promotion-de-la-famille-et-du-genre-ipfg",
@@ -1211,7 +1436,10 @@
       "hectares": "280",
       "jobs": "158",
       "website": "",
-      "excerpt": "Wezesha is a women-led nonprofit based in Kenya with five years of experience advancing climate resilience, ecosystem restoration, and sustainable livelihoods. The organization is dedicated to restoring degraded ecosystems, empowering women and youth, and strengthening community food security through regenerative agroforestry, reforestation, and climate-smart agriculture."
+      "excerpt": "Wezesha is a women-led nonprofit based in Kenya with five years of experience advancing climate resilience, ecosystem restoration, and sustainable livelihoods. The organization is dedicated to restoring degraded ecosystems, empowering women and youth, and strengthening community food security through regenerative agroforestry, reforestation, and climate-smart agriculture.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "obaatanpa-nyame-nti-ltd",
@@ -1223,7 +1451,10 @@
       "hectares": "80",
       "jobs": "46",
       "website": "",
-      "excerpt": "Obaatanpa Nyame Nti Ltd (ONNL) is a Ghanaian company dedicated to sustainable forest restoration and community development. Founded in 2009 and led by a professional forester, ONNL has over 16 years of experience in establishing diverse forest plantations and providing consultancy services in forest management, wildfire control, nursery establishment, and community extension across several regions in Ghana."
+      "excerpt": "Obaatanpa Nyame Nti Ltd (ONNL) is a Ghanaian company dedicated to sustainable forest restoration and community development. Founded in 2009 and led by a professional forester, ONNL has over 16 years of experience in establishing diverse forest plantations and providing consultancy services in forest management, wildfire control, nursery establishment, and community extension across several regions in Ghana.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "jeunesse-providence",
@@ -1235,7 +1466,10 @@
       "hectares": "87",
       "jobs": "137",
       "website": "",
-      "excerpt": "Jeunesse Providence, operating under the mission of AGAKURA, has three decades of experience empowering disadvantaged youth and their families through sustainable land use and agro-ecological practices. The organization is dedicated to building human, technical, and entrepreneurial capacities, with a strong focus on gender parity and youth engagement."
+      "excerpt": "Jeunesse Providence, operating under the mission of AGAKURA, has three decades of experience empowering disadvantaged youth and their families through sustainable land use and agro-ecological practices. The organization is dedicated to building human, technical, and entrepreneurial capacities, with a strong focus on gender parity and youth engagement.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "environment-and-agroforestry-foundation-eaf",
@@ -1247,7 +1481,10 @@
       "hectares": "150",
       "jobs": "120",
       "website": "https://www.eafafrica.org/",
-      "excerpt": "EAF is a non-profit organization devoted to natural resource management and biodiversity conservation in Ghana. The group boasts a wide range of activities, including land reclamation, farm technology improvement, and community education. Through this grant from TerraFund, EAF will restore the degraded farmlands and riparian forests along the Tain River in Ghana’s Bono Region."
+      "excerpt": "EAF is a non-profit organization devoted to natural resource management and biodiversity conservation in Ghana. The group boasts a wide range of activities, including land reclamation, farm technology improvement, and community education. Through this grant from TerraFund, EAF will restore the degraded farmlands and riparian forests along the Tain River in Ghana’s Bono Region.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "green-action-developpement-gad",
@@ -1259,7 +1496,10 @@
       "hectares": "46",
       "jobs": "100",
       "website": "",
-      "excerpt": "Originally founded to provide disaster relief, GAD now combines research with on-the-ground restoration techniques for a multifaceted approach to sustainable development. Based in the DRC’s South Kivu province, the non-profit organization takes international and locally recognized sustainable natural resource management techniques and advocates for them within the community."
+      "excerpt": "Originally founded to provide disaster relief, GAD now combines research with on-the-ground restoration techniques for a multifaceted approach to sustainable development. Based in the DRC’s South Kivu province, the non-profit organization takes international and locally recognized sustainable natural resource management techniques and advocates for them within the community.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "centre-intervention-et-daction-communautaire-ciac",
@@ -1271,7 +1511,10 @@
       "hectares": "260",
       "jobs": "331",
       "website": "https://ciac.rw/",
-      "excerpt": "Centre intervention et d’Action Communautaire (CIAC) is a national NGO based in Kigali, Rwanda, dedicated to empowering women and youth in rural farming communities. Since its establishment in 2021, CIAC has focused on advancing gender equality, sustainable agriculture, and environmental management through community-driven approaches."
+      "excerpt": "Centre intervention et d’Action Communautaire (CIAC) is a national NGO based in Kigali, Rwanda, dedicated to empowering women and youth in rural farming communities. Since its establishment in 2021, CIAC has focused on advancing gender equality, sustainable agriculture, and environmental management through community-driven approaches.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "wildlife-conservation-initiative-wci",
@@ -1283,7 +1526,10 @@
       "hectares": "160",
       "jobs": "250",
       "website": "https://www.wcirwanda.org",
-      "excerpt": "The Wildlife Conservation Initiative (WCI) is a Rwandan non-profit organization focused on ecosystem restoration, biodiversity conservation, and community empowerment. With four years of experience, WCI has established itself as a leader in community-led restoration, sustainable agriculture, and beekeeping, particularly engaging youth and women."
+      "excerpt": "The Wildlife Conservation Initiative (WCI) is a Rwandan non-profit organization focused on ecosystem restoration, biodiversity conservation, and community empowerment. With four years of experience, WCI has established itself as a leader in community-led restoration, sustainable agriculture, and beekeeping, particularly engaging youth and women.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "forest-of-hope-association-fha",
@@ -1295,7 +1541,10 @@
       "hectares": "280",
       "jobs": "206",
       "website": "https://fharwanda.org/",
-      "excerpt": "Established in Rwanda in 2012, FHA is a non-profit organization dedicated to advancing restoration across Rwanda’s Gishwati Forest, which has lost nearly all of its tree cover. The group engages local communities in restoring protected areas, improving livelihoods and reducing human-wildlife conflicts, all with the goal of turning the Gishwati Forest into a National Park."
+      "excerpt": "Established in Rwanda in 2012, FHA is a non-profit organization dedicated to advancing restoration across Rwanda’s Gishwati Forest, which has lost nearly all of its tree cover. The group engages local communities in restoring protected areas, improving livelihoods and reducing human-wildlife conflicts, all with the goal of turning the Gishwati Forest into a National Park.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "seed-savers-network-association-ssn-k",
@@ -1307,7 +1556,10 @@
       "hectares": "210",
       "jobs": "140",
       "website": "https://seedsaverskenya.org/",
-      "excerpt": "Seed Savers Network Association (SSN-K) is a national grassroots organization in Kenya, established in 2009, dedicated to conserving agrobiodiversity and strengthening community seed systems to enhance food sovereignty. With 15 years of experience, SSN-K has engaged over 405,000 community members and leads Africa’s largest network of community seedbanks."
+      "excerpt": "Seed Savers Network Association (SSN-K) is a national grassroots organization in Kenya, established in 2009, dedicated to conserving agrobiodiversity and strengthening community seed systems to enhance food sovereignty. With 15 years of experience, SSN-K has engaged over 405,000 community members and leads Africa’s largest network of community seedbanks.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "europe-autoland-limited",
@@ -1319,7 +1571,10 @@
       "hectares": "100",
       "jobs": "75",
       "website": "",
-      "excerpt": "Europe Autoland Limited is dedicated to restoring degraded land through sustainable agro-forestry, with nearly three decades of experience in the field. The organization focuses on cultivating teak, mango, cocoa, and staple crops in integrated systems that conserve soil, capture carbon, and support rural livelihoods. Their mission emphasizes climate-smart farming, large-scale tree planting, and community engagement, particularly empowering youth and women."
+      "excerpt": "Europe Autoland Limited is dedicated to restoring degraded land through sustainable agro-forestry, with nearly three decades of experience in the field. The organization focuses on cultivating teak, mango, cocoa, and staple crops in integrated systems that conserve soil, capture carbon, and support rural livelihoods. Their mission emphasizes climate-smart farming, large-scale tree planting, and community engagement, particularly empowering youth and women.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "fdinda",
@@ -1331,7 +1586,10 @@
       "hectares": "430",
       "jobs": "30",
       "website": "",
-      "excerpt": "FDINDA is a diversified Rwandan company with a decade of experience in sustainable macadamia farming, organic fertilizer production, livestock rearing, and animal feed. Committed to ethical and environmentally responsible practices, FDINDA supports local growers by distributing macadamia seedlings and purchasing harvested nuts, which are processed for local sale."
+      "excerpt": "FDINDA is a diversified Rwandan company with a decade of experience in sustainable macadamia farming, organic fertilizer production, livestock rearing, and animal feed. Committed to ethical and environmentally responsible practices, FDINDA supports local growers by distributing macadamia seedlings and purchasing harvested nuts, which are processed for local sale.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "excelsa-forestry-renewables-ghana-limited",
@@ -1343,7 +1601,10 @@
       "hectares": "171",
       "jobs": "116",
       "website": "https://www.excelsagh.com",
-      "excerpt": "Excelsa will implement a large-scale restoration program covering 171 hectares in priority landscapes. This effort will involve the planting of 90,000 economic and indigenous trees. Excelsa will restore 171 hectares through agroforestry plantation development, planting 9 native and high-value timber species to enhance biodiversity corridors and support sustainable wood value chains. Urban and riparian greening initiatives will be done through contract services for cooperatives and NGOs."
+      "excerpt": "Excelsa will implement a large-scale restoration program covering 171 hectares in priority landscapes. This effort will involve the planting of 90,000 economic and indigenous trees. Excelsa will restore 171 hectares through agroforestry plantation development, planting 9 native and high-value timber species to enhance biodiversity corridors and support sustainable wood value chains. Urban and riparian greening initiatives will be done through contract services for cooperatives and NGOs.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "community-organization-for-positive-impact-care-development-copi",
@@ -1355,7 +1616,10 @@
       "hectares": "70",
       "jobs": "35",
       "website": "https://www.copicad.co.ke",
-      "excerpt": "Since 2017, COPICAD has engaged in environmental conservation, land restoration and social-economic empowerment of youth, women and the most vulnerable in the community. This funding will equip COPICAD to regreen the forests around the degraded Lake Olbolosat, ensuring a sustainable water supply for millions of people in the county. This work will also protect the rich biodiversity of the river basin, home to its well-known hippos and over 300 species of birds."
+      "excerpt": "Since 2017, COPICAD has engaged in environmental conservation, land restoration and social-economic empowerment of youth, women and the most vulnerable in the community. This funding will equip COPICAD to regreen the forests around the degraded Lake Olbolosat, ensuring a sustainable water supply for millions of people in the county. This work will also protect the rich biodiversity of the river basin, home to its well-known hippos and over 300 species of birds.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "jumuisha-initiative",
@@ -1367,7 +1631,10 @@
       "hectares": "100",
       "jobs": "1,000",
       "website": "https://jumuisha.or.ke/",
-      "excerpt": "Jumuisha Initiative unites youth and women for education, support, and social change in Kenya’s Makueni County. The organization’s environmental protection unit works in tandem with the local government to accelerate regreening. It will use this grant to help native species flourish, restore biodiversity, and promote overall ecosystem resilience in Makueni County’s Kibwezi East constituency."
+      "excerpt": "Jumuisha Initiative unites youth and women for education, support, and social change in Kenya’s Makueni County. The organization’s environmental protection unit works in tandem with the local government to accelerate regreening. It will use this grant to help native species flourish, restore biodiversity, and promote overall ecosystem resilience in Makueni County’s Kibwezi East constituency.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "kimplanter-seedlings-and-nurseries-ltd",
@@ -1379,7 +1646,10 @@
       "hectares": "350",
       "jobs": "100",
       "website": "https://www.kimplanterseedlings.co.ke",
-      "excerpt": "Kimplanter is a Kenyan commercial propagation company that supplies drought-resistant seedlings for vegetables and fruit, indigenous and exotic tree species. Its mission is to promote land restoration, improve climate mitigation and food production, and empower local famers in semi-arid regions. This investment will mitigate soil depletion, flash floods and the gully formations characteristic of semi-arid areas."
+      "excerpt": "Kimplanter is a Kenyan commercial propagation company that supplies drought-resistant seedlings for vegetables and fruit, indigenous and exotic tree species. Its mission is to promote land restoration, improve climate mitigation and food production, and empower local famers in semi-arid regions. This investment will mitigate soil depletion, flash floods and the gully formations characteristic of semi-arid areas.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "kukuom-cooperative-cocoa-farmers-and-marketing-union",
@@ -1391,7 +1661,10 @@
       "hectares": "1,200",
       "jobs": "100",
       "website": "https://www.kukuomfairtradecocoa.org",
-      "excerpt": "Kukuom Union is an organized cooperative for cocoa-growing families in Ghana. It first began with few farmers who volunteered to help each other with activities like weeding, harvesting, and breaking down cocoa pods. The cooperative was officially established in 2011 and since then has rapidly expanded, now supporting 3,601 members across 29 communities."
+      "excerpt": "Kukuom Union is an organized cooperative for cocoa-growing families in Ghana. It first began with few farmers who volunteered to help each other with activities like weeding, harvesting, and breaking down cocoa pods. The cooperative was officially established in 2011 and since then has rapidly expanded, now supporting 3,601 members across 29 communities.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "resource-conservation-initiative-resconi",
@@ -1403,7 +1676,10 @@
       "hectares": "175",
       "jobs": "150",
       "website": "https://www.resconi.org",
-      "excerpt": "RESCONI aims to protect the livelihoods of forest fringe communities in Ghana, training them on sustainable natural resource management and securing a voice for them in decision-making processes. It also advocates for community education and promotes research on natural resource extraction and conservation. RESCONI will use this grant to renew the degraded lands of the Asutifi North District and the Atwima Mponua District."
+      "excerpt": "RESCONI aims to protect the livelihoods of forest fringe communities in Ghana, training them on sustainable natural resource management and securing a voice for them in decision-making processes. It also advocates for community education and promotes research on natural resource extraction and conservation. RESCONI will use this grant to renew the degraded lands of the Asutifi North District and the Atwima Mponua District.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "save-kenya-water-towers",
@@ -1415,7 +1691,10 @@
       "hectares": "68",
       "jobs": "40",
       "website": "https://www.savekenyawatertowers.org",
-      "excerpt": "Recognizing the crucial role of engaging youth in forest restoration, Save Kenya Water Towers purchases and distributes seedlings to schools and institutions. Over the last ten years, the organization has grown more than 10 million trees and rehabilitated several catchment areas in the Cherangani Water Towers, Mount Elgon and Mau Forest. It has also partnered with the Kenya Forest Service and other environmental institutions to set up tree nurseries."
+      "excerpt": "Recognizing the crucial role of engaging youth in forest restoration, Save Kenya Water Towers purchases and distributes seedlings to schools and institutions. Over the last ten years, the organization has grown more than 10 million trees and rehabilitated several catchment areas in the Cherangani Water Towers, Mount Elgon and Mau Forest. It has also partnered with the Kenya Forest Service and other environmental institutions to set up tree nurseries.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "shamba-ndogo-miti-mingi-cbo",
@@ -1427,7 +1706,10 @@
       "hectares": "60",
       "jobs": "297",
       "website": "",
-      "excerpt": "Shamba Ndogo Miti Mingi CBO is a community-based organization rooted in the Mau Forest region, with over a decade of experience in land restoration and community empowerment. Originating as a self-help group in 2014 and formalized as a CBO in 2021, the organization is inclusive, involving people living with disabilities in leadership roles."
+      "excerpt": "Shamba Ndogo Miti Mingi CBO is a community-based organization rooted in the Mau Forest region, with over a decade of experience in land restoration and community empowerment. Originating as a self-help group in 2014 and formalized as a CBO in 2021, the organization is inclusive, involving people living with disabilities in leadership roles.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "sprouted-roots-lbg",
@@ -1439,7 +1721,10 @@
       "hectares": "2,000",
       "jobs": "150",
       "website": "",
-      "excerpt": "Sprouted Roots LBG is dedicated to strengthening cooperative systems and supporting ethical sourcing to build resilient agricultural communities. With five years of experience, the organization works closely with farmers and cooperatives to enhance productivity and sustainability through capacity building, certification, and agroforestry practices. Their mission emphasizes empowering women and youth, promoting environmentally responsible practices, and linking producers to premium markets."
+      "excerpt": "Sprouted Roots LBG is dedicated to strengthening cooperative systems and supporting ethical sourcing to build resilient agricultural communities. With five years of experience, the organization works closely with farmers and cooperatives to enhance productivity and sustainability through capacity building, certification, and agroforestry practices. Their mission emphasizes empowering women and youth, promoting environmentally responsible practices, and linking producers to premium markets.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "vokenel-enterprises-limited",
@@ -1451,7 +1736,10 @@
       "hectares": "100",
       "jobs": "500",
       "website": "",
-      "excerpt": "Vokenel Enterprises Limited is a Kenyan social enterprise established in 2017, specializing in the processing of baobab fruit powder and baobab oil. With eight years of experience, the organization has built a robust value chain by sourcing baobab fruits from over a thousand farmers in Makueni County, a semi-arid region. Vokenel is committed to sustainable practices, operating a seedling nursery for drought-resistant tree species such as baobab, tamarind, acacia, and melia volkensii."
+      "excerpt": "Vokenel Enterprises Limited is a Kenyan social enterprise established in 2017, specializing in the processing of baobab fruit powder and baobab oil. With eight years of experience, the organization has built a robust value chain by sourcing baobab fruits from over a thousand farmers in Makueni County, a semi-arid region. Vokenel is committed to sustainable practices, operating a seedling nursery for drought-resistant tree species such as baobab, tamarind, acacia, and melia volkensii.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "friends-of-environment-and-social-development-fesd",
@@ -1463,7 +1751,10 @@
       "hectares": "84",
       "jobs": "215",
       "website": "https://www.fesd2018.org",
-      "excerpt": "FESD is a Rwandan non-profit organization that was established in 2018 by 33 local environmental activists. It equips communities to be at the forefront of forest restoration and environmental conservation through tree planting, restoration projects, and agricultural training. With a TerraFund grant, FESD aims to restore the degraded lands of Rwanda’s Nzahaha Sector."
+      "excerpt": "FESD is a Rwandan non-profit organization that was established in 2018 by 33 local environmental activists. It equips communities to be at the forefront of forest restoration and environmental conservation through tree planting, restoration projects, and agricultural training. With a TerraFund grant, FESD aims to restore the degraded lands of Rwanda’s Nzahaha Sector.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "lake-ol-bolossat-community-conservation-group-loccog",
@@ -1475,7 +1766,10 @@
       "hectares": "50",
       "jobs": "64",
       "website": "",
-      "excerpt": "LOCCOG was established as a Kenyan environmental non-profit organization in 2019. It champions the environmental conservation of Lake Ol'Bolossat and its surrounding area, all while preserving vital ecological functions and involving a wide range of stakeholders. The group has brought together more than 45 community conservation groups with more than 5,000 members to partner on restoration projects."
+      "excerpt": "LOCCOG was established as a Kenyan environmental non-profit organization in 2019. It champions the environmental conservation of Lake Ol'Bolossat and its surrounding area, all while preserving vital ecological functions and involving a wide range of stakeholders. The group has brought together more than 45 community conservation groups with more than 5,000 members to partner on restoration projects.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "mouvement-pour-christ-au-rwanda-mpcr",
@@ -1487,7 +1781,10 @@
       "hectares": "250",
       "jobs": "420",
       "website": "",
-      "excerpt": "Mouvement pour Christ au Rwanda (MPCR) is a faith-based NGO with 15 years of experience in holistic community development, focusing on empowering vulnerable populations through spiritual transformation, environmental restoration, sustainable agriculture, and youth empowerment. The organization has a strong track record in implementing projects that build community capacity, foster partnerships, and promote long-term resilience and well-being."
+      "excerpt": "Mouvement pour Christ au Rwanda (MPCR) is a faith-based NGO with 15 years of experience in holistic community development, focusing on empowering vulnerable populations through spiritual transformation, environmental restoration, sustainable agriculture, and youth empowerment. The organization has a strong track record in implementing projects that build community capacity, foster partnerships, and promote long-term resilience and well-being.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "woman-development-initiative-wdi",
@@ -1499,7 +1796,10 @@
       "hectares": "409",
       "jobs": "1,657",
       "website": "https://youtu.be/VsMlIzylz6k",
-      "excerpt": "WDI promotes women’s socioeconomic development and environmental protection in Burundi. It mobilizes local agro-pastoral groups, local ministries and government agencies, and international organizations to conserve and restore forests and help communities adapt to the effects of climate change. WDI will use its TerraFund grant to provide rural households with seedlings that will transform into wood-producing, fruit-bearing, and crop-protecting trees."
+      "excerpt": "WDI promotes women’s socioeconomic development and environmental protection in Burundi. It mobilizes local agro-pastoral groups, local ministries and government agencies, and international organizations to conserve and restore forests and help communities adapt to the effects of climate change. WDI will use its TerraFund grant to provide rural households with seedlings that will transform into wood-producing, fruit-bearing, and crop-protecting trees.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "wezesha",
@@ -1511,7 +1811,10 @@
       "hectares": "132",
       "jobs": "230",
       "website": "https://wezeshacbo.org/",
-      "excerpt": "Wezesha is a women-led nonprofit based in Kenya with five years of experience advancing climate resilience, ecosystem restoration, and sustainable livelihoods. The organization is dedicated to restoring degraded ecosystems, empowering women and youth, and strengthening community food security through regenerative agroforestry, reforestation, and climate-smart agriculture."
+      "excerpt": "Wezesha is a women-led nonprofit based in Kenya with five years of experience advancing climate resilience, ecosystem restoration, and sustainable livelihoods. The organization is dedicated to restoring degraded ecosystems, empowering women and youth, and strengthening community food security through regenerative agroforestry, reforestation, and climate-smart agriculture.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "centre-for-sustainability-and-environmental-action-csea",
@@ -1523,7 +1826,10 @@
       "hectares": "120",
       "jobs": "60",
       "website": "https://www.cseaghana.wordpress.com",
-      "excerpt": "The Centre for Sustainability and Environmental Action (CSEA) is dedicated to promoting environmental sustainability, women and youth empowerment, effective governance, and the protection and management of natural resources. With five years of experience, CSEA has established itself as a leader in community-driven restoration, leveraging research, advocacy, coalition building, and education to advance climate action and inclusiveness."
+      "excerpt": "The Centre for Sustainability and Environmental Action (CSEA) is dedicated to promoting environmental sustainability, women and youth empowerment, effective governance, and the protection and management of natural resources. With five years of experience, CSEA has established itself as a leader in community-driven restoration, leveraging research, advocacy, coalition building, and education to advance climate action and inclusiveness.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "vert-limited",
@@ -1535,7 +1841,10 @@
       "hectares": "400",
       "jobs": "130",
       "website": "https://vertltd.com/",
-      "excerpt": "Vert Limited is a Kenyan agro-processing company established in 2006, known for its leadership in cultivating, processing, and exporting high-quality agricultural products such as dried fruits, fruit purees, and fresh produce. With nearly two decades of experience, Vert partners with over 5,000 smallholder farmers, focusing on empowering rural communities, especially women and youth, through sustainable farming and value addition."
+      "excerpt": "Vert Limited is a Kenyan agro-processing company established in 2006, known for its leadership in cultivating, processing, and exporting high-quality agricultural products such as dried fruits, fruit purees, and fresh produce. With nearly two decades of experience, Vert partners with over 5,000 smallholder farmers, focusing on empowering rural communities, especially women and youth, through sustainable farming and value addition.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "greening-burundi",
@@ -1547,7 +1856,10 @@
       "hectares": "150",
       "jobs": "123",
       "website": "https://www.greeningburundi.org/",
-      "excerpt": "Greening Burundi is a youth-led non-profit organization that promotes climate resilience initiatives in schools and communities across the provinces of Cibitoke and Bubanza. The organization’s vision centers around preserving and growing Burundi’s forests, eradicating poverty, and bolstering food security. Greening Burundi will use this grant to expand its current restoration activities in Kibira National Park at the center of the Albertine Rift."
+      "excerpt": "Greening Burundi is a youth-led non-profit organization that promotes climate resilience initiatives in schools and communities across the provinces of Cibitoke and Bubanza. The organization’s vision centers around preserving and growing Burundi’s forests, eradicating poverty, and bolstering food security. Greening Burundi will use this grant to expand its current restoration activities in Kibira National Park at the center of the Albertine Rift.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "association-of-women-in-agriculture-kenya-awak",
@@ -1559,7 +1871,10 @@
       "hectares": "351",
       "jobs": "22",
       "website": "https://awak-kenya.org/",
-      "excerpt": "The Association of Women in Agriculture Kenya (AWAK) is a women-led, non-profit organization dedicated to advancing ecosystem restoration, climate justice, and resilient livelihoods through a gender-centered approach. With eight years of experience, AWAK empowers women and youth as leaders in climate action, focusing on agroforestry and food forests to restore degraded landscapes and improve food security."
+      "excerpt": "The Association of Women in Agriculture Kenya (AWAK) is a women-led, non-profit organization dedicated to advancing ecosystem restoration, climate justice, and resilient livelihoods through a gender-centered approach. With eight years of experience, AWAK empowers women and youth as leaders in climate action, focusing on agroforestry and food forests to restore degraded landscapes and improve food security.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "saving-and-conservation-of-our-planet-earth-intervention-scope-i",
@@ -1571,7 +1886,10 @@
       "hectares": "150",
       "jobs": "0",
       "website": "https://www.scopeintervention.org",
-      "excerpt": "Scope Intervention (Saving and Conservation of Our Planet Earth Intervention) is a non-profit organization working to initiate and promote local initiatives that contribute to the global fight against climate change. The organization’s climate change adaptation and mitigation actions contribute to environmental conservation while enhancing local communities’ climate change coping mechanisms."
+      "excerpt": "Scope Intervention (Saving and Conservation of Our Planet Earth Intervention) is a non-profit organization working to initiate and promote local initiatives that contribute to the global fight against climate change. The organization’s climate change adaptation and mitigation actions contribute to environmental conservation while enhancing local communities’ climate change coping mechanisms.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "slow-food-convivia-association-of-kenya-slow-food-kenya",
@@ -1583,7 +1901,10 @@
       "hectares": "100",
       "jobs": "20",
       "website": "https://slowfoodkenya.org/",
-      "excerpt": "Established in 2014, Slow Food Conviva Association of Kenya is an affiliate of Slow Food International, a global organization whose mission is to prevent the disappearance of local food cultures and traditions. The organization works with farmers to encourage them to grow climate resilient crops and trees. Slow Food Convivia will use the grant to champion a women and youth-led climate initiative to restore the Mau Forest ecosystem."
+      "excerpt": "Established in 2014, Slow Food Conviva Association of Kenya is an affiliate of Slow Food International, a global organization whose mission is to prevent the disappearance of local food cultures and traditions. The organization works with farmers to encourage them to grow climate resilient crops and trees. Slow Food Convivia will use the grant to champion a women and youth-led climate initiative to restore the Mau Forest ecosystem.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "consortium-j-r-engineering-and-general-business-greengoal-rwanda",
@@ -1595,7 +1916,10 @@
       "hectares": "500",
       "jobs": "10",
       "website": "https://jrenviromax.net/",
-      "excerpt": "J&R Engineering is a company that offers a range of tailored environmental services to address the pressing challenges of land degradation, soil erosion, and habitat destruction. It is partnering with GreenGoal Rwanda, a local social enterprise that offers accessible and affordable native tree seedlings to farmers."
+      "excerpt": "J&R Engineering is a company that offers a range of tailored environmental services to address the pressing challenges of land degradation, soil erosion, and habitat destruction. It is partnering with GreenGoal Rwanda, a local social enterprise that offers accessible and affordable native tree seedlings to farmers.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "grow-tech-nurseries",
@@ -1607,7 +1931,10 @@
       "hectares": "20",
       "jobs": "30",
       "website": "https://growtechnurseries.co.ke/",
-      "excerpt": "Grow Tech Nurseries is an agricultural and forest biotechnology company based in Nakuru, Kenya. It specializes in mass propagation of various trees for forest restoration, such as croton, lemon verbena, paulownia, sandalwood, and other species that are native to the Mau Forest. The company also propagates crops through tissue culture, including several varieties of bananas and bamboo."
+      "excerpt": "Grow Tech Nurseries is an agricultural and forest biotechnology company based in Nakuru, Kenya. It specializes in mass propagation of various trees for forest restoration, such as croton, lemon verbena, paulownia, sandalwood, and other species that are native to the Mau Forest. The company also propagates crops through tissue culture, including several varieties of bananas and bamboo.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "perfect-village-communities-pvc-burundi",
@@ -1619,7 +1946,10 @@
       "hectares": "300",
       "jobs": "200",
       "website": "https://www.perfectvillage.bi",
-      "excerpt": "PVC is a Burundian social enterprise that works both within the country and across East Africa. Its approaches are rooted in regenerative agricultural practices and aim to improve the livelihoods of rural farming communities. The business restores land, sells value-added wood products, and enhances farmers’ access to health services."
+      "excerpt": "PVC is a Burundian social enterprise that works both within the country and across East Africa. Its approaches are rooted in regenerative agricultural practices and aim to improve the livelihoods of rural farming communities. The business restores land, sells value-added wood products, and enhances farmers’ access to health services.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "talmond",
@@ -1631,7 +1961,10 @@
       "hectares": "824",
       "jobs": "604",
       "website": "https://www.talmondfoods.com",
-      "excerpt": "Talmond is a women-led Ghanaian company bringing the world's first tropical almond and fonio milk to the home and global market. As the first pioneer of the new tropical almond agroforestry industry in Ghana, the company uses climate- and water-resilient crops to promote biodiversity. An investment from TerraFund will help Talmond bring its product to market, attract more investors, and scale its business across the globe."
+      "excerpt": "Talmond is a women-led Ghanaian company bringing the world's first tropical almond and fonio milk to the home and global market. As the first pioneer of the new tropical almond agroforestry industry in Ghana, the company uses climate- and water-resilient crops to promote biodiversity. An investment from TerraFund will help Talmond bring its product to market, attract more investors, and scale its business across the globe.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "habelle-s-foundation",
@@ -1643,7 +1976,10 @@
       "hectares": "30",
       "jobs": "8",
       "website": "",
-      "excerpt": "Habelle’s Foundation is committed to restoring degraded ecosystems and improving community wellbeing through inclusive, community-driven approaches. With three years of experience, the organization focuses on practical restoration methods that blend scientific and indigenous knowledge, working closely with women, youth, farmers, and local institutions."
+      "excerpt": "Habelle’s Foundation is committed to restoring degraded ecosystems and improving community wellbeing through inclusive, community-driven approaches. With three years of experience, the organization focuses on practical restoration methods that blend scientific and indigenous knowledge, working closely with women, youth, farmers, and local institutions.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "rights-and-advocacy-initiatives-network-rain",
@@ -1655,7 +1991,10 @@
       "hectares": "34",
       "jobs": "41",
       "website": "https://www.rainprogrammes.org/",
-      "excerpt": "Rights and Advocacy Initiatives Network (RAIN) is a Ghanaian non-governmental organization established in 2019, dedicated to fostering a resilient environment through rights-based approaches in agriculture, natural resources, and environmental sectors. With a focus on community rights, inclusive forest governance, climate-smart agriculture, and gender empowerment, RAIN has built a reputation for effective advocacy, capacity development, and policy interventions."
+      "excerpt": "Rights and Advocacy Initiatives Network (RAIN) is a Ghanaian non-governmental organization established in 2019, dedicated to fostering a resilient environment through rights-based approaches in agriculture, natural resources, and environmental sectors. With a focus on community rights, inclusive forest governance, climate-smart agriculture, and gender empowerment, RAIN has built a reputation for effective advocacy, capacity development, and policy interventions.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "endao-water-resource-users-association-endao-wrua",
@@ -1667,7 +2006,10 @@
       "hectares": "30",
       "jobs": "20",
       "website": "",
-      "excerpt": "EWRUA is a community-led non-profit organization in Kenya’s Baringo County. Dedicated to protecting local water resources, the group grows trees to enhance catchment restoration, builds gabions, and installs water harvesting tanks to ensure a steady water supply for all. EWRUA works diligently to provide opportunities for community members to engage firsthand in environmental conservation."
+      "excerpt": "EWRUA is a community-led non-profit organization in Kenya’s Baringo County. Dedicated to protecting local water resources, the group grows trees to enhance catchment restoration, builds gabions, and installs water harvesting tanks to ensure a steady water supply for all. EWRUA works diligently to provide opportunities for community members to engage firsthand in environmental conservation.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "bright-generation-community-foundation",
@@ -1679,7 +2021,10 @@
       "hectares": "35",
       "jobs": "30",
       "website": "https://www.brightgeneation.org",
-      "excerpt": "Bright Generation Community Foundation (BGCF) is a Ghanaian non-profit dedicated to restoring degraded landscapes and building climate resilience through community empowerment. With three years of experience, BGCF specializes in cultivating bamboo and indigenous trees, engaging women and youth in nursery management, and promoting sustainable bamboo value chains."
+      "excerpt": "Bright Generation Community Foundation (BGCF) is a Ghanaian non-profit dedicated to restoring degraded landscapes and building climate resilience through community empowerment. With three years of experience, BGCF specializes in cultivating bamboo and indigenous trees, engaging women and youth in nursery management, and promoting sustainable bamboo value chains.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "promacnuts-ltd",
@@ -1691,7 +2036,10 @@
       "hectares": "85",
       "jobs": "100",
       "website": "https://www.promacnuts.rw",
-      "excerpt": "PROMACNUTS LTD is dedicated to restoring degraded land and promoting sustainable economic development through macadamia-based agroforestry. With 15 years of experience, the organization has built expertise in producing and distributing high-quality grafted macadamia seedlings, training communities in tree cultivation, and supporting farmers with technical guidance. Their mission centers on empowering farmers with income-generating crops, enhancing biodiversity, and fostering climate resilience."
+      "excerpt": "PROMACNUTS LTD is dedicated to restoring degraded land and promoting sustainable economic development through macadamia-based agroforestry. With 15 years of experience, the organization has built expertise in producing and distributing high-quality grafted macadamia seedlings, training communities in tree cultivation, and supporting farmers with technical guidance. Their mission centers on empowering farmers with income-generating crops, enhancing biodiversity, and fostering climate resilience.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "ngeli-ventures-limited-ngeli-foods",
@@ -1703,7 +2051,10 @@
       "hectares": "32",
       "jobs": "40",
       "website": "https://www.ngelifoods.com/",
-      "excerpt": "Ngeli Ventures Limited, operating as Ngeli Foods, is an innovative organic food company in Kenya with a strong focus on apiculture conservation and the production of high-quality bee products. Over the past four years, the organization has established itself as a leader in integrating sustainable agriculture with environmental restoration, particularly through its work with smallholder farmers."
+      "excerpt": "Ngeli Ventures Limited, operating as Ngeli Foods, is an innovative organic food company in Kenya with a strong focus on apiculture conservation and the production of high-quality bee products. Over the past four years, the organization has established itself as a leader in integrating sustainable agriculture with environmental restoration, particularly through its work with smallholder farmers.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "justdiggit",
@@ -1715,7 +2066,10 @@
       "hectares": "9,695",
       "jobs": "12",
       "website": "http://www.justdiggit.org",
-      "excerpt": "Justdiggit’s mission is to make dry land green again by inspiring and activating farmers in Africa. In Kenya, the group’s regreening projects are in the South Rift, a region that is home to 240,000 Maasai pastoralists and some of the richest mammal diversity in the world. Through this second TerraFund grant, Justdiggit will extend its existing partnership with SORALO to grow nearly 50000 trees in the South Rift."
+      "excerpt": "Justdiggit’s mission is to make dry land green again by inspiring and activating farmers in Africa. In Kenya, the group’s regreening projects are in the South Rift, a region that is home to 240,000 Maasai pastoralists and some of the richest mammal diversity in the world. Through this second TerraFund grant, Justdiggit will extend its existing partnership with SORALO to grow nearly 50000 trees in the South Rift.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     },
     {
       "slug": "afarinick-company-limited",
@@ -1727,10 +2081,78 @@
       "hectares": "100",
       "jobs": "300",
       "website": "https://www.afarinick.com",
-      "excerpt": "Afarinick Company Limited, a leader in climate-smart agriculture and sustainable land-use systems, proposes to support smallholder cocoa farmers establish 100 hectares of cocoa agroforestry farms in the Volta Region of Ghana. This initiative aligns with national goals for reforestation, youth employment, and climate resilience, while creating inclusive economic opportunities for local communities."
+      "excerpt": "Afarinick Company Limited, a leader in climate-smart agriculture and sustainable land-use systems, proposes to support smallholder cocoa farmers establish 100 hectares of cocoa agroforestry farms in the Volta Region of Ghana. This initiative aligns with national goals for reforestation, youth employment, and climate resilience, while creating inclusive economic opportunities for local communities.",
+      "treesDone": "",
+      "hectaresDone": "",
+      "jobsDone": ""
     }
   ],
   "stories": [
+    {
+      "slug": "video-introducing-restore-local",
+      "title": "Introducing Restore Local: Big Change Starts Small",
+      "image": "/videos/nBKMDqxx5kM.jpg",
+      "category": "Videos",
+      "date": "October 2025",
+      "featured": false,
+      "excerpt": "How locally led restoration works, and why the organisations closest to the land are the ones best placed to bring it back.",
+      "body": [],
+      "youtubeId": "nBKMDqxx5kM",
+      "duration": "1:25",
+      "publishedAt": "2025-10-01"
+    },
+    {
+      "slug": "video-mangroves-hen-mpoano",
+      "title": "Mangroves Tell a Story, Please Listen — Hen Mpoano",
+      "image": "/videos/9E4EhDjevQw.jpg",
+      "category": "Videos",
+      "date": "September 2025",
+      "featured": false,
+      "excerpt": "Hen Mpoano, one of the Ghanaian organisations in VIA's portfolio, on restoring the coastal mangroves that shelter their communities.",
+      "body": [],
+      "youtubeId": "9E4EhDjevQw",
+      "duration": "5:26",
+      "publishedAt": "2025-09-01"
+    },
+    {
+      "slug": "video-mau-forest-women",
+      "title": "Timeless Knowledge: Indigenous Women Restoring Kenya's Mau Forest",
+      "image": "/videos/86rajPWxYyw.jpg",
+      "category": "Videos",
+      "date": "May 2025",
+      "featured": false,
+      "excerpt": "In Kenya's Mau Forest, indigenous women are drawing on generations of knowledge to bring degraded land back to life.",
+      "body": [],
+      "youtubeId": "86rajPWxYyw",
+      "duration": "3:01",
+      "publishedAt": "2025-05-01"
+    },
+    {
+      "slug": "video-rwanda-national-treasure",
+      "title": "This Rwandan Community Is Fighting to Save Their Land",
+      "image": "/videos/p_OfbCp6VGY.jpg",
+      "category": "Videos",
+      "date": "July 2025",
+      "featured": false,
+      "excerpt": "A Rwandan community works to protect a landscape that is both their livelihood and a national treasure.",
+      "body": [],
+      "youtubeId": "p_OfbCp6VGY",
+      "duration": "3:38",
+      "publishedAt": "2025-07-01"
+    },
+    {
+      "slug": "video-burundi-land-back-to-life",
+      "title": "Bringing Burundi's Land Back to Life",
+      "image": "/videos/NInkgnLZIFA.jpg",
+      "category": "Videos",
+      "date": "August 2025",
+      "featured": false,
+      "excerpt": "How one Burundian business is turning restoration into a livelihood, and degraded hillsides back into productive land.",
+      "body": [],
+      "youtubeId": "NInkgnLZIFA",
+      "duration": "5:09",
+      "publishedAt": "2025-08-01"
+    },
     {
       "slug": "leading-restoration-tanzania",
       "title": "How One Woman is Leading the Restoration of 10,000 Hectares in Tanzania",
@@ -1744,7 +2166,10 @@
         "Eight years later, the Kilosa Women's Restoration Cooperative that Amina founded employs 340 women across five villages, running tree nurseries, managing a 10,000-hectare watershed restoration area, and training neighbouring communities in agroforestry techniques.",
         "\"We started because our rivers were drying up and our children were walking further every year for water,\" Amina says. \"Now those same rivers run again in the dry season.\"",
         "VIA Foundation began supporting the cooperative in 2021 with a technical assistance grant, followed by multi-year flexible funding that allowed Amina's team to purchase nursery equipment and formalise land-tenure agreements with local government — a critical step that secured the cooperative's long-term access to the land it restores."
-      ]
+      ],
+      "youtubeId": "",
+      "duration": "",
+      "publishedAt": "2024-03-01"
     },
     {
       "slug": "satellite-technology-restoration",
@@ -1758,7 +2183,10 @@
         "For years, verifying restoration outcomes across remote African landscapes meant costly, infrequent field visits — leaving long gaps where degradation or project failure could go unnoticed.",
         "VIA Foundation's monitoring and verification team has built a framework that layers satellite imagery, machine-learning canopy analysis, and community-reported field data into a single dashboard updated monthly across all active project sites.",
         "The system flags underperforming plots automatically, letting field teams intervene early rather than discovering a failed planting a year later — and gives funders real-time, independently verifiable confidence in reported outcomes."
-      ]
+      ],
+      "youtubeId": "",
+      "duration": "",
+      "publishedAt": "2024-02-01"
     },
     {
       "slug": "blended-finance-sahel",
@@ -1772,7 +2200,10 @@
         "Dryland restoration has historically struggled to attract commercial capital — returns are slow, and the ecological risk profile is unfamiliar to most investors.",
         "VIA Foundation's new blended finance facility pairs a philanthropic first-loss layer with co-investment from regional development banks, absorbing early risk so private capital can enter with confidence.",
         "The structure has mobilised $12M for dryland restoration projects across the Sahel in its first year, a model VIA Foundation now plans to replicate for coastal and highland landscapes."
-      ]
+      ],
+      "youtubeId": "",
+      "duration": "",
+      "publishedAt": "2024-01-01"
     },
     {
       "slug": "training-youth-restoration-leaders",
@@ -1786,23 +2217,13 @@
         "VIA Foundation's Restoration Leaders programme has trained over 5,000 young people across six countries in nursery management, agroforestry, remote-sensing monitoring, and restoration project finance since it launched in 2022.",
         "Graduates go on to found their own restoration enterprises, join partner organisations as field technicians, or become community trainers themselves — creating a multiplier effect well beyond the programme's direct reach.",
         "The programme is now VIA Foundation's largest single source of new green jobs, and a growing share of the Foundation's own field staff and grantee leadership are programme alumni."
-      ]
+      ],
+      "youtubeId": "",
+      "duration": "",
+      "publishedAt": "2023-12-01"
     }
   ],
   "news": [
-    {
-      "slug": "hiring-portfolio-grants-officer",
-      "title": "We're Hiring: Portfolio & Grants Officer",
-      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop&auto=format",
-      "category": "Careers",
-      "date": "August 2026",
-      "body": [
-        "VIA Foundation is hiring a Portfolio & Grants Officer to support due diligence, disbursement, and monitoring across our portfolio of restoration organisations in Burundi, DRC, Ghana, Kenya and Rwanda.",
-        "You'll work closely with grantees through each stage of the grant cycle — reviewing applications, tracking disbursement milestones against agreed restoration targets, and preparing the country-level reporting that feeds into our annual impact review.",
-        "Location: Kigali, Rwanda (hybrid). Type: Full-time. Reports to: Head of Programs. Application deadline: 30 September 2026.",
-        "To apply, send a CV and short cover letter to info@via-foundation.org with \"Portfolio & Grants Officer\" in the subject line."
-      ]
-    },
     {
       "slug": "2024-annual-impact-report",
       "title": "2024 Annual Impact Report: A Decade of Restoration Finance in Africa",
@@ -1912,6 +2333,29 @@
       "bio": "",
       "image": "https://via-foundation.org/wp-content/uploads/2026/04/Placide-Ineza-Kwizera.jpg",
       "weight": 7
+    }
+  ],
+  "restorationTimeline": [
+    {
+      "slug": "nursery",
+      "image": "0x8a4251-tree-nursery.jpg",
+      "alt": "Women tending seedlings in a community tree nursery",
+      "year": "2019",
+      "weight": 0
+    },
+    {
+      "slug": "young-plantings",
+      "image": "dji-0214-young-plantings.jpg",
+      "alt": "Aerial view of young saplings planted across cleared ground",
+      "year": "2022",
+      "weight": 1
+    },
+    {
+      "slug": "restored-forest",
+      "image": "dji-0123-forest-hills.jpg",
+      "alt": "Aerial view of restored forest covering hillsides",
+      "year": "2025",
+      "weight": 2
     }
   ]
 }

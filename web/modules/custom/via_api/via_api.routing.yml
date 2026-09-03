@@ -16,3 +16,19 @@ via_api.contact:
     # contact form. Abuse is handled by the honeypot field and flood control in
     # the controller rather than by an access check.
     _access: 'TRUE'
+
+via_api.job_application:
+  path: '/api/v1/job-applications'
+  defaults:
+    _controller: '\Drupal\via_api\Controller\JobApplicationController::post'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+
+via_api.whistleblower:
+  path: '/api/v1/whistleblower-reports'
+  defaults:
+    _controller: '\Drupal\via_api\Controller\WhistleblowerController::post'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'

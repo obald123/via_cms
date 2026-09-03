@@ -30,6 +30,12 @@ $fields = [
   'field_jobs'     => ['label' => 'Jobs to be created', 'type' => 'string'],
   'field_website'  => ['label' => 'Website', 'type' => 'string'],
   'field_excerpt'  => ['label' => 'Excerpt', 'type' => 'string_long'],
+  // Delivered to date, against the targets above. Left empty until real
+  // reported figures exist for a project — the frontend shows progress only
+  // where a value is present, never a zeroed-out bar.
+  'field_trees_done'    => ['label' => 'Trees grown to date', 'type' => 'string'],
+  'field_hectares_done' => ['label' => 'Hectares restored to date', 'type' => 'string'],
+  'field_jobs_done'     => ['label' => 'Jobs created to date', 'type' => 'string'],
 ];
 
 $formDisplay = \Drupal::service('entity_display.repository')

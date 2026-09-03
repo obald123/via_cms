@@ -50,6 +50,12 @@ echo "==> add-page-hero-fields.php"
 echo "==> add-gallery-fields.php"
 ./vendor/bin/drush php:script scripts/add-gallery-fields.php
 
+echo "==> add-story-fields.php"
+./vendor/bin/drush php:script scripts/add-story-fields.php
+
+echo "==> build-content-model.php"
+./vendor/bin/drush php:script scripts/build-content-model.php
+
 echo "==> seed-content.php"
 if [[ "${1:-}" == "--prune" ]]; then
   SEED_PRUNE=1 ./vendor/bin/drush php:script scripts/seed-content.php
@@ -66,7 +72,7 @@ API_URL="${VIA_API_URL:-https://viacms.dtecsoftwaresolutions.com/api/v1/site-con
 curl -s "$API_URL" | php -r '
 $d = json_decode(stream_get_contents(STDIN), true);
 if (!$d) { fwrite(STDERR, "Could not parse API response.\n"); exit(1); }
-foreach (["heroStats","impactCards","partners","countries","pageHeroes","gallery","projects","news","stories","team"] as $k) {
+foreach (["heroStats","impactCards","partners","countries","pageHeroes","gallery","projects","news","stories","team","jobPostings","restorationTimeline"] as $k) {
   printf("  %-12s %d\n", $k, count($d[$k] ?? []));
 }
 '

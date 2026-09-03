@@ -33,6 +33,8 @@ $vocabularies = [
    the union of the icons used by services and impact cards. */
 $icons = ['DollarSign', 'Shield', 'Globe', 'Layers', 'Leaf', 'Users', 'TrendingUp', 'TreePine'];
 
+$employmentTypes = ['Full-time', 'Part-time', 'Contract', 'Internship', 'Volunteer'];
+
 /* ── Field storages: name => [type, cardinality, extra settings] ────────── */
 $storages = [
   'field_slug' => ['string', 1],
@@ -74,6 +76,20 @@ $storages = [
   'field_show_in_chart' => ['boolean', 1],
   'field_share' => ['integer', 1],
   'field_color' => ['string', 1],
+
+  // Careers. field_published_at is also created by scripts/add-story-fields.php
+  // — declared again here (harmlessly, loadByName() skips it if present) so
+  // build-content-model.php alone is enough to stand the job board up.
+  'field_department' => ['string', 1],
+  'field_employment_type' => ['list_string', 1, ['allowed_values' => array_combine($employmentTypes, $employmentTypes)]],
+  'field_responsibilities' => ['string_long', -1],
+  'field_requirements' => ['string_long', -1],
+  'field_job_status' => ['list_string', 1, ['allowed_values' => ['Open' => 'Open', 'Closed' => 'Closed']]],
+  'field_published_at' => ['datetime', 1, ['datetime_type' => 'date']],
+  'field_closing_at' => ['datetime', 1, ['datetime_type' => 'date']],
+
+  // Restoration timeline band (home page, between Trusted Partners and About).
+  'field_year' => ['string', 1],
 ];
 
 /* ── Content types: machine => [label, title label, description, fields] ──
@@ -171,6 +187,26 @@ $types = [
     'field_trees_m' => ['Trees (millions)'],
     'field_weight' => ['Order'],
   ]],
+  'restoration_photo' => ['Restoration photo', 'Alt text', 'One photo in the before/after strip on the home page, between Trusted Partners and About. The title doubles as the image\'s alt text.', [
+    'field_slug' => ['URL slug'],
+    'field_image' => ['Image'],
+    'field_year' => ['Year label (e.g. 2019 — illustrative, shown even though it is not the photo\'s real capture date)'],
+    'field_weight' => ['Order (left to right)'],
+  ]],
+  'job_posting' => ['Job posting', 'Title', 'An open role, listed on /careers and applied to directly through the site.', [
+    'field_slug' => ['URL slug'],
+    'field_department' => ['Department'],
+    'field_location' => ['Location'],
+    'field_employment_type' => ['Employment type'],
+    'field_excerpt' => ['Summary (shown on the listing card)'],
+    'field_body' => ['Full description'],
+    'field_responsibilities' => ['Responsibilities (one per paragraph)'],
+    'field_requirements' => ['Requirements (one per paragraph)'],
+    'field_job_status' => ['Status'],
+    'field_published_at' => ['Posted date'],
+    'field_closing_at' => ['Application deadline (leave empty for "open until filled")'],
+    'field_weight' => ['Order'],
+  ]],
 ];
 
 /* Widget per field type — without a form display component the field would not
@@ -184,6 +220,7 @@ $widgets = [
   'integer' => 'number',
   'decimal' => 'number',
   'list_string' => 'options_select',
+  'datetime' => 'datetime_default',
 ];
 
 $created = ['vocabulary' => 0, 'term' => 0, 'type' => 0, 'storage' => 0, 'field' => 0];
@@ -290,6 +327,102 @@ if (!\Drupal\webform\Entity\Webform::load('partner_enquiry')) {
     ]),
   ])->save();
   $created['webform'] = 1;
+}
+
+/* ── Job applications ──────────────────────────────────────────────────────
+   Submitted from a job posting's Apply form on /careers/{slug}. Résumés are
+   uploaded to private:// (see settings.php) and never exposed at a public URL
+   — only staff with access to view this webform's submissions can download
+   one, via Drupal's own file-access check. */
+if (!\Drupal\webform\Entity\Webform::load('job_application')) {
+  \Drupal\webform\Entity\Webform::create([
+    'id' => 'job_application',
+    'title' => 'Job application',
+    'description' => 'Applications submitted from a posting on the Careers page.',
+    'category' => 'VIA Foundation',
+    'status' => 'open',
+    'elements' => Yaml::encode([
+      'job_title' => ['#type' => 'textfield', '#title' => 'Position applied for', '#required' => TRUE],
+      'job_slug' => ['#type' => 'textfield', '#title' => 'Job posting slug', '#required' => TRUE],
+      'name' => ['#type' => 'textfield', '#title' => 'Name', '#required' => TRUE],
+      'email' => ['#type' => 'email', '#title' => 'Email', '#required' => TRUE],
+      'phone' => ['#type' => 'tel', '#title' => 'Phone'],
+      'portfolio_url' => ['#type' => 'url', '#title' => 'LinkedIn / portfolio link'],
+      'cover_message' => ['#type' => 'textarea', '#title' => 'Why are you a good fit for this role?', '#required' => TRUE],
+      'resume' => [
+        '#type' => 'managed_file',
+        '#title' => 'Résumé / CV',
+        '#required' => TRUE,
+        '#uri_scheme' => 'private',
+        '#file_extensions' => 'pdf doc docx',
+        '#max_filesize' => '10 MB',
+        '#upload_location' => 'private://job-applications',
+      ],
+    ]),
+  ])->save();
+  $created['webform'] = ($created['webform'] ?? 0) + 1;
+}
+
+/* ── Whistleblower / Report a Concern ─────────────────────────────────────
+   form_disable_remote_addr is set for every submission to this webform, not
+   only anonymous ones — see WebformSubmission::preCreate()/save(), which
+   reads exactly this flag to decide whether to record the request's IP at
+   all. A report made "with contact details" still isn't a report that needs
+   an IP on file, and only setting it conditionally would mean a frontend bug
+   in the anonymous toggle could leak one; this way there's no toggle to get
+   wrong; see src/app/pages/WhistleblowerPage.tsx / via_api's
+   WhistleblowerController for the rest of the confidentiality handling. */
+if (!\Drupal\webform\Entity\Webform::load('whistleblower_report')) {
+  \Drupal\webform\Entity\Webform::create([
+    'id' => 'whistleblower_report',
+    'title' => 'Whistleblower report',
+    'description' => 'Concerns submitted through /report-a-concern. Never records a submitter IP address — see form_disable_remote_addr below.',
+    'category' => 'VIA Foundation',
+    'status' => 'open',
+    'elements' => Yaml::encode([
+      'anonymous' => [
+        '#type' => 'checkbox',
+        '#title' => 'Submitted anonymously',
+      ],
+      'reporter_name' => ['#type' => 'textfield', '#title' => 'Name'],
+      'reporter_email' => ['#type' => 'email', '#title' => 'Email'],
+      'concern_types' => [
+        '#type' => 'checkboxes',
+        '#title' => 'What does this concern relate to?',
+        '#required' => TRUE,
+        '#options' => [
+          'fraud_financial' => 'Fraud or financial misconduct',
+          'corruption_bribery' => 'Corruption or bribery',
+          'conflict_of_interest' => 'Conflict of interest',
+          'safeguarding' => 'Safeguarding, abuse or exploitation',
+          'sexual_harassment' => 'Sexual harassment or misconduct',
+          'discrimination' => 'Discrimination or harassment',
+          'data_privacy' => 'Data privacy or security breach',
+          'environmental_safety' => 'Environmental or safety violation',
+          'other' => 'Other',
+        ],
+      ],
+      'related_project_or_office' => ['#type' => 'textfield', '#title' => 'Project or office involved (if known)'],
+      'person_involved' => ['#type' => 'textfield', '#title' => 'Person(s) involved (if known)'],
+      'incident_date' => ['#type' => 'date', '#title' => 'Date of incident (if known)'],
+      'description' => ['#type' => 'textarea', '#title' => 'What happened?', '#required' => TRUE],
+      'attachments' => [
+        '#type' => 'managed_file',
+        '#title' => 'Supporting documents (optional, up to 5 files)',
+        '#multiple' => 5,
+        '#uri_scheme' => 'private',
+        '#file_extensions' => 'pdf doc docx jpg jpeg png',
+        '#max_filesize' => '10 MB',
+        '#upload_location' => 'private://whistleblower-reports',
+      ],
+    ]),
+    'settings' => [
+      'form_disable_remote_addr' => TRUE,
+      'confirmation_type' => 'inline',
+      'confirmation_message' => "Thank you — your report has been received in confidence and will be reviewed by VIA Foundation's safeguarding lead. If you shared contact details we will follow up directly. This report is not linked to an IP address, whether or not you submitted it anonymously.",
+    ],
+  ])->save();
+  $created['webform'] = ($created['webform'] ?? 0) + 1;
 }
 
 echo "Content model built.\n";
