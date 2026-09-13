@@ -473,6 +473,18 @@ if (!\Drupal\webform\Entity\Webform::load('whistleblower_report')) {
   $created['webform'] = ($created['webform'] ?? 0) + 1;
 }
 
+/* ── Branded HTML email ───────────────────────────────────────────────────
+   A plain config change (not a settings.php override), so it can still be
+   swapped for drush config:set system.mail interface.default
+   test_mail_collector when testing, and survives a config:export/import. */
+$mailConfig = \Drupal::configFactory()->getEditable('system.mail');
+if ($mailConfig->get('interface.default') !== 'via_html_mailer') {
+  $mailConfig->set('interface.default', 'via_html_mailer')
+    ->set('interface.webform', 'via_html_mailer')
+    ->save();
+  echo "switched the default mail interface to via_html_mailer (branded HTML emails)\n";
+}
+
 echo "Content model built.\n";
 foreach ($created as $what => $n) {
   echo sprintf("  %-11s created: %d\n", $what, $n);

@@ -2,55 +2,28 @@
 
 /**
  * @file
- * Email texts for the VIA API endpoints. Sent through \Drupal\via_api\ViaMail.
+ * hook_mail() for via_api's own emails.
+ *
+ * This only supplies the subject and a plain-text body — required by
+ * Drupal's mail pipeline, and used verbatim if the default mail plugin is
+ * ever switched away from 'via_html_mailer' (see build-content-model.php).
+ * The actual copy, and the branded HTML those emails normally send as, both
+ * come from \Drupal\via_api\ViaMail::spec() and
+ * \Drupal\via_api\Email\ViaEmailTemplate — this is a thin adapter over the
+ * same spec, not a second copy of the wording.
  */
+
+use Drupal\via_api\Email\ViaEmailTemplate;
+use Drupal\via_api\ViaMail;
 
 /**
  * Implements hook_mail().
  */
 function via_api_mail(string $key, array &$message, array $params): void {
-  $site = 'VIA Foundation';
-
-  switch ($key) {
-    // To VIA: a Partner With Us message. Reply-To is the sender, so replying
-    // from the inbox answers them directly.
-    case 'partner_enquiry_notify':
-      $message['subject'] = "New Partner With Us message from {$params['name']}";
-      $message['body'][] = "A new message was sent from the Partner With Us page.";
-      $message['body'][] = "Name: {$params['name']}\nEmail: {$params['email']}\nOrganisation: " . ($params['organization'] !== '' ? $params['organization'] : '—');
-      $message['body'][] = "Message:\n{$params['message']}";
-      $message['body'][] = "Reply to this email to answer {$params['name']} directly. All messages are also kept in Drupal under Structure → Webforms → Partner enquiry → Results.";
-      break;
-
-    // To the sender: confirmation that it arrived.
-    case 'partner_enquiry_ack':
-      $message['subject'] = "We've received your message — $site";
-      $message['body'][] = "Dear {$params['name']},";
-      $message['body'][] = "Thank you for contacting VIA Foundation. We have received your message and a member of our team will get back to you soon.";
-      $message['body'][] = "For reference, this is what you sent:\n\n{$params['message']}";
-      $message['body'][] = "Warm regards,\nVIA Foundation (Vumbuzi Impact Africa Foundation)";
-      break;
-
-    // To the subscriber.
-    case 'newsletter_welcome':
-      $message['subject'] = "You're subscribed to $site updates";
-      $message['body'][] = "Hello,";
-      $message['body'][] = "Thank you for subscribing to updates from VIA Foundation. We'll share news on locally led restoration across Africa, our projects, and new publications.";
-      $message['body'][] = "If you didn't sign up, you can ignore this email, or reply and we'll remove your address.";
-      $message['body'][] = "Warm regards,\nVIA Foundation (Vumbuzi Impact Africa Foundation)";
-      break;
-
-    // To VIA.
-    case 'newsletter_notify':
-      $message['subject'] = "New newsletter subscriber: {$params['email']}";
-      $message['body'][] = "{$params['email']} subscribed to updates from the website footer.";
-      $message['body'][] = "The full list is in Drupal under Structure → Webforms → Newsletter subscriptions → Results, and can be downloaded as a spreadsheet there.";
-      break;
-
-    // scripts/test-mail.php.
-    case 'test':
-      $message['subject'] = "$site website — test email";
-      $message['body'][] = "This is a test email from the VIA Foundation website. If you can read this, outgoing email through Gmail is working.";
-      break;
+  $spec = ViaMail::spec($key, $params);
+  if (!$spec) {
+    return;
   }
+  $message['subject'] = $spec['subject'];
+  $message['body'][] = ViaEmailTemplate::renderText($spec);
 }
