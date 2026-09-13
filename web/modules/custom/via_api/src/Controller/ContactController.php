@@ -4,6 +4,7 @@ namespace Drupal\via_api\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Flood\FloodInterface;
+use Drupal\via_api\ViaMail;
 use Drupal\webform\Entity\WebformSubmission;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,8 +14,9 @@ use Symfony\Component\HttpFoundation\Request;
  * Receives the Partner With Us form from the React frontend.
  *
  * Submissions are stored as Webform submissions so they show up under
- * /admin/structure/webform/manage/partner_enquiry/results/submissions and can
- * have email handlers attached in the UI without touching this code.
+ * /admin/structure/webform/manage/partner_enquiry/results/submissions. Then VIA
+ * is emailed the message (Reply-To the sender) and the sender gets an
+ * acknowledgement — see ViaMail and via_api_mail().
  */
 class ContactController extends ControllerBase {
 
@@ -72,6 +74,10 @@ class ContactController extends ControllerBase {
         'message' => $message,
       ],
     ])->save();
+
+    $params = ['name' => $name, 'email' => $email, 'organization' => $organization, 'message' => $message];
+    ViaMail::send('partner_enquiry_notify', ViaMail::notifyAddress(), $params, $email);
+    ViaMail::send('partner_enquiry_ack', $email, $params);
 
     $this->flood->register('via_api.contact', self::WINDOW);
     $this->getLogger('via_api')->info('Partner enquiry received from @email.', ['@email' => $email]);

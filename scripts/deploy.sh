@@ -56,6 +56,9 @@ echo "==> add-story-fields.php"
 echo "==> build-content-model.php"
 ./vendor/bin/drush php:script scripts/build-content-model.php
 
+echo "==> sync-environment.php"
+./vendor/bin/drush php:script scripts/sync-environment.php
+
 echo "==> seed-content.php"
 if [[ "${1:-}" == "--prune" ]]; then
   SEED_PRUNE=1 ./vendor/bin/drush php:script scripts/seed-content.php

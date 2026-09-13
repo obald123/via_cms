@@ -26,7 +26,7 @@ $vocabularies = [
   'project_country' => ['Project country', ['Zambia', 'Senegal', 'Kenya', 'DRC', 'Ethiopia', 'Tanzania']],
   'project_category' => ['Project category', ['Forest', 'Drylands', 'Watershed', 'Agroforestry', 'Highlands', 'Coastal']],
   'story_category' => ['Story category', ['Community', 'Innovation', 'Finance', 'Youth']],
-  'news_category' => ['News category', ['Report', 'Publication', 'News']],
+  'news_category' => ['News category', ['Report', 'Publication', 'News', 'Documentation']],
 ];
 
 /* The lucide-react icons the frontend can render. Shared storage, so this is
@@ -90,6 +90,13 @@ $storages = [
 
   // Restoration timeline band (home page, between Trusted Partners and About).
   'field_year' => ['string', 1],
+
+  // About page: mission/vision label, donor website, and the downloadable
+  // file a News item (the Documentation category, chiefly) can carry.
+  // field_website is also created by add-project-fields.php — harmless here.
+  'field_kicker' => ['string', 1],
+  'field_website' => ['string', 1],
+  'field_document' => ['file', 1, ['uri_scheme' => 'public', 'target_type' => 'file']],
 ];
 
 /* ── Content types: machine => [label, title label, description, fields] ──
@@ -127,6 +134,26 @@ $types = [
     'field_category' => ['Category', ['handler_settings' => ['target_bundles' => ['news_category' => 'news_category']]]],
     'field_date_label' => ['Date label'],
     'field_body' => ['Body paragraphs'],
+    'field_document' => ['Downloadable document (PDF, Word, Excel…) — optional', ['field_settings' => [
+      'file_extensions' => 'pdf doc docx xls xlsx ppt pptx',
+      'file_directory' => 'documents',
+      'max_filesize' => '25 MB',
+      'description_field' => FALSE,
+    ]]],
+    'field_weight' => ['Order'],
+  ]],
+  'purpose_statement' => ['Mission & vision statement', 'Headline', 'One statement in the Vision / Mission section of the About page. Delete them all and the section hides itself.', [
+    'field_kicker' => ['Label (e.g. "Our Vision")'],
+    'field_desc' => ['Statement'],
+    'field_weight' => ['Order'],
+  ]],
+  'pillar' => ['Approach pillar', 'Title', 'One numbered point in the "How we work" list on the About page. Delete them all and the section hides itself.', [
+    'field_desc' => ['Description'],
+    'field_weight' => ['Order'],
+  ]],
+  'donor' => ['Donor', 'Name', 'A donor shown in the "Our Donors" section of the About page. Upload the logo here — no developer needed.', [
+    'field_image' => ['Logo'],
+    'field_website' => ['Website (optional — makes the logo a link)'],
     'field_weight' => ['Order'],
   ]],
   'service' =>['Service', 'Title', 'A "What We Do" service offering.', [
@@ -221,6 +248,7 @@ $widgets = [
   'decimal' => 'number',
   'list_string' => 'options_select',
   'datetime' => 'datetime_default',
+  'file' => 'file_generic',
 ];
 
 $created = ['vocabulary' => 0, 'term' => 0, 'type' => 0, 'storage' => 0, 'field' => 0];
@@ -297,6 +325,9 @@ foreach ($types as $machine => [$label, $titleLabel, $description, $fields]) {
       if (isset($extra['handler_settings'])) {
         $values['settings'] = ['handler' => 'default:taxonomy_term', 'handler_settings' => $extra['handler_settings']];
       }
+      if (isset($extra['field_settings'])) {
+        $values['settings'] = ($values['settings'] ?? []) + $extra['field_settings'];
+      }
       FieldConfig::create($values)->save();
       $created['field']++;
     }
@@ -307,6 +338,23 @@ foreach ($types as $machine => [$label, $titleLabel, $description, $fields]) {
     ]);
   }
   $formDisplay->save();
+}
+
+/* ── Newsletter subscriptions ─────────────────────────────────────────────
+   The footer's Stay Informed signup (NewsletterController). One row per
+   address; staff export the list from the webform's Results tab. */
+if (!\Drupal\webform\Entity\Webform::load('newsletter_subscription')) {
+  \Drupal\webform\Entity\Webform::create([
+    'id' => 'newsletter_subscription',
+    'title' => 'Newsletter subscriptions',
+    'description' => 'Email addresses signed up from the website footer.',
+    'category' => 'VIA Foundation',
+    'status' => 'open',
+    'elements' => Yaml::encode([
+      'email' => ['#type' => 'email', '#title' => 'Email', '#required' => TRUE],
+    ]),
+  ])->save();
+  $created['webform'] = ($created['webform'] ?? 0) + 1;
 }
 
 /* ── The Partner enquiry form ──────────────────────────────────────────────

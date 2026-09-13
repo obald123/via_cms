@@ -237,33 +237,60 @@ foreach ($data['gallery'] as $g) {
   ], $g['slug']);
 }
 
-// TerraFund champion organisations. The superseded fields (funding, funder,
-// status, communities, progress, result, image, category, body) still exist on
-// the bundle with their old content, but nothing reads them any more — see
-// scripts/add-project-fields.php.
-foreach ($data['projects'] as $i => $p) {
-  $upsert('project', $p['name'], [
-    'field_slug' => $p['slug'],
-    'field_country_ref' => $term('project_country', $p['country']),
-    'field_cohort' => $p['cohort'],
-    'field_org_type' => $p['orgType'],
-    'field_trees' => $p['trees'],
-    'field_hectares' => $p['hectares'],
-    'field_jobs' => $p['jobs'],
-    'field_website' => $p['website'],
-    'field_excerpt' => $p['excerpt'],
-    'field_trees_done' => $p['treesDone'] ?? '',
-    'field_hectares_done' => $p['hectaresDone'] ?? '',
-    'field_jobs_done' => $p['jobsDone'] ?? '',
-    'field_weight' => $i,
-  ], $p['slug']);
+// TerraFund champion organisations — photo, description, website and targets
+// from TerraFund's published "Meet the Champions" profiles.
+//
+// Projects belong to staff once seeded: they add new ones and edit existing
+// ones in Drupal (see the project form set up by add-project-fields.php), so a
+// routine deploy must not overwrite any of that. This block therefore only
+// runs when content.json carries a higher projectsSeedVersion than this
+// environment has already applied — bump PROJECTS_SEED_VERSION in the
+// frontend's export-content.mjs when data.ts has a portfolio update that
+// should replace what's in Drupal. `project` is also not in $prunable below,
+// so a project added by hand is never deleted as "stale".
+//
+// Even when it runs, field_*_done is only written when data.ts carries a
+// value, so real delivery figures entered in Drupal are never blanked.
+$projectsVersion = (int) ($data['projectsSeedVersion'] ?? 1);
+$projectsApplied = (int) \Drupal::state()->get('via_seed.projects_version', 0);
+if ($projectsVersion > $projectsApplied) {
+  foreach ($data['projects'] as $i => $p) {
+    $done = [];
+    foreach (['treesDone' => 'field_trees_done', 'hectaresDone' => 'field_hectares_done', 'jobsDone' => 'field_jobs_done'] as $key => $field) {
+      if (($p[$key] ?? '') !== '') {
+        $done[$field] = $p[$key];
+      }
+    }
+
+    $upsert('project', $p['name'], [
+      'field_slug' => $p['slug'],
+      'field_country_ref' => $term('project_country', $p['country']),
+      'field_cohort' => $p['cohort'],
+      'field_org_type' => $p['orgType'],
+      'field_organisation_type' => $p['orgType'],
+      'field_trees' => $p['trees'],
+      'field_hectares' => $p['hectares'],
+      'field_jobs' => $p['jobs'],
+      'field_website' => $p['website'],
+      'field_excerpt' => $p['excerpt'],
+      'field_image' => ($p['image'] ?? '') !== '' ? $localFile($p['image']) : NULL,
+      'field_weight' => $i,
+    ] + $done, $p['slug']);
+  }
+  \Drupal::state()->set('via_seed.projects_version', $projectsVersion);
+  echo "  projects: applied seed version $projectsVersion\n";
+}
+else {
+  echo "  projects: seed version $projectsVersion already applied, left as staff have them\n";
 }
 
 foreach ($data['stories'] as $i => $s) {
   $upsert('story', $s['title'], [
     'field_slug' => $s['slug'],
     'field_image' => $image($s['image']),
-    'field_category' => $term('story_category', $s['category']),
+    // [] rather than NULL, so a story whose category was removed is actually
+    // cleared — $upsert() skips NULLs.
+    'field_category' => $term('story_category', $s['category']) ?? [],
     'field_date_label' => $s['date'],
     'field_featured' => $s['featured'] ? 1 : 0,
     'field_excerpt' => $s['excerpt'],
@@ -273,6 +300,17 @@ foreach ($data['stories'] as $i => $s) {
     'field_duration' => $s['duration'] ?? '',
     'field_weight' => $i,
   ], $s['slug']);
+}
+
+// Stories are one category on the merged News page, film or written, so the
+// separate "Videos" story category is gone. Its term is removed once nothing
+// uses it any more (a story staff still have filed under it keeps it alive).
+foreach ($termStorage->loadByProperties(['vid' => 'story_category', 'name' => 'Videos']) as $videos) {
+  $inUse = $nodeStorage->getQuery()->accessCheck(FALSE)->condition('type', 'story')->condition('field_category', $videos->id())->count()->execute();
+  if (!$inUse) {
+    $videos->delete();
+    echo "  removed unused story category \"Videos\"\n";
+  }
 }
 
 foreach ($data['news'] as $i => $n) {
@@ -308,15 +346,54 @@ foreach ($data['restorationTimeline'] as $r) {
   ], $r['slug']);
 }
 
+// Every News category the frontend knows about, so a category with nothing
+// tagged yet (Documentation, before its first upload) still exists to filter
+// by. $term() only ever creates what's missing.
+foreach ($data['newsCategories'] ?? [] as $name) {
+  $term('news_category', $name);
+}
+
+/**
+ * About page: vision/mission statements, pillars and donors.
+ *
+ * These are staff-owned. content.json only provides the starting content, so
+ * each bundle is seeded once — when it has no nodes at all — and never touched
+ * again: a donor added, reworded or deleted in Drupal survives every later
+ * deploy. They are deliberately not in $prunable below for the same reason.
+ * To reset one to the seed, delete all of its nodes in Drupal and reseed.
+ */
+$seedOnce = function (string $bundle, array $rows, callable $build) use ($nodeStorage, $upsert): void {
+  if (!$rows || $nodeStorage->getQuery()->accessCheck(FALSE)->condition('type', $bundle)->count()->execute() > 0) {
+    return;
+  }
+  foreach ($rows as $i => $row) {
+    [$title, $fields] = $build($row);
+    $upsert($bundle, $title, $fields + ['field_weight' => $i]);
+  }
+};
+
+$seedOnce('purpose_statement', $data['purpose'] ?? [], fn($p) => [$p['title'], [
+  'field_kicker' => $p['kicker'],
+  'field_desc' => $p['body'],
+]]);
+
+$seedOnce('pillar', $data['pillars'] ?? [], fn($p) => [$p['title'], [
+  'field_desc' => $p['desc'],
+]]);
+
+$seedOnce('donor', $data['donors'] ?? [], fn($d) => [$d['name'], [
+  'field_image' => $localFile($d['logo']),
+  'field_website' => $d['website'],
+]]);
+
 /**
  * Upserting alone can only ever add. Renaming a hero stat or dropping a partner
  * from content.json leaves the old node behind, still published, still in the
  * API response — so the site shows both the old and the new.
  *
  * These bundles are generated wholly from content.json, so anything this run did
- * not touch is a leftover and safe to remove. `project` is on the list because
- * the portfolio is generated in full from the TerraFund export — a project not
- * in that export is not a project VIA supports.
+ * not touch is a leftover and safe to remove. `project` used to be here too;
+ * it no longer is, because staff now add projects directly in Drupal.
  *
  * The bundles editors author directly (news, story, team_member, service,
  * testimonial) are deliberately excluded: a Careers vacancy written in Drupal
@@ -325,7 +402,7 @@ foreach ($data['restorationTimeline'] as $r) {
  * Reports by default; deletes only when asked:
  *   SEED_PRUNE=1 drush php:script scripts/seed-content.php
  */
-$prunable = ['hero_stat', 'impact_card', 'partner', 'country', 'funding_allocation', 'yearly_progress', 'project', 'page_hero', 'gallery_item', 'restoration_photo'];
+$prunable = ['hero_stat', 'impact_card', 'partner', 'country', 'funding_allocation', 'yearly_progress', 'page_hero', 'gallery_item', 'restoration_photo'];
 $prune = getenv('SEED_PRUNE') === '1';
 $stale = [];
 

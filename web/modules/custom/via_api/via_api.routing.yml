@@ -17,6 +17,15 @@ via_api.contact:
     # the controller rather than by an access check.
     _access: 'TRUE'
 
+via_api.newsletter:
+  path: '/api/v1/newsletter'
+  defaults:
+    _controller: '\Drupal\via_api\Controller\NewsletterController::post'
+  methods: [POST]
+  requirements:
+    # Public signup form; abuse is handled by the honeypot and flood control.
+    _access: 'TRUE'
+
 via_api.job_application:
   path: '/api/v1/job-applications'
   defaults:
@@ -32,3 +41,16 @@ via_api.whistleblower:
   methods: [POST]
   requirements:
     _access: 'TRUE'
+
+via_api.document_download:
+  path: '/api/v1/documents/{node}/download'
+  defaults:
+    _controller: '\Drupal\via_api\Controller\DocumentController::download'
+  methods: [GET]
+  options:
+    parameters:
+      node:
+        type: entity:node
+  requirements:
+    node: '\d+'
+    _entity_access: 'node.view'

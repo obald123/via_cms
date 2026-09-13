@@ -6,6 +6,7 @@ use Drupal\Core\Cache\CacheableJsonResponse;
 use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\File\FileUrlGeneratorInterface;
+use Drupal\Core\Url;
 use Drupal\node\NodeInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -90,11 +91,14 @@ class SiteContentController extends ControllerBase {
       // A TerraFund champion organisation. Trees, hectares and jobs are the
       // commitments made for the project, not results delivered to date.
       'projects' => $this->map('project', fn(NodeInterface $n) => [
-        'slug' => (string) $this->val($n, 'field_slug'),
+        // A project added by hand with no slug still gets a working page.
+        'slug' => (string) ($this->val($n, 'field_slug') ?: $this->slugify($n->label() . '-' . $n->id())),
         'name' => $n->label(),
         'country' => $this->termName($n, 'field_country_ref'),
         'cohort' => (string) $this->val($n, 'field_cohort'),
-        'orgType' => (string) $this->val($n, 'field_org_type'),
+        // The dropdown; the old free-text field only as a fallback.
+        'orgType' => (string) ($this->val($n, 'field_organisation_type') ?: $this->val($n, 'field_org_type')),
+        'image' => $this->imageUrl($n, 'field_image'),
         'trees' => (string) $this->val($n, 'field_trees'),
         'hectares' => (string) $this->val($n, 'field_hectares'),
         'jobs' => (string) $this->val($n, 'field_jobs'),
@@ -126,7 +130,13 @@ class SiteContentController extends ControllerBase {
         'category' => $this->termName($n, 'field_category'),
         'date' => (string) $this->val($n, 'field_date_label'),
         'body' => $this->multi($n, 'field_body'),
-      ]),
+      ] + $this->document($n)),
+
+      // Every News category that exists in Drupal, in the vocabulary's own
+      // order — not just the ones something is tagged with — so a category
+      // like Documentation is filterable (and linkable from the footer) the
+      // moment it's created, before its first document is uploaded.
+      'newsCategories' => $this->termNames('news_category'),
 
       'team' => $this->map('team_member', fn(NodeInterface $n) => [
         'name' => $n->label(),
@@ -165,6 +175,24 @@ class SiteContentController extends ControllerBase {
         'image' => $this->imageUrl($n, 'field_image'),
         'alt' => $n->label(),
         'year' => (string) $this->val($n, 'field_year'),
+      ]),
+
+      // About page. Staff-owned after a one-time seed — see seed-content.php.
+      'purpose' => $this->map('purpose_statement', fn(NodeInterface $n) => [
+        'kicker' => (string) $this->val($n, 'field_kicker'),
+        'title' => $n->label(),
+        'body' => (string) $this->val($n, 'field_desc'),
+      ]),
+
+      'pillars' => $this->map('pillar', fn(NodeInterface $n) => [
+        'title' => $n->label(),
+        'desc' => (string) $this->val($n, 'field_desc'),
+      ]),
+
+      'donors' => $this->map('donor', fn(NodeInterface $n) => [
+        'name' => $n->label(),
+        'logo' => $this->imageUrl($n, 'field_image'),
+        'website' => (string) $this->val($n, 'field_website'),
       ]),
     ];
 
@@ -224,6 +252,48 @@ class SiteContentController extends ControllerBase {
     }
     $file = $node->get($field)->entity;
     return $file ? $this->fileUrlGenerator->generateAbsoluteString($file->getFileUri()) : '';
+  }
+
+  /**
+   * A News item's attached document, or nothing when it has none. The URL is
+   * the download route, not the raw file, so it saves instead of opening in a
+   * tab — see DocumentController.
+   */
+  protected function document(NodeInterface $node): array {
+    if (!$node->hasField('field_document') || $node->get('field_document')->isEmpty()) {
+      return [];
+    }
+    /** @var \Drupal\file\FileInterface|null $file */
+    $file = $node->get('field_document')->entity;
+    if (!$file) {
+      return [];
+    }
+    return [
+      // toString(TRUE) collects the URL's cache metadata instead of letting it
+      // leak into this cacheable response, which Drupal treats as an error.
+      'documentUrl' => Url::fromRoute('via_api.document_download', ['node' => $node->id()], ['absolute' => TRUE])
+        ->toString(TRUE)->getGeneratedUrl(),
+      'documentName' => $file->getFilename(),
+      'documentSize' => (int) $file->getSize(),
+    ];
+  }
+
+  /** "Forest of Hope (FHA)" → "forest-of-hope-fha". */
+  protected function slugify(string $text): string {
+    $ascii = \Drupal::transliteration()->transliterate($text, 'en');
+    return trim(preg_replace('/[^a-z0-9]+/', '-', strtolower($ascii)), '-');
+  }
+
+  /** Term names of a vocabulary, in its admin-defined order. */
+  protected function termNames(string $vid): array {
+    $storage = $this->entityTypeManager()->getStorage('taxonomy_term');
+    $ids = $storage->getQuery()
+      ->accessCheck(TRUE)
+      ->condition('vid', $vid)
+      ->sort('weight')
+      ->sort('name')
+      ->execute();
+    return array_values(array_map(fn($t) => $t->label(), $storage->loadMultiple($ids)));
   }
 
   /** Absolute URL, because the frontend is served from a different origin. */
