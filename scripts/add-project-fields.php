@@ -135,8 +135,8 @@ if ($copied) {
   echo "copied organisation type into the dropdown on $copied project(s)\n";
 }
 
-$titleOverride = BaseFieldOverride::loadByName('node', 'project', 'title')
-  ?? BaseFieldOverride::createFromBaseFieldDefinition(
+$titleOverride = \Drupal\Core\Field\Entity\BaseFieldOverride::loadByName('node', 'project', 'title')
+  ?? \Drupal\Core\Field\Entity\BaseFieldOverride::createFromBaseFieldDefinition(
     \Drupal::service('entity_field.manager')->getBaseFieldDefinitions('node')['title'], 'project');
 $titleOverride->setLabel('Organisation or company name')->save();
 
