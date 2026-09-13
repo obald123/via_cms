@@ -29,9 +29,17 @@ $via_gmail_user = trim((string) ($settings['via_gmail_user'] ?? ''));
 $via_gmail_password = str_replace(' ', '', (string) ($settings['via_gmail_app_password'] ?? ''));
 
 if ($via_gmail_user !== '' && $via_gmail_password !== '') {
-  // Core's Symfony mailer; webform mail goes the same way.
-  $config['system.mail']['interface']['default'] = 'symfony_mailer';
-  $config['system.mail']['interface']['webform'] = 'symfony_mailer';
+  // Which mail PLUGIN sends the message ('via_html_mailer', VIA's own branded
+  // one) is set in Drupal config by build-content-model.php, not here — a
+  // settings.php override on 'interface' would beat that config value on
+  // every request, CLI included, with no visible sign anything was wrong
+  // (drush config:get shows the stored value, not what settings.php
+  // overrides — that's exactly how an earlier version of this file forced
+  // core's plain-text "symfony_mailer" plugin silently, for weeks, even
+  // after via_html_mailer was built and switched on in config). This file
+  // only ever sets the transport (mailer_dsn) below, which does have to be a
+  // settings.php override, since it carries a secret.
+  //
   // Port 587 — Symfony upgrades the connection with STARTTLS.
   $config['system.mail']['mailer_dsn'] = [
     'scheme' => 'smtp',

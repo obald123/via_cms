@@ -15,6 +15,7 @@ use Symfony\Component\Mailer\Mailer;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mailer\Transport;
 use Symfony\Component\Mailer\Transport\Dsn;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
 
 /**
@@ -81,11 +82,23 @@ class ViaHtmlMailer implements MailInterface, ContainerFactoryPluginInterface {
         if (in_array(strtolower($name), self::SKIP_HEADERS, TRUE)) {
           continue;
         }
+        // 'From' is handled separately below: Drupal builds it from the site's
+        // configured name, which here reads "VIA Foundation CMS" — the
+        // backend's own install name, not the brand. Every VIA email should
+        // say "VIA Foundation" regardless of what the Drupal site is called.
+        if (strtolower($name) === 'from') {
+          continue;
+        }
         if (in_array(strtolower($name), self::MAILBOX_LIST_HEADERS, TRUE)) {
           $value = str_getcsv($value, escape: '\\');
         }
         $headers->addHeader($name, $value);
       }
+
+      $fromAddress = !empty($message['headers']['From'])
+        ? Address::create($message['headers']['From'])->getAddress()
+        : ViaMail::notifyAddress();
+      $email->from(new Address($fromAddress, 'VIA Foundation'));
 
       $email->to($message['to'])->subject($message['subject']);
 

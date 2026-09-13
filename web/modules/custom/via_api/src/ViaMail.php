@@ -92,6 +92,7 @@ final class ViaMail {
         return [
           'subject' => "New Partner With Us message from $name",
           'preheader' => "New message from $name via the Partner With Us page.",
+          'eyebrow' => 'Partner With Us',
           'heading' => 'New message from the Partner With Us page',
           'intro' => [$esc($name) . ' just sent a message through the Partner With Us page on the website.'],
           'details' => array_values(array_filter([
@@ -111,6 +112,7 @@ final class ViaMail {
         return [
           'subject' => "We've received your message — VIA Foundation",
           'preheader' => "Thanks for contacting VIA Foundation — we'll be in touch soon.",
+          'eyebrow' => 'Partner With Us',
           'heading' => 'Thanks for reaching out' . ($firstName !== '' ? ', ' . $esc($firstName) : ''),
           'intro' => [
             'Thank you for contacting VIA Foundation. We\'ve received your message and a member of our team will get back to you soon.',
@@ -118,6 +120,7 @@ final class ViaMail {
           'quote' => ['label' => 'What you sent', 'html' => $escLines((string) ($params['message'] ?? ''))],
           'primaryCta' => ['label' => 'See What We Do', 'url' => self::frontendUrl('/what-we-do')],
           'secondaryCta' => ['label' => 'Explore our projects', 'url' => self::frontendUrl('/projects')],
+          'whyReceiving' => 'You submitted a message through the Partner With Us page on the VIA Foundation website.',
         ];
 
       // To the subscriber.
@@ -125,6 +128,7 @@ final class ViaMail {
         return [
           'subject' => "You're subscribed to VIA Foundation updates",
           'preheader' => "You're subscribed to updates from VIA Foundation.",
+          'eyebrow' => 'VIA Foundation Updates',
           'heading' => "You're on the list",
           'intro' => [
             "Thank you for subscribing to updates from VIA Foundation. We'll share news on locally led restoration across Africa, our projects, and new publications.",
@@ -132,7 +136,7 @@ final class ViaMail {
           ],
           'primaryCta' => ['label' => 'Read Our Latest News', 'url' => self::frontendUrl('/news')],
           'secondaryCta' => ['label' => 'Explore our impact', 'url' => self::frontendUrl('/impact')],
-          'footerNote' => "You're receiving this because you subscribed on our website.",
+          'whyReceiving' => "You're receiving this because you subscribed to updates on the VIA Foundation website. Reply to this email if you'd like to be removed.",
         ];
 
       // To VIA.
@@ -141,6 +145,7 @@ final class ViaMail {
         return [
           'subject' => "New newsletter subscriber: $email",
           'preheader' => "$email subscribed to updates from the website footer.",
+          'eyebrow' => 'Newsletter',
           'heading' => 'New newsletter subscriber',
           'intro' => [$esc($email) . ' subscribed to updates from the website footer.'],
           'primaryCta' => ['label' => 'View subscriber list in Drupal', 'url' => self::webformResultsUrl('newsletter_subscription')],
@@ -151,6 +156,7 @@ final class ViaMail {
         return [
           'subject' => 'VIA Foundation website — test email',
           'preheader' => 'A test email from the VIA Foundation website.',
+          'eyebrow' => 'System Check',
           'heading' => 'This is a test email',
           'intro' => [
             'This is a test email from the VIA Foundation website. If you can read this — with the logo, the colours and this button below — outgoing email through Gmail is set up correctly.',
