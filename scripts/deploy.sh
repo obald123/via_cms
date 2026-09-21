@@ -57,6 +57,9 @@ echo "==> add-story-fields.php"
 echo "==> add-airtable-sync-fields.php"
 ./vendor/bin/drush php:script scripts/add-airtable-sync-fields.php
 
+echo "==> add-team-member-type-field.php"
+./vendor/bin/drush php:script scripts/add-team-member-type-field.php
+
 echo "==> build-content-model.php"
 ./vendor/bin/drush php:script scripts/build-content-model.php
 
@@ -85,7 +88,7 @@ API_URL="${VIA_API_URL:-https://viacms.dtecsoftwaresolutions.com/api/v1/site-con
 curl -s "$API_URL" | php -r '
 $d = json_decode(stream_get_contents(STDIN), true);
 if (!$d) { fwrite(STDERR, "Could not parse API response.\n"); exit(1); }
-foreach (["heroStats","impactCards","partners","countries","pageHeroes","gallery","projects","news","stories","team","jobPostings","restorationTimeline"] as $k) {
+foreach (["heroStats","impactCards","partners","announcements","countries","pageHeroes","gallery","projects","news","stories","team","jobPostings","restorationTimeline"] as $k) {
   printf("  %-12s %d\n", $k, count($d[$k] ?? []));
 }
 '

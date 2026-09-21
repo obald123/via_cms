@@ -97,6 +97,12 @@ $storages = [
   'field_kicker' => ['string', 1],
   'field_website' => ['string', 1],
   'field_document' => ['file', 1, ['uri_scheme' => 'public', 'target_type' => 'file']],
+
+  // Sitewide announcement strip (above the nav). field_cta_label/field_cta_url
+  // are a pair — the frontend only renders a button when both are set.
+  'field_message' => ['string_long', 1],
+  'field_cta_label' => ['string', 1],
+  'field_cta_url' => ['string', 1],
 ];
 
 /* ── Content types: machine => [label, title label, description, fields] ──
@@ -232,6 +238,12 @@ $types = [
     'field_job_status' => ['Status'],
     'field_published_at' => ['Posted date'],
     'field_closing_at' => ['Application deadline (leave empty for "open until filled")'],
+    'field_weight' => ['Order'],
+  ]],
+  'announcement' => ['Announcement', 'Internal label', 'A dismissible strip shown above the site navigation, e.g. a time-limited notice or a link to something new. On/off is the node\'s own Published toggle — unpublish to end it, no need to delete. If more than one is published, only the lowest-weight one shows.', [
+    'field_message' => ['Message'],
+    'field_cta_label' => ['Button label (optional — leave both this and the URL empty for a message with no button)'],
+    'field_cta_url' => ['Button link (optional — a site path like /partner, or a full https:// URL)'],
     'field_weight' => ['Order'],
   ]],
 ];

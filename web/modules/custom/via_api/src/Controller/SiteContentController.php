@@ -51,6 +51,16 @@ class SiteContentController extends ControllerBase {
         'weight' => (int) $this->val($n, 'field_weight'),
       ]),
 
+      // A dismissible strip above the nav. 'id' is the node id, used as the
+      // frontend's dismissal key — stable for as long as this exact
+      // announcement stays published, unlike title (which staff might tweak).
+      'announcements' => $this->map('announcement', fn(NodeInterface $n) => [
+        'id' => (int) $n->id(),
+        'message' => (string) $this->val($n, 'field_message'),
+        'ctaLabel' => (string) $this->val($n, 'field_cta_label'),
+        'ctaUrl' => (string) $this->val($n, 'field_cta_url'),
+      ]),
+
       'impactCards' => $this->map('impact_card', fn(NodeInterface $n) => [
         'icon' => (string) $this->val($n, 'field_icon'),
         'value' => (string) $this->val($n, 'field_value'),
@@ -146,6 +156,7 @@ class SiteContentController extends ControllerBase {
         'bio' => (string) $this->val($n, 'field_bio'),
         'image' => $this->imageUrl($n, 'field_image'),
         'weight' => (int) $this->val($n, 'field_weight'),
+        'memberType' => (string) ($this->val($n, 'field_member_type') ?: 'team'),
       ]),
 
       // Open roles, entered directly in Drupal by staff — never seeded from
