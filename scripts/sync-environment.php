@@ -3,8 +3,8 @@
 /**
  * @file
  * Makes this Drupal match another one that's already set up correctly (local
- * dev, in practice) — for the two things that a normal `git push` + deploy.sh
- * never carries across on their own:
+ * dev, in practice) — for things that a normal `git push` + deploy.sh never
+ * carries across on their own:
  *
  * 1. settings.php's `file_private_path`. It's gitignored on purpose — Drupal
  *    convention keeps environment-specific paths out of version control —
@@ -12,6 +12,10 @@
  *    private:// stream wrapper never registers and every résumé/whistleblower
  *    attachment upload fails (see CLAUDE.md's stream-wrapper note). Adds the
  *    line if it's missing, and creates the directory it points at.
+ * 1b/1c. The empty settings.php placeholder lines for Gmail outgoing mail and
+ *    the Airtable project sync. Both are secrets, so only the blank lines are
+ *    added here — the values themselves are filled in by hand per
+ *    environment, never copied.
  * 2. Real content that only ever exists in one database because a person
  *    (or an earlier `drush php:eval`) put it there directly rather than it
  *    coming through the data.ts → seed-content.php pipeline. Currently just
@@ -76,6 +80,31 @@ if ($contents !== FALSE && !str_contains($contents, 'settings.via-mail.php')) {
 }
 elseif ($contents !== FALSE) {
   echo "settings.php already includes settings.via-mail.php — left alone\n";
+}
+
+/* ── 1c. settings.php: Airtable project sync ──────────────────────────── */
+// Same reasoning as the Gmail block above: the token is a secret, so only the
+// empty placeholder lines are copied — fill in the value by hand per
+// environment. via_airtable_notification_url is deliberately left blank here
+// even after filling in the token: it should only ever be set on the one
+// environment Airtable can reach over public HTTPS (production), never on
+// local XAMPP — see scripts/setup-airtable-webhook.php.
+$contents = file_get_contents($settingsPath);
+if ($contents !== FALSE && !str_contains($contents, 'via_airtable_token')) {
+  $originalPerms = fileperms($settingsPath) & 0777;
+  chmod($settingsPath, 0644);
+  $addition = "\n// Airtable project sync — fill in, see AirtableSync::fromSettings(). Added by scripts/sync-environment.php.\n"
+    . "\$settings['via_airtable_token'] = '';\n"
+    . "\$settings['via_airtable_base_id'] = '';\n"
+    . "\$settings['via_airtable_table_id'] = '';\n"
+    . "// Only set this on the environment Airtable should push webhook pings to (production) — see setup-airtable-webhook.php.\n"
+    . "\$settings['via_airtable_notification_url'] = '';\n";
+  file_put_contents($settingsPath, $contents . $addition);
+  chmod($settingsPath, $originalPerms);
+  echo "added the Airtable sync block to settings.php — fill in the token and base/table ids\n";
+}
+elseif ($contents !== FALSE) {
+  echo "settings.php already has via_airtable_token — left alone\n";
 }
 
 /* ── 2. The one piece of content that only ever lived in one database ──── */

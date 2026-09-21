@@ -13,6 +13,8 @@
  * same spec, not a second copy of the wording.
  */
 
+use Drupal\Core\Site\Settings;
+use Drupal\via_api\AirtableSync;
 use Drupal\via_api\Email\ViaEmailTemplate;
 use Drupal\via_api\ViaMail;
 
@@ -26,4 +28,52 @@ function via_api_mail(string $key, array &$message, array $params): void {
   }
   $message['subject'] = $spec['subject'];
   $message['body'][] = ViaEmailTemplate::renderText($spec);
+}
+
+/**
+ * Implements hook_cron().
+ *
+ * Two Airtable project-sync jobs, both no-ops if via_airtable_token isn't
+ * set in settings.php:
+ *
+ * 1. Keep the webhook alive. Airtable expires a webhook after 7 days with no
+ *    refresh — refreshing every run (Drupal cron typically runs far more
+ *    often than that) keeps real-time sync working indefinitely without
+ *    anyone having to remember it.
+ * 2. A daily safety-net resync, independent of the webhook. If a ping is
+ *    ever missed (a deploy mid-request, a transient network error), the site
+ *    should never drift from Airtable for more than a day.
+ */
+function via_api_cron(): void {
+  $sync = AirtableSync::fromSettings();
+  if (!$sync) {
+    return;
+  }
+
+  $notificationUrl = trim((string) Settings::get('via_airtable_notification_url', ''));
+  if ($notificationUrl !== '') {
+    try {
+      $sync->createOrRefreshWebhook($notificationUrl);
+    }
+    catch (\Throwable $e) {
+      \Drupal::logger('via_api')->error('Airtable webhook refresh/create failed: @msg', ['@msg' => $e->getMessage()]);
+    }
+  }
+
+  $state = \Drupal::state();
+  $lastSync = (int) $state->get('via_airtable.last_safety_sync', 0);
+  if (\Drupal::time()->getRequestTime() - $lastSync < 86400) {
+    return;
+  }
+  try {
+    $result = $sync->sync();
+    $state->set('via_airtable.last_safety_sync', \Drupal::time()->getRequestTime());
+    \Drupal::logger('via_api')->info(
+      'Airtable project sync (daily safety net): @total rows, @created created, @updated updated.',
+      ['@total' => $result['total'], '@created' => $result['created'], '@updated' => $result['updated']]
+    );
+  }
+  catch (\Throwable $e) {
+    \Drupal::logger('via_api')->error('Airtable daily safety-net sync failed: @msg', ['@msg' => $e->getMessage()]);
+  }
 }

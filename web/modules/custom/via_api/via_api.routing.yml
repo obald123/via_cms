@@ -42,6 +42,17 @@ via_api.whistleblower:
   requirements:
     _access: 'TRUE'
 
+via_api.airtable_webhook:
+  path: '/api/v1/airtable-webhook'
+  defaults:
+    _controller: '\Drupal\via_api\Controller\AirtableWebhookController::post'
+  methods: [POST]
+  requirements:
+    # Airtable, not a Drupal user, calls this — authenticity is the
+    # X-Airtable-Content-MAC signature checked inside the controller, not a
+    # Drupal permission.
+    _access: 'TRUE'
+
 via_api.document_download:
   path: '/api/v1/documents/{node}/download'
   defaults:

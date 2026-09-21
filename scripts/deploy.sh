@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 #
 # One-shot production deploy: pulls the latest code, adds any new fields,
-# reseeds content, and rebuilds the cache — everything after `git push` from
-# your machine, in a single command run on the server.
+# reseeds content, syncs projects from Airtable and (re)registers its webhook,
+# and rebuilds the cache — everything after `git push` from your machine, in a
+# single command run on the server.
 #
 # Run from the via-cms directory (wherever this repo is checked out, e.g.
 # ~/viacms.dtecsoftwaresolutions.com):
@@ -53,6 +54,9 @@ echo "==> add-gallery-fields.php"
 echo "==> add-story-fields.php"
 ./vendor/bin/drush php:script scripts/add-story-fields.php
 
+echo "==> add-airtable-sync-fields.php"
+./vendor/bin/drush php:script scripts/add-airtable-sync-fields.php
+
 echo "==> build-content-model.php"
 ./vendor/bin/drush php:script scripts/build-content-model.php
 
@@ -65,6 +69,12 @@ if [[ "${1:-}" == "--prune" ]]; then
 else
   ./vendor/bin/drush php:script scripts/seed-content.php
 fi
+
+echo "==> sync-airtable-projects.php"
+./vendor/bin/drush php:script scripts/sync-airtable-projects.php
+
+echo "==> setup-airtable-webhook.php"
+./vendor/bin/drush php:script scripts/setup-airtable-webhook.php
 
 echo "==> cache:rebuild"
 ./vendor/bin/drush cache:rebuild
