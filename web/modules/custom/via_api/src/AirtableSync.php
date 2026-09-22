@@ -2,7 +2,9 @@
 
 namespace Drupal\via_api;
 
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Site\Settings;
+use Drupal\file\Entity\File;
 use Drupal\node\Entity\Node;
 use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
@@ -12,13 +14,15 @@ use Drupal\taxonomy\Entity\Term;
  * and upserts them as `project` nodes — the automated replacement for
  * staff typing TerraFund/PPC's reported numbers into Drupal by hand.
  *
- * Airtable is the source of truth for exactly one slice of a project: its
- * name, country, cohort, and the six commitment/delivered figures (trees,
- * hectares, jobs — see applyFields()). Everything a human writes —
- * organisation type, website, photo, description — is staff-owned in
- * Drupal, same as the rest of this content type (see field_trees_done etc.
- * in add-project-fields.php), and this sync never touches those fields once
- * a node exists.
+ * Airtable is the source of truth for name, country, cohort, the six
+ * commitment/delivered figures (trees, hectares, jobs — see applyFields()),
+ * and, since Airtable's "Photo" and "Project Description (English)" fields
+ * were added, the description and photo too — all overwritten on every
+ * sync, by the site owner's explicit choice, even for the ~105 profiles
+ * that already had hand-written text from the original data.ts import.
+ * Organisation type and website remain staff-owned in Drupal (see
+ * field_trees_done etc. in add-project-fields.php) and this sync never
+ * touches those.
  *
  * Matching: every Airtable row carries a stable `uuid`. A node linked to one
  * (field_airtable_uuid) is always found and updated by that key. A node
@@ -26,8 +30,8 @@ use Drupal\taxonomy\Entity\Term;
  * this integration existed — is matched once, by exact title ==
  * organisationName, and linked; every sync after that uses the uuid. An
  * unmatched row creates a new stub node: organisation type defaults to
- * Non-profit, and website/photo/description are left blank for staff to
- * fill in in Drupal.
+ * Non-profit and website is left blank for staff to fill in in Drupal —
+ * description and photo, unlike those two, arrive from Airtable immediately.
  *
  * Triggered by AirtableWebhookController on a verified webhook ping, and by
  * scripts/sync-airtable-projects.php for a manual run.
@@ -154,9 +158,67 @@ class AirtableSync {
     // jobsCreatedGoal is the target, confirmed against sample rows.
     $node->set('field_jobs_done', $this->format($this->num($f, 'jobs')));
 
+    $description = trim((string) ($f['Project Description (English)'] ?? ''));
+    if ($description !== '') {
+      $node->set('field_excerpt', $description);
+    }
+
+    $photo = $f['Photo'][0] ?? NULL;
+    if ($photo) {
+      $fileId = $this->downloadAttachment($photo);
+      if ($fileId) {
+        $node->set('field_image', $fileId);
+      }
+    }
+
     if ($isNew && $node->hasField('field_organisation_type') && $node->get('field_organisation_type')->isEmpty()) {
       $node->set('field_organisation_type', 'Non-profit');
     }
+  }
+
+  /**
+   * Downloads an Airtable attachment and returns a permanent Drupal file id,
+   * reusing the file already on disk when one exists.
+   *
+   * Airtable attachment URLs are signed and expire, and the signature
+   * rotates on every API fetch even for the same underlying photo — so the
+   * cache key is the attachment's own stable `id` (e.g. "attXSrOvg7Ye..."),
+   * never the URL. Without this, "always overwrite" would re-download every
+   * project's photo on every single sync, whether or not it changed.
+   */
+  protected function downloadAttachment(array $attachment): ?int {
+    $attachmentId = (string) ($attachment['id'] ?? '');
+    $url = (string) ($attachment['url'] ?? '');
+    if ($attachmentId === '' || $url === '') {
+      return NULL;
+    }
+
+    $extension = strtolower(pathinfo((string) ($attachment['filename'] ?? ''), PATHINFO_EXTENSION));
+    $extension = preg_match('/^(jpg|jpeg|png|webp|gif)$/', $extension) ? $extension : 'jpg';
+    $directory = 'public://airtable-photos';
+    $destination = "$directory/$attachmentId.$extension";
+
+    $existing = \Drupal::entityTypeManager()->getStorage('file')->loadByProperties(['uri' => $destination]);
+    if ($existing) {
+      return (int) reset($existing)->id();
+    }
+
+    try {
+      $bytes = \Drupal::httpClient()->get($url, ['timeout' => 30])->getBody()->getContents();
+    }
+    catch (\Throwable $e) {
+      \Drupal::logger('via_api')->warning('Airtable photo download failed for @id: @msg', ['@id' => $attachmentId, '@msg' => $e->getMessage()]);
+      return NULL;
+    }
+
+    /** @var \Drupal\Core\File\FileSystemInterface $fileSystem */
+    $fileSystem = \Drupal::service('file_system');
+    $fileSystem->prepareDirectory($directory, FileSystemInterface::CREATE_DIRECTORY);
+    $fileSystem->saveData($bytes, $destination, FileSystemInterface::EXISTS_REPLACE);
+
+    $file = File::create(['uri' => $destination, 'status' => 1]);
+    $file->save();
+    return (int) $file->id();
   }
 
   protected function num(array $f, string $key): int {
