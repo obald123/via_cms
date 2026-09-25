@@ -185,9 +185,28 @@ foreach ($data['services'] as $i => $s) {
     'field_icon' => $s['icon'],
     'field_accent' => $s['accent'],
     'field_desc' => $s['desc'],
+    'field_image' => $localFile($s['image'] ?? ''),
     'field_body' => $s['body'],
     'field_weight' => $i,
   ], $s['slug']);
+}
+
+foreach ($data['priorityLandscapes'] ?? [] as $i => $landscape) {
+  $upsert('priority_landscape', $landscape['title'], [
+    'field_slug' => $landscape['slug'],
+    'field_image' => $localFile($landscape['image'] ?? ''),
+    'field_body' => $landscape['body'],
+    'field_weight' => $i,
+  ], $landscape['slug']);
+}
+
+foreach ($data['implementationPartnerships'] ?? [] as $i => $partnership) {
+  $upsert('implementation_partnership', $partnership['title'], [
+    'field_slug' => $partnership['slug'],
+    'field_image' => $localFile($partnership['image'] ?? ''),
+    'field_body' => $partnership['body'],
+    'field_weight' => $i,
+  ], $partnership['slug']);
 }
 
 foreach ($data['partners'] as $p) {

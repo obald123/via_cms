@@ -44,6 +44,21 @@ class SiteContentController extends ControllerBase {
         'accent' => (string) $this->val($n, 'field_accent'),
         'desc' => (string) $this->val($n, 'field_desc'),
         'body' => $this->multi($n, 'field_body'),
+        'image' => $this->imageUrl($n, 'field_image'),
+      ]),
+
+      'priorityLandscapes' => $this->map('priority_landscape', fn(NodeInterface $n) => [
+        'slug' => (string) $this->val($n, 'field_slug'),
+        'title' => $n->label(),
+        'image' => $this->imageUrl($n, 'field_image'),
+        'body' => $this->multi($n, 'field_body'),
+      ]),
+
+      'implementationPartnerships' => $this->map('implementation_partnership', fn(NodeInterface $n) => [
+        'slug' => (string) $this->val($n, 'field_slug'),
+        'title' => $n->label(),
+        'image' => $this->imageUrl($n, 'field_image'),
+        'body' => $this->multi($n, 'field_body'),
       ]),
 
       'partners' => $this->map('partner', fn(NodeInterface $n) => [

@@ -32,39 +32,39 @@
   "services": [
     {
       "slug": "flexible-funding",
-      "title": "Flexible Funding",
+      "title": "Deploy Capital",
       "icon": "DollarSign",
       "accent": "#56B44B",
       "desc": "Catalytic grants and concessional finance tailored to locally-led restoration champions across Africa's diverse landscapes.",
       "body": [
-        "VIA Foundation deploys grant and concessional capital directly to the organisations doing restoration work on the ground — cooperatives, social enterprises, and community associations that traditional finance overlooks.",
-        "Funding is structured around each grantee's growth stage, from early seed grants that de-risk a first pilot to larger multi-year commitments that help proven models scale across new landscapes.",
-        "Every disbursement is paired with clear, achievable milestones co-designed with the grantee, so capital keeps pace with real capacity rather than forcing premature scale."
-      ]
+        "VIA Foundation and its partners deploy grants, debt, and equity directly to the organisations doing restoration work on the ground — cooperatives, social enterprises, and community associations.",
+        "Funding is structured around each organization’s growth stage, from early seed grants that de-risk a first pilot to larger multi-year commitments that help proven models scale. Every disbursement is paired with clear, achievable milestones co-designed with the partner, so capital keeps pace with real capacity rather than forcing premature scale."
+      ],
+      "image": "0x8a3565-community-meeting.jpg"
     },
     {
       "slug": "technical-assistance",
-      "title": "Technical Assistance",
+      "title": "Build Capacity",
       "icon": "Shield",
       "accent": "#C8A45A",
       "desc": "Hands-on capacity building, knowledge transfer and implementation support to strengthen restoration organizations at scale.",
       "body": [
-        "Money alone doesn't restore land — organisations need financial systems, monitoring capability, and technical know-how to deploy it well. VIA Foundation's technical assistance team works side-by-side with grantees to build exactly that.",
-        "Support spans everything from nursery management and agroforestry techniques to financial reporting, governance structures, and safeguarding practices, delivered through in-person workshops, peer exchanges, and remote coaching.",
-        "The goal is durable institutional strength: organisations that can manage larger grants, attract other funders, and outlast any single VIA Foundation partnership."
-      ]
+        "Money alone doesn't restore land — organisations need financial management systems, monitoring capability, and technical know-how to deploy it well. VIA Foundation's technical assistance team works side-by-side with local organizations to build exactly that.",
+        "Support spans from nursery management and agroforestry techniques to financial reporting, governance structures, and safeguarding practices, delivered through peer exchanges and online courses. The goal is durable institutional strength: organisations that can attract and manage more finance."
+      ],
+      "image": "ddtt1286-nursery-work.jpg"
     },
     {
       "slug": "monitoring-verification",
-      "title": "Monitoring & Verification",
+      "title": "Manage Portfolios & Performance",
       "icon": "Globe",
       "accent": "#56B44B",
       "desc": "Rigorous impact measurement, satellite monitoring and third-party verification ensuring accountability and transparency.",
       "body": [
-        "Every hectare VIA Foundation finances is tracked through a combination of satellite imagery, remote sensing, and community-reported field data, giving funders and partners a transparent, real-time view of progress.",
-        "Independent third-party verification confirms survival rates, land-tenure legitimacy, and community benefit-sharing, so reported outcomes hold up to external scrutiny.",
-        "This same monitoring backbone also flags underperforming sites early, allowing VIA Foundation and its grantees to adapt before problems compound."
-      ]
+        "Every hectare VIA Foundation finances is tracked thoroughly by its experienced project managers and field coordinators. Hands-on technical support helps local organizations solve challenges in real time.",
+        "Reports every six months and structured field visits bring in constant data on portfolio performance. This system flags underperforming sites early, allowing VIA Foundation and its partners to adapt before problems compound."
+      ],
+      "image": "dji-0107-landscape.jpg"
     },
     {
       "slug": "blended-finance",
@@ -76,6 +76,72 @@
         "VIA Foundation structures blended finance vehicles that combine catalytic public and philanthropic capital with private investment, reducing risk for commercial funders entering restoration for the first time.",
         "Instruments range from first-loss guarantees and outcome-based payments to co-investment facilities designed alongside development banks and impact investors.",
         "By absorbing early-stage risk, VIA Foundation helps unlock capital at a scale that grants alone could never reach."
+      ],
+      "image": "dji-0209-restoration-plots.jpg"
+    }
+  ],
+  "priorityLandscapes": [
+    {
+      "slug": "lake-kivu-rusizi-basin",
+      "title": "Lake Kivu & Rusizi Basin",
+      "image": "dji-0154-waterfall-aerial.jpg",
+      "body": [
+        "VIA Foundation operates in three key landscapes, where restoration strengthens the ecological integrity of degraded landscapes while delivering social and economic benefits to local communities.",
+        "In the Lake Kivu & Rusizi Basin spanning Burundi, the Democratic Republic of the Congo, and Rwanda, planting trees helps to reduce operating costs for hydropower companies and protect habitat for endangered biodiversity."
+      ]
+    },
+    {
+      "slug": "greater-rift-valley",
+      "title": "Kenya’s Greater Rift Valley",
+      "image": "dji-0123-forest-hills.jpg",
+      "body": [
+        "In Kenya’s Greater Rift Valley, restoration reduces flood risks and protects water supplies for flower exporters, geothermal operators, and smallholder farms."
+      ]
+    },
+    {
+      "slug": "ghana-cocoa-belt",
+      "title": "Ghana Cocoa Belt",
+      "image": "project-conservation-cocoa-association.jpg",
+      "body": [
+        "In the Ghana Cocoa Belt, the shift to shade-grown cocoa helps cocoa companies comply with new deforestation regulations and increases farms’ resilience to climate change."
+      ]
+    }
+  ],
+  "implementationPartnerships": [
+    {
+      "slug": "terrafund",
+      "title": "TerraFund",
+      "image": "0x8a3565-community-meeting.jpg",
+      "body": [
+        "Founded by the World Resources Institute (WRI), One Tree Planted, and Realize Impact in 2021, TerraFund is a financing partnership that has deployed grants, loans, and equity investments ranging from $50,000 to $500,000 to community-based non-profits and enterprises restoring land.",
+        "Since 2025, VIA Foundation has helped manage 141 TerraFund projects, with staff co-creating projects alongside community-based organizations and enterprises. This partnership has helped VIA Foundation build its track record of targeting investments to maximize impact per dollar, deploying flexible funding, and providing monitoring and verification support for a real-time view of restoration progress."
+      ]
+    },
+    {
+      "slug": "rwanda-wildlife-conservation-bond",
+      "title": "Rwanda Wildlife Conservation Bond",
+      "image": "dji-0253-waterfall-cliff.jpg",
+      "body": [
+        "Restoration-linked bonds offer a new way to close the restoration finance gap. As a form of outcome-based finance, these instruments direct bond proceeds straight to restoration projects. Instead of receiving coupon payments, investors are repaid at maturity through outcome payments tied to achieving pre-agreed restoration goals. As a result, outcome payers only pay for verified, measurable restoration outcomes.",
+        "The Rwanda Wildlife Conservation Bond, issued by the World Bank and the Government of Rwanda, is designed to channel funding to restore 3,000 hectares of chimpanzee habitat in and around Gishwati-Mukura and Nyungwe National Parks in Rwanda’s Western Province. VIA Foundation serves as an outcome payer, further mobilizing commitments from the Global Environmental Facility and Climate Investment Funds."
+      ]
+    },
+    {
+      "slug": "revolving-capital-facility",
+      "title": "Revolving Capital Facility",
+      "image": "dji-0209-restoration-plots.jpg",
+      "body": [
+        "Through this facility, VIA Foundation creates a virtuous circle in which capital is repaid through verified outcomes and reinvested in new restoration projects. The RCF works in five steps: raising upfront capital, securing outcome commitments, funding local delivery, verifying and repaying, and reinvesting for greater impact.",
+        "VIA Foundation is actively mobilizing commitments from upfront financiers, as well as outcome payers, to kickstart the facility in each of the three priority landscapes."
+      ]
+    },
+    {
+      "slug": "w-plus-credits",
+      "title": "W+ Credits for Gender & Social Equity",
+      "image": "ines-nkombo-community.jpg",
+      "body": [
+        "VIA Foundation is partnering with WOCAN to certify the gender and social equity outcomes of its portfolio and issue credits to outcome payers. Women are central to restoration, yet often do not receive financial benefits or recognition for their work.",
+        "VIA Foundation serves as a project developer, identifying leading local organizations from its portfolio and directing grant funding to implement women’s empowerment initiatives. Currently, VIA Foundation is piloting this approach with two projects in Kenya, before expanding to additional partners."
       ]
     }
   ],
@@ -99,6 +165,18 @@
     {
       "name": "One Tree Planted",
       "weight": 4
+    },
+    {
+      "name": "Realize Impact",
+      "weight": 5
+    },
+    {
+      "name": "AFR100",
+      "weight": 6
+    },
+    {
+      "name": "World Bank",
+      "weight": 7
     }
   ],
   "impactCards": [
@@ -162,8 +240,8 @@
     {
       "slug": "about",
       "eyebrow": "About VIA Foundation",
-      "title": "Africa's First Dedicated Restoration Finance Institution",
-      "subtitle": "Ensuring that resources reach the people restoring Africa's landscapes."
+      "title": "Accelerating Africa’s Restoration Economy",
+      "subtitle": "VIA Foundation connects people restoring land with finance, training, and data."
     },
     {
       "slug": "team",
@@ -175,7 +253,7 @@
       "slug": "projects",
       "eyebrow": "Featured Projects",
       "title": "Restoration in Action",
-      "subtitle": "We take pride in technically and financially supporting targeted, high quality, locally led land restoration across Africa."
+      "subtitle": "VIA Foundation supports local organizations across Africa that are restoring degraded land by growing trees and creating prosperous futures for their communities."
     }
   ],
   "gallery": [
@@ -2449,6 +2527,42 @@
       "bio": "",
       "image": "https://via-foundation.org/wp-content/uploads/2026/04/Placide-Ineza-Kwizera.jpg",
       "weight": 7
+    },
+    {
+      "name": "Donald Kaberuka",
+      "role": "Chair | Rwanda",
+      "location": "Rwanda",
+      "featured": false,
+      "bio": "Dr. Kaberuka is the former president of the African Development Bank and former minister of finance of Rwanda.",
+      "image": "https://placehold.co/600x800/123524/ffffff?text=Donald+Kaberuka",
+      "weight": 8
+    },
+    {
+      "name": "Mamadou Diakhité",
+      "role": "Member | South Africa",
+      "location": "South Africa",
+      "featured": false,
+      "bio": "Mr. Diakhité is head of the Climate Change and Environmental Sustainability Division at the African Union Development Agency (AUDA-NEPAD) and leader of the AFR100 Secretariat.",
+      "image": "https://placehold.co/600x800/123524/ffffff?text=Mamadou+Diakhit%C3%A9",
+      "weight": 9
+    },
+    {
+      "name": "Erik Solheim",
+      "role": "Member | Norway",
+      "location": "Norway",
+      "featured": false,
+      "bio": "Mr. Solheim is the former executive director of the UN Environment Programme and former minister of environment and international development of Norway.",
+      "image": "https://placehold.co/600x800/123524/ffffff?text=Erik+Solheim",
+      "weight": 10
+    },
+    {
+      "name": "Rebekah Shirley",
+      "role": "Member | Kenya",
+      "location": "Kenya",
+      "featured": false,
+      "bio": "Dr. Shirley is the executive director for Africa at World Resources Institute and former chief of research at Power for All.",
+      "image": "https://placehold.co/600x800/123524/ffffff?text=Rebekah+Shirley",
+      "weight": 11
     }
   ],
   "restorationTimeline": [
@@ -2484,12 +2598,12 @@
     {
       "kicker": "Our Vision",
       "title": "A Restored Africa Where People and Nature Thrive Together",
-      "body": "We envision thriving landscapes that generate economic opportunity, strengthen communities, protect biodiversity, and contribute to climate resilience across the continent."
+      "body": "VIA Foundation envisions thriving landscapes that generate economic opportunity, strengthen communities, protect biodiversity, and contribute to climate resilience across the continent."
     },
     {
       "kicker": "Our Mission",
       "title": "Accelerating Locally Led Restoration Across Africa",
-      "body": "We mobilize finance, technical support, strategic partnerships, and innovative financial solutions that enable restoration champions to deliver measurable environmental and social impact."
+      "body": "VIA Foundation mobilizes finance, technical support, strategic partnerships, and innovative financial solutions that enable restoration champions to deliver measurable environmental and social impact."
     }
   ],
   "pillars": [
