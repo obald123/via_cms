@@ -29,6 +29,7 @@ class SiteContentController extends ControllerBase {
 
   public function get(): CacheableJsonResponse {
     $payload = [
+      'copyright' => '© 2026 VIA Foundation (Vumbuzi Impact Africa Foundation). All rights reserved.',
       'heroStats' => $this->map('hero_stat', fn(NodeInterface $n) => [
         'label' => $n->label(),
         'end' => (int) $this->val($n, 'field_end'),
@@ -63,6 +64,7 @@ class SiteContentController extends ControllerBase {
 
       'partners' => $this->map('partner', fn(NodeInterface $n) => [
         'name' => $n->label(),
+        'createdAt' => date(DATE_ATOM, $n->getCreatedTime()),
         'weight' => (int) $this->val($n, 'field_weight'),
       ]),
 
@@ -119,6 +121,7 @@ class SiteContentController extends ControllerBase {
         // A project added by hand with no slug still gets a working page.
         'slug' => (string) ($this->val($n, 'field_slug') ?: $this->slugify($n->label() . '-' . $n->id())),
         'name' => $n->label(),
+        'createdAt' => date(DATE_ATOM, $n->getCreatedTime()),
         'country' => $this->termName($n, 'field_country_ref'),
         'cohort' => (string) $this->val($n, 'field_cohort'),
         // The dropdown; the old free-text field only as a fallback.
@@ -165,6 +168,7 @@ class SiteContentController extends ControllerBase {
 
       'team' => $this->map('team_member', fn(NodeInterface $n) => [
         'name' => $n->label(),
+        'createdAt' => date(DATE_ATOM, $n->getCreatedTime()),
         'role' => (string) $this->val($n, 'field_role'),
         'location' => (string) $this->val($n, 'field_location'),
         'featured' => (bool) $this->val($n, 'field_featured'),
@@ -217,6 +221,7 @@ class SiteContentController extends ControllerBase {
 
       'donors' => $this->map('donor', fn(NodeInterface $n) => [
         'name' => $n->label(),
+        'createdAt' => date(DATE_ATOM, $n->getCreatedTime()),
         'logo' => $this->imageUrl($n, 'field_image'),
         'website' => (string) $this->val($n, 'field_website'),
       ]),

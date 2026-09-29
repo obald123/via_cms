@@ -151,32 +151,28 @@
       "weight": 0
     },
     {
-      "name": "World Resources Institute (WRI)",
+      "name": "Bezos Earth Fund",
       "weight": 1
     },
     {
-      "name": "Bezos Earth Fund",
+      "name": "The Audacious Project",
       "weight": 2
     },
     {
-      "name": "The Audacious Project",
+      "name": "One Tree Planted",
       "weight": 3
     },
     {
-      "name": "One Tree Planted",
+      "name": "Realize Impact",
       "weight": 4
     },
     {
-      "name": "Realize Impact",
+      "name": "World Bank",
       "weight": 5
     },
     {
-      "name": "AFR100",
+      "name": "World Resources Institute (WRI)",
       "weight": 6
-    },
-    {
-      "name": "World Bank",
-      "weight": 7
     }
   ],
   "impactCards": [
@@ -2590,9 +2586,7 @@
   ],
   "newsCategories": [
     "Documentation",
-    "News",
-    "Publication",
-    "Report"
+    "News"
   ],
   "purpose": [
     {
@@ -2627,11 +2621,6 @@
       "website": "https://www.nepad.org"
     },
     {
-      "name": "World Resources Institute (WRI)",
-      "logo": "donor-wri.png",
-      "website": "https://www.wri.org"
-    },
-    {
       "name": "Bezos Earth Fund",
       "logo": "donor-bezos-earth-fund.png",
       "website": "https://www.bezosearthfund.org"
@@ -2645,6 +2634,21 @@
       "name": "One Tree Planted",
       "logo": "donor-one-tree-planted.png",
       "website": "https://onetreeplanted.org"
+    },
+    {
+      "name": "Realize Impact",
+      "logo": "realize logo.jpg",
+      "website": "https://realizeimpact.org"
+    },
+    {
+      "name": "World Bank",
+      "logo": "world bank.png",
+      "website": "https://www.worldbank.org"
+    },
+    {
+      "name": "World Resources Institute (WRI)",
+      "logo": "donor-wri.png",
+      "website": "https://www.wri.org"
     }
   ]
 }
