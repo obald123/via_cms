@@ -60,6 +60,9 @@ echo "==> add-airtable-sync-fields.php"
 echo "==> add-team-member-type-field.php"
 ./vendor/bin/drush php:script scripts/add-team-member-type-field.php
 
+echo "==> add-team-member-email-field.php"
+./vendor/bin/drush php:script scripts/add-team-member-email-field.php
+
 echo "==> build-content-model.php"
 ./vendor/bin/drush php:script scripts/build-content-model.php
 

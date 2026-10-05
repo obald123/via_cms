@@ -171,6 +171,7 @@ class SiteContentController extends ControllerBase {
         'createdAt' => date(DATE_ATOM, $n->getCreatedTime()),
         'role' => (string) $this->val($n, 'field_role'),
         'location' => (string) $this->val($n, 'field_location'),
+        'email' => (string) $this->val($n, 'field_email'),
         'featured' => (bool) $this->val($n, 'field_featured'),
         'bio' => (string) $this->val($n, 'field_bio'),
         'image' => $this->imageUrl($n, 'field_image'),

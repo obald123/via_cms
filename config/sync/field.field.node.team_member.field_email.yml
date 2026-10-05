@@ -1,0 +1,19 @@
+uuid: bc5555e1-b9c2-4638-b4c0-834ed2f73504
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email
+    - node.type.team_member
+id: node.team_member.field_email
+field_name: field_email
+entity_type: node
+bundle: team_member
+label: Email
+description: 'Optional email address. When set, visitors can contact this team member from the website.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email
