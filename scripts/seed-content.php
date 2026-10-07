@@ -251,6 +251,7 @@ foreach ($data['gallery'] as $g) {
     'field_media' => $localFile($g['src']),
     'field_poster' => $localFile($g['poster']),
     'field_caption' => $g['caption'],
+    'field_editor_note' => $g['editorNote'] ?? '',
     'field_featured' => $g['featured'] ? 1 : 0,
     'field_weight' => $g['weight'],
   ], $g['slug']);

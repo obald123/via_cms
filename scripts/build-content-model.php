@@ -167,19 +167,19 @@ $types = [
     'field_icon' => ['Icon'],
     'field_accent' => ['Accent colour (hex)'],
     'field_desc' => ['Short description'],
-    'field_image' => ['Image'],
+    'field_image' => ['Offers image — What We Do'],
     'field_body' => ['Body paragraphs'],
     'field_weight' => ['Order'],
   ]],
   'priority_landscape' => ['Priority landscape', 'Title', 'A priority landscape where VIA Foundation works.', [
     'field_slug' => ['URL slug'],
-    'field_image' => ['Image'],
+    'field_image' => ['Offers image — Where We Work'],
     'field_body' => ['Body paragraphs'],
     'field_weight' => ['Order'],
   ]],
   'implementation_partnership' => ['Implementation partnership', 'Title', 'An active partnership that helps deliver restoration finance and impact.', [
     'field_slug' => ['URL slug'],
-    'field_image' => ['Image'],
+    'field_image' => ['Offers image — How We Partner'],
     'field_body' => ['Body paragraphs'],
     'field_weight' => ['Order'],
   ]],
@@ -339,7 +339,8 @@ foreach ($types as $machine => [$label, $titleLabel, $description, $fields]) {
     $extra = $spec[1] ?? [];
     $storage = FieldStorageConfig::loadByName('node', $fieldName);
 
-    if (!FieldConfig::loadByName('node', $machine, $fieldName)) {
+    $fieldConfig = FieldConfig::loadByName('node', $machine, $fieldName);
+    if (!$fieldConfig) {
       $values = [
         'field_name' => $fieldName,
         'entity_type' => 'node',
@@ -355,6 +356,9 @@ foreach ($types as $machine => [$label, $titleLabel, $description, $fields]) {
       }
       FieldConfig::create($values)->save();
       $created['field']++;
+    }
+    elseif ($fieldConfig->label() !== $fieldLabel) {
+      $fieldConfig->setLabel($fieldLabel)->save();
     }
 
     $formDisplay->setComponent($fieldName, [

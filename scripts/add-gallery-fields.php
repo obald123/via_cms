@@ -40,12 +40,15 @@ $fields = [
   'field_media'      => ['label' => 'File', 'type' => 'file', 'widget' => 'file_generic'],
   'field_poster'     => ['label' => 'Poster image (videos)', 'type' => 'image', 'widget' => 'image_image'],
   'field_caption'    => ['label' => 'Caption', 'type' => 'string_long', 'widget' => 'string_textarea'],
+  'field_editor_note' => ['label' => 'Used on (internal editor note)', 'type' => 'string_long', 'widget' => 'string_textarea'],
   'field_featured'   => ['label' => 'Featured', 'type' => 'boolean', 'widget' => 'boolean_checkbox'],
   'field_weight'     => ['label' => 'Weight', 'type' => 'integer', 'widget' => 'number'],
 ];
 
 $formDisplay = \Drupal::service('entity_display.repository')
   ->getFormDisplay('node', 'gallery_item', 'default');
+$viewDisplay = \Drupal::service('entity_display.repository')
+  ->getViewDisplay('node', 'gallery_item', 'default');
 
 $weight = 0;
 foreach ($fields as $name => $spec) {
@@ -85,6 +88,12 @@ foreach ($fields as $name => $spec) {
     FieldConfig::create($config)->save();
     echo "created field    $name on gallery_item\n";
   }
+  elseif ($name === 'field_editor_note') {
+    $field = FieldConfig::loadByName('node', 'gallery_item', $name);
+    if ($field->label() !== $spec['label']) {
+      $field->setLabel($spec['label'])->save();
+    }
+  }
 
   if (!$formDisplay->getComponent($name)) {
     $formDisplay->setComponent($name, ['type' => $spec['widget'], 'weight' => $weight++]);
@@ -93,4 +102,5 @@ foreach ($fields as $name => $spec) {
 }
 
 $formDisplay->save();
+$viewDisplay->removeComponent('field_editor_note')->save();
 echo "\nDone. Export config with `drush config:export` to capture this in config/sync.\n";
