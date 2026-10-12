@@ -244,17 +244,30 @@ foreach ($data['pageHeroes'] as $i => $h) {
   ], $h['slug']);
 }
 
-foreach ($data['gallery'] as $g) {
-  $upsert('gallery_item', $g['title'], [
-    'field_slug' => $g['slug'],
-    'field_media_type' => $g['type'],
-    'field_media' => $localFile($g['src']),
-    'field_poster' => $localFile($g['poster']),
-    'field_caption' => $g['caption'],
-    'field_editor_note' => $g['editorNote'] ?? '',
-    'field_featured' => $g['featured'] ? 1 : 0,
-    'field_weight' => $g['weight'],
-  ], $g['slug']);
+$galleryInitialized = (bool) \Drupal::state()->get('via_seed.gallery_initialized', FALSE);
+if (!$galleryInitialized) {
+  $existingGallery = $nodeStorage->loadByProperties(['type' => 'gallery_item']);
+  if ($existingGallery) {
+    \Drupal::state()->set('via_seed.gallery_initialized', TRUE);
+    echo "  gallery: existing items preserved; Gallery is now editor-owned\n";
+  }
+  else {
+    foreach ($data['gallery'] as $g) {
+      $upsert('gallery_item', $g['title'], [
+        'field_slug' => $g['slug'],
+        'field_media_type' => $g['type'],
+        'field_source_type' => 'upload',
+        'field_media' => $localFile($g['src']),
+        'field_poster' => $localFile($g['poster']),
+        'field_caption' => $g['caption'],
+        'field_editor_note' => $g['editorNote'] ?? '',
+        'field_featured' => $g['featured'] ? 1 : 0,
+        'field_weight' => $g['weight'],
+      ], $g['slug']);
+    }
+    \Drupal::state()->set('via_seed.gallery_initialized', TRUE);
+    echo "  gallery: initial items seeded; future changes belong in Drupal\n";
+  }
 }
 
 // TerraFund champion organisations — photo, description, website and targets
@@ -422,7 +435,7 @@ $seedOnce('donor', $data['donors'] ?? [], fn($d) => [$d['name'], [
  * Reports by default; deletes only when asked:
  *   SEED_PRUNE=1 drush php:script scripts/seed-content.php
  */
-$prunable = ['hero_stat', 'impact_card', 'partner', 'country', 'funding_allocation', 'yearly_progress', 'page_hero', 'gallery_item', 'restoration_photo'];
+$prunable = ['hero_stat', 'impact_card', 'partner', 'country', 'funding_allocation', 'yearly_progress', 'page_hero', 'restoration_photo'];
 $prune = getenv('SEED_PRUNE') === '1';
 $stale = [];
 

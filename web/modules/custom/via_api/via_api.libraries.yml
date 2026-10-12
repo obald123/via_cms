@@ -1,0 +1,7 @@
+content_filters:
+  js:
+    js/content-filters.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+    - core/drupalSettings

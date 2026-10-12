@@ -108,12 +108,16 @@ class SiteContentController extends ControllerBase {
       'gallery' => $this->map('gallery_item', fn(NodeInterface $n) => [
         'slug' => (string) $this->val($n, 'field_slug'),
         'type' => (string) $this->val($n, 'field_media_type', 'photo'),
-        'src' => $this->fileUrl($n, 'field_media'),
+        'sourceType' => (string) ($this->val($n, 'field_source_type') ?: ($this->hasGalleryMediaUrl($n) ? 'url' : 'upload')),
+        'src' => $this->galleryMediaUrl($n),
         'poster' => $this->imageUrl($n, 'field_poster'),
         'title' => $n->label(),
         'caption' => (string) $this->val($n, 'field_caption'),
         'featured' => (bool) $this->val($n, 'field_featured'),
+        'landscapes' => $this->galleryLandscapes($n),
       ]),
+
+      'landscapes' => $this->landscapeOptions(),
 
       // A TerraFund champion organisation. Trees, hectares and jobs are the
       // commitments made for the project, not results delivered to date.
@@ -335,6 +339,50 @@ class SiteContentController extends ControllerBase {
     }
     $file = $node->get($field)->entity;
     return $file ? $this->fileUrlGenerator->generateAbsoluteString($file->getFileUri()) : '';
+  }
+
+  /** Returns an uploaded media URL or the external URL chosen by the editor. */
+  protected function galleryMediaUrl(NodeInterface $node): string {
+    if ($this->hasGalleryMediaUrl($node)) {
+      return (string) $node->get('field_media_url')->first()->uri;
+    }
+    return $this->fileUrl($node, 'field_media');
+  }
+
+  protected function hasGalleryMediaUrl(NodeInterface $node): bool {
+    return $node->hasField('field_media_url') && !$node->get('field_media_url')->isEmpty();
+  }
+
+  /** Slugs for the landscape taxonomy terms assigned to a Gallery item. */
+  protected function galleryLandscapes(NodeInterface $node): array {
+    if (!$node->hasField('field_landscape') || $node->get('field_landscape')->isEmpty()) {
+      return [];
+    }
+    $slugs = [];
+    foreach ($node->get('field_landscape')->referencedEntities() as $term) {
+      $slugs[] = $this->landscapeSlug($term->label());
+    }
+    return $slugs;
+  }
+
+  /** Landscape options for the public Gallery filter, including empty terms. */
+  protected function landscapeOptions(): array {
+    $terms = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+      ->loadByProperties(['vid' => 'landscape']);
+    uasort($terms, static fn($a, $b) => strnatcasecmp($a->label(), $b->label()));
+    return array_values(array_map(fn($term) => [
+      'slug' => $this->landscapeSlug($term->label()),
+      'name' => $term->label(),
+    ], $terms));
+  }
+
+  protected function landscapeSlug(string $name): string {
+    return match ($name) {
+      'Lake Kivu & Rusizi Basin' => 'lake-kivu-rusizi-basin',
+      'Kenya’s Greater Rift Valley' => 'greater-rift-valley',
+      'Ghana Cocoa Belt' => 'ghana-cocoa-belt',
+      default => $this->slugify($name),
+    };
   }
 
 }

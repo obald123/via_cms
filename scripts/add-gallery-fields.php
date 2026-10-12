@@ -18,6 +18,8 @@
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\node\Entity\NodeType;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\taxonomy\Entity\Vocabulary;
 
 if (!NodeType::load('gallery_item')) {
   NodeType::create([
@@ -30,6 +32,15 @@ if (!NodeType::load('gallery_item')) {
   echo "created content type gallery_item\n";
 }
 
+if (!Vocabulary::load('landscape')) {
+  Vocabulary::create(['vid' => 'landscape', 'name' => 'Landscape'])->save();
+}
+foreach (['Lake Kivu & Rusizi Basin', 'Kenya’s Greater Rift Valley', 'Ghana Cocoa Belt'] as $landscapeName) {
+  if (!\Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'landscape', 'name' => $landscapeName])) {
+    Term::create(['vid' => 'landscape', 'name' => $landscapeName])->save();
+  }
+}
+
 /*
  * field_media is a generic file field rather than an image field, because the
  * same field holds both photos and videos. field_poster stays an image field.
@@ -37,10 +48,13 @@ if (!NodeType::load('gallery_item')) {
 $fields = [
   'field_slug'       => ['label' => 'Slug', 'type' => 'string', 'widget' => 'string_textfield'],
   'field_media_type' => ['label' => 'Media type (photo or video)', 'type' => 'string', 'widget' => 'string_textfield'],
-  'field_media'      => ['label' => 'File', 'type' => 'file', 'widget' => 'file_generic'],
+  'field_source_type' => ['label' => 'Media source', 'type' => 'list_string', 'widget' => 'options_select', 'cardinality' => 1, 'storage_settings' => ['allowed_values' => ['upload' => 'Upload to Drupal', 'url' => 'Use an external URL']]],
+  'field_media'      => ['label' => 'Uploaded photo or video', 'type' => 'file', 'widget' => 'file_generic'],
+  'field_media_url'  => ['label' => 'External media URL (HTTPS)', 'type' => 'link', 'widget' => 'link_default', 'storage_settings' => ['link_type' => 16, 'title' => 0]],
   'field_poster'     => ['label' => 'Poster image (videos)', 'type' => 'image', 'widget' => 'image_image'],
   'field_caption'    => ['label' => 'Caption', 'type' => 'string_long', 'widget' => 'string_textarea'],
   'field_editor_note' => ['label' => 'Used on (internal editor note)', 'type' => 'string_long', 'widget' => 'string_textarea'],
+  'field_landscape'  => ['label' => 'Landscape', 'type' => 'entity_reference', 'widget' => 'options_select', 'cardinality' => -1, 'storage_settings' => ['target_type' => 'taxonomy_term']],
   'field_featured'   => ['label' => 'Featured', 'type' => 'boolean', 'widget' => 'boolean_checkbox'],
   'field_weight'     => ['label' => 'Weight', 'type' => 'integer', 'widget' => 'number'],
 ];
@@ -57,7 +71,8 @@ foreach ($fields as $name => $spec) {
       'field_name' => $name,
       'entity_type' => 'node',
       'type' => $spec['type'],
-      'cardinality' => 1,
+      'cardinality' => $spec['cardinality'] ?? 1,
+      'settings' => $spec['storage_settings'] ?? [],
     ])->save();
     echo "created storage  $name\n";
   }
@@ -70,6 +85,12 @@ foreach ($fields as $name => $spec) {
       'label' => $spec['label'],
       'required' => FALSE,
     ];
+    if ($name === 'field_landscape') {
+      $config['settings'] = [
+        'handler' => 'default:taxonomy_term',
+        'handler_settings' => ['target_bundles' => ['landscape' => 'landscape']],
+      ];
+    }
     // Videos are large; the default 2MB file-field cap would reject them.
     if ($spec['type'] === 'file') {
       $config['settings'] = [

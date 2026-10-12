@@ -79,6 +79,9 @@ fi
 echo "==> sync-airtable-projects.php"
 ./vendor/bin/drush php:script scripts/sync-airtable-projects.php
 
+echo "==> add-content-placement.php"
+./vendor/bin/drush php:script scripts/add-content-placement.php
+
 echo "==> setup-airtable-webhook.php"
 ./vendor/bin/drush php:script scripts/setup-airtable-webhook.php
 

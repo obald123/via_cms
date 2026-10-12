@@ -17,6 +17,7 @@ use Drupal\Core\Site\Settings;
 use Drupal\via_api\AirtableSync;
 use Drupal\via_api\Email\ViaEmailTemplate;
 use Drupal\via_api\ViaMail;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_mail().
@@ -28,6 +29,125 @@ function via_api_mail(string $key, array &$message, array $params): void {
   }
   $message['subject'] = $spec['subject'];
   $message['body'][] = ViaEmailTemplate::renderText($spec);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for views_exposed_form.
+ */
+function via_api_form_views_exposed_form_alter(array &$form, FormStateInterface $form_state): void {
+  $view = $form_state->get('view');
+  if (!$view || $view->id() !== 'content' || !isset($form['site_page'], $form['site_section'])) {
+    return;
+  }
+
+  $sectionToPage = [];
+  $sections = \Drupal::entityTypeManager()->getStorage('taxonomy_term')
+    ->loadByProperties(['vid' => 'website_section']);
+  foreach ($sections as $section) {
+    if (!$section->get('field_parent_page')->isEmpty()) {
+      $sectionToPage[(string) $section->id()] = (string) $section->get('field_parent_page')->target_id;
+    }
+  }
+
+  $form['#attached']['library'][] = 'via_api/content_filters';
+  $form['#attached']['drupalSettings']['viaApiContentFilters']['sectionToPage'] = $sectionToPage;
+}
+
+/**
+ * Implements hook_form_node_gallery_item_form_alter().
+ */
+function via_api_form_node_gallery_item_form_alter(array &$form, FormStateInterface $form_state): void {
+  if (isset($form['field_media_type']['widget'][0]['value'])) {
+    $form['field_media_type']['widget'][0]['value']['#type'] = 'select';
+    $form['field_media_type']['widget'][0]['value']['#options'] = [
+      'photo' => t('Photo'),
+      'video' => t('Video'),
+    ];
+    $form['field_media_type']['widget'][0]['value']['#empty_option'] = t('- Select media type -');
+  }
+  if (isset($form['field_source_type']['widget'])) {
+    if (empty($form['field_source_type']['widget']['#default_value'])) {
+      $form['field_source_type']['widget']['#default_value'] = 'upload';
+    }
+    $sourceSelector = ':input[name="field_source_type"]';
+    $form['field_media']['widget'][0]['#states']['visible'][$sourceSelector] = ['value' => 'upload'];
+    $form['field_media_url']['widget'][0]['uri']['#states']['visible'][$sourceSelector] = ['value' => 'url'];
+    $form['field_media_url']['widget'][0]['title']['#states']['visible'][$sourceSelector] = ['value' => 'url'];
+  }
+  if (isset($form['field_media_url']['widget'][0]['uri'])) {
+    $form['field_media_url']['widget'][0]['uri']['#description'] = t('Use an HTTPS image URL, direct MP4/WebM link, or a YouTube/Vimeo video page.');
+  }
+  $form['#validate'][] = 'via_api_gallery_item_form_validate';
+}
+
+/** Validates Gallery media source and media type together. */
+function via_api_gallery_item_form_validate(array &$form, FormStateInterface $form_state): void {
+  $sourceValues = $form_state->getValue('field_source_type') ?? [];
+  $sourceValues = is_array($sourceValues) ? ($sourceValues[0] ?? $sourceValues) : $sourceValues;
+  $sourceType = (string) (is_array($sourceValues) ? ($sourceValues['value'] ?? '') : $sourceValues);
+  $urlValues = $form_state->getValue('field_media_url') ?? [];
+  $urlValues = is_array($urlValues) ? ($urlValues[0] ?? $urlValues) : [];
+  $mediaUrl = trim((string) ($urlValues['uri'] ?? ''));
+  $typeValues = $form_state->getValue('field_media_type') ?? [];
+  $typeValues = is_array($typeValues) ? ($typeValues[0] ?? $typeValues) : $typeValues;
+  $mediaType = strtolower(trim((string) (is_array($typeValues) ? ($typeValues['value'] ?? '') : $typeValues)));
+  $fileValues = $form_state->getValue('field_media') ?? [];
+  $fileValues = is_array($fileValues) ? ($fileValues[0] ?? $fileValues) : $fileValues;
+  $hasUpload = is_array($fileValues) ? !empty($fileValues['fids']) : !empty($fileValues);
+
+  if (!in_array($mediaType, ['photo', 'video'], TRUE)) {
+    $form_state->setErrorByName('field_media_type', t('Media type must be photo or video.'));
+    return;
+  }
+
+  if ($sourceType === '') {
+    $sourceType = $mediaUrl !== '' ? 'url' : 'upload';
+  }
+  if ($sourceType === 'upload') {
+    if (!$hasUpload) {
+      $form_state->setErrorByName('field_media', t('Choose an uploaded media file, or set Media source to Use an external URL.'));
+    }
+    return;
+  }
+  if ($sourceType !== 'url') {
+    $form_state->setErrorByName('field_source_type', t('Choose Upload to Drupal or Use an external URL.'));
+    return;
+  }
+  if ($mediaUrl === '' || !filter_var($mediaUrl, FILTER_VALIDATE_URL)) {
+    $form_state->setErrorByName('field_media_url', t('Enter a valid HTTPS media URL.'));
+    return;
+  }
+
+  $parts = parse_url($mediaUrl);
+  if (($parts['scheme'] ?? '') !== 'https' || empty($parts['host'])) {
+    $form_state->setErrorByName('field_media_url', t('Only HTTPS media URLs are accepted.'));
+    return;
+  }
+  $host = strtolower($parts['host']);
+  $extension = strtolower(pathinfo($parts['path'] ?? '', PATHINFO_EXTENSION));
+  $imageExtensions = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+  $videoExtensions = ['mp4', 'webm'];
+  $isYouTube = FALSE;
+  if (in_array($host, ['youtube.com', 'www.youtube.com', 'm.youtube.com', 'youtu.be'], TRUE)) {
+    $pathParts = array_values(array_filter(explode('/', trim($parts['path'] ?? '', '/'))));
+    parse_str($parts['query'] ?? '', $query);
+    $videoId = $host === 'youtu.be'
+      ? ($pathParts[0] ?? '')
+      : (($query['v'] ?? '') ?: (in_array($pathParts[0] ?? '', ['embed', 'shorts', 'live'], TRUE) ? ($pathParts[1] ?? '') : ''));
+    $isYouTube = (bool) preg_match('/^[A-Za-z0-9_-]{11}$/', $videoId);
+  }
+  $isVimeo = FALSE;
+  if (in_array($host, ['vimeo.com', 'www.vimeo.com', 'player.vimeo.com'], TRUE)) {
+    $pathParts = array_values(array_filter(explode('/', trim($parts['path'] ?? '', '/'))));
+    $isVimeo = (bool) array_filter($pathParts, static fn($part) => preg_match('/^\d+$/', $part));
+  }
+
+  if ($mediaType === 'photo' && !in_array($extension, $imageExtensions, TRUE)) {
+    $form_state->setErrorByName('field_media_url', t('Photo URLs must point directly to a JPG, PNG, WebP, or GIF image.'));
+  }
+  elseif ($mediaType === 'video' && !in_array($extension, $videoExtensions, TRUE) && !$isYouTube && !$isVimeo) {
+    $form_state->setErrorByName('field_media_url', t('Video URLs must point to an MP4/WebM file or a YouTube/Vimeo video.'));
+  }
 }
 
 /**
