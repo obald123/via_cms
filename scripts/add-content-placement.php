@@ -64,20 +64,22 @@ $termForm = \Drupal::service('entity_display.repository')->getFormDisplay('taxon
 $termForm->setComponent('field_parent_page', ['type' => 'options_select', 'weight' => 0])->save();
 
 $pageTerms = [];
+$pageWeight = 0;
 foreach (array_keys($pages) as $name) {
   $matches = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'website_page', 'name' => $name]);
   $pageTerms[$name] = $matches ? reset($matches) : Term::create(['vid' => 'website_page', 'name' => $name]);
-  if (!$pageTerms[$name]->id()) {
-    $pageTerms[$name]->save();
-  }
+  $pageTerms[$name]->setWeight($pageWeight++)->save();
 }
 
 $sectionTerms = [];
+$sectionWeight = 0;
 foreach ($pages as $pageName => $sections) {
   foreach ($sections as $sectionName) {
     $matches = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadByProperties(['vid' => 'website_section', 'name' => $sectionName]);
     $section = $matches ? reset($matches) : Term::create(['vid' => 'website_section', 'name' => $sectionName]);
-    $section->set('field_parent_page', $pageTerms[$pageName]->id())->save();
+    $section->set('field_parent_page', $pageTerms[$pageName]->id())
+      ->setWeight($sectionWeight++)
+      ->save();
     $sectionTerms[$pageName][$sectionName] = $section;
   }
 }
