@@ -210,7 +210,12 @@ foreach ($data['implementationPartnerships'] ?? [] as $i => $partnership) {
 }
 
 foreach ($data['partners'] as $p) {
-  $upsert('partner', $p['name'], ['field_weight' => $p['weight']]);
+  $existing = $nodeStorage->loadByProperties(['type' => 'partner', 'title' => $p['name']]);
+  $fields = ['field_weight' => $p['weight']];
+  if ((!$existing || reset($existing)->get('field_image')->isEmpty()) && !empty($p['image'])) {
+    $fields['field_image'] = $localFile($p['image']);
+  }
+  $upsert('partner', $p['name'], $fields);
 }
 
 foreach ($data['impactCards'] as $c) {

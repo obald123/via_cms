@@ -191,7 +191,8 @@ $types = [
     'field_image' => ['Photo'],
     'field_weight' => ['Order'],
   ]],
-  'partner' => ['Partner', 'Name', 'A partner organisation shown in the logo marquee.', [
+  'partner' => ['Partner', 'Name', 'A partner organisation shown on Home and the Partner page.', [
+    'field_image' => ['Logo'],
     'field_weight' => ['Order'],
   ]],
   'testimonial' => ['Testimonial', 'Person name', 'A partner testimonial quote.', [

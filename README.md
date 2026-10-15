@@ -31,6 +31,10 @@ preview frontend origins there before going live.
 Three things worth knowing:
 
 - **Ordering** is by `field_weight`, then node id. Every type has it.
+- **Partner logos** are uploaded on the shared Partner record. The same
+  records supply the Home marquee and Partner page, so changing a logo there
+  intentionally updates both. Their uploads are seeded only when blank; later
+  deployments preserve editor changes.
 - **Icons** are stored as lucide-react component *names* (`field_icon`), matched
   to real components by `src/app/api/icons.ts` in the frontend. Adding an icon
   means adding it to the allowed values here *and* to that registry.
@@ -53,6 +57,16 @@ vendor/bin/drush php:script scripts/seed-content.php
 ```bash
 node scripts/export-content.mjs
 ```
+
+The Content overview's Website page and Website section filters include the
+CMS-managed image records. Shared records (team portraits, partner logos, and
+the forest photo shown on About, Impact, and Gallery) are assigned to each
+page/section where they appear; page-specific image fields remain attached to
+their own content records. Donor logos currently appear only on About.
+
+`scripts/deploy.sh` also installs the committed VIA favicon for the public and
+Drupal admin themes. It updates active configuration through Drupal's API and
+does not require a configuration import.
 
 ## Deploying to cPanel
 

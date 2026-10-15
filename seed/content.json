@@ -34,7 +34,7 @@
       "slug": "flexible-funding",
       "title": "Deploy Capital",
       "icon": "DollarSign",
-      "accent": "#56B44B",
+      "accent": "#35EE88",
       "desc": "Catalytic grants and concessional finance tailored to locally-led restoration champions across Africa's diverse landscapes.",
       "body": [
         "VIA Foundation and its partners deploy grants, debt, and equity directly to the organisations doing restoration work on the ground — cooperatives, social enterprises, and community associations.",
@@ -46,7 +46,7 @@
       "slug": "technical-assistance",
       "title": "Build Capacity",
       "icon": "Shield",
-      "accent": "#C8A45A",
+      "accent": "#FCE84E",
       "desc": "Hands-on capacity building, knowledge transfer and implementation support to strengthen restoration organizations at scale.",
       "body": [
         "Money alone doesn't restore land — organisations need financial management systems, monitoring capability, and technical know-how to deploy it well. VIA Foundation's technical assistance team works side-by-side with local organizations to build exactly that.",
@@ -58,7 +58,7 @@
       "slug": "monitoring-verification",
       "title": "Manage Portfolios & Performance",
       "icon": "Globe",
-      "accent": "#56B44B",
+      "accent": "#35EE88",
       "desc": "Rigorous impact measurement, satellite monitoring and third-party verification ensuring accountability and transparency.",
       "body": [
         "Every hectare VIA Foundation finances is tracked thoroughly by its experienced project managers and field coordinators. Hands-on technical support helps local organizations solve challenges in real time.",
@@ -70,7 +70,7 @@
       "slug": "blended-finance",
       "title": "Generate Outcomes",
       "icon": "Layers",
-      "accent": "#C8A45A",
+      "accent": "#FCE84E",
       "desc": "Innovative financial instruments that mobilize private capital alongside public funding for maximum restoration leverage.",
       "body": [
         "VIA Foundation structures blended finance vehicles that combine catalytic public and philanthropic capital with private investment, reducing risk for commercial funders entering restoration for the first time.",
@@ -86,7 +86,6 @@
       "title": "Lake Kivu & Rusizi Basin",
       "image": "dji-0154-waterfall-aerial.jpg",
       "body": [
-        "VIA Foundation operates in three key landscapes, where restoration strengthens the ecological integrity of degraded landscapes while delivering social and economic benefits to local communities.",
         "In the Lake Kivu & Rusizi Basin spanning Burundi, the Democratic Republic of the Congo, and Rwanda, planting trees helps to reduce operating costs for hydropower companies and protect habitat for endangered biodiversity."
       ]
     },
@@ -148,30 +147,37 @@
   "partners": [
     {
       "name": "African Union Development Agency (AUDA-NEPAD)",
+      "image": "donor-auda-nepad.png",
       "weight": 0
     },
     {
       "name": "Bezos Earth Fund",
+      "image": "donor-bezos-earth-fund.png",
       "weight": 1
     },
     {
       "name": "The Audacious Project",
+      "image": "donor-audacious-project.png",
       "weight": 2
     },
     {
       "name": "One Tree Planted",
+      "image": "donor-one-tree-planted.png",
       "weight": 3
     },
     {
       "name": "Realize Impact",
+      "image": "realize logo.jpg",
       "weight": 4
     },
     {
       "name": "World Bank",
+      "image": "world bank.png",
       "weight": 5
     },
     {
       "name": "World Resources Institute (WRI)",
+      "image": "donor-wri.png",
       "weight": 6
     }
   ],
@@ -2531,7 +2537,7 @@
       "location": "Rwanda",
       "featured": false,
       "bio": "Dr. Kaberuka is the former president of the African Development Bank and former minister of finance of Rwanda.",
-      "image": "https://placehold.co/600x800/123524/ffffff?text=Donald+Kaberuka",
+      "image": "",
       "weight": 8
     },
     {
@@ -2540,7 +2546,7 @@
       "location": "South Africa",
       "featured": false,
       "bio": "Mr. Diakhité is head of the Climate Change and Environmental Sustainability Division at the African Union Development Agency (AUDA-NEPAD) and leader of the AFR100 Secretariat.",
-      "image": "https://placehold.co/600x800/123524/ffffff?text=Mamadou+Diakhit%C3%A9",
+      "image": "",
       "weight": 9
     },
     {
@@ -2549,7 +2555,7 @@
       "location": "Norway",
       "featured": false,
       "bio": "Mr. Solheim is the former executive director of the UN Environment Programme and former minister of environment and international development of Norway.",
-      "image": "https://placehold.co/600x800/123524/ffffff?text=Erik+Solheim",
+      "image": "",
       "weight": 10
     },
     {
@@ -2558,7 +2564,7 @@
       "location": "Kenya",
       "featured": false,
       "bio": "Dr. Shirley is the executive director for Africa at World Resources Institute and former chief of research at Power for All.",
-      "image": "https://placehold.co/600x800/123524/ffffff?text=Rebekah+Shirley",
+      "image": "",
       "weight": 11
     }
   ],

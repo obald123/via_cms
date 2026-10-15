@@ -64,6 +64,7 @@ class SiteContentController extends ControllerBase {
 
       'partners' => $this->map('partner', fn(NodeInterface $n) => [
         'name' => $n->label(),
+        'logo' => $this->imageUrl($n, 'field_image'),
         'createdAt' => date(DATE_ATOM, $n->getCreatedTime()),
         'weight' => (int) $this->val($n, 'field_weight'),
       ]),

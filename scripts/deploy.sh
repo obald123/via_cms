@@ -66,6 +66,9 @@ echo "==> add-team-member-email-field.php"
 echo "==> build-content-model.php"
 ./vendor/bin/drush php:script scripts/build-content-model.php
 
+echo "==> set-site-favicon.php"
+./vendor/bin/drush php:script scripts/set-site-favicon.php
+
 echo "==> sync-environment.php"
 ./vendor/bin/drush php:script scripts/sync-environment.php
 

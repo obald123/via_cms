@@ -8,15 +8,17 @@
  *   ./vendor/bin/drush php:script scripts/add-content-placement.php
  */
 
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\field\Entity\FieldStorageConfig;
 use Drupal\node\Entity\NodeType;
+use Drupal\node\NodeInterface;
 use Drupal\taxonomy\Entity\Term;
 use Drupal\taxonomy\Entity\Vocabulary;
 use Drupal\views\Entity\View;
 
 $pages = [
-  'Home' => ['Homepage', 'Impact statistics', 'Trusted partners', 'Restoration photos', 'Featured projects', 'Call to action'],
+  'Home' => ['Homepage', 'Impact statistics', 'Trusted partners', 'Restoration photos', 'Featured projects', 'Call to action', 'Team members', 'Board members'],
   'About' => ['Overview', 'Vision and mission', 'Our approach', 'Team', 'Board', 'Donors'],
   'Portfolio' => ['Projects', 'Project profiles'],
   'Offers' => ['What We Do', 'Where We Work', 'How We Partner'],
@@ -24,7 +26,8 @@ $pages = [
   'News' => ['News', 'Stories', 'Publications'],
   'Careers' => ['Job postings'],
   'Gallery' => ['Photos', 'Videos'],
-  'Other' => ['Partner enquiries', 'Policies', 'Sitewide content', 'Other'],
+  'Partner' => ['Partner logos', 'Partner enquiries'],
+  'Other' => ['Policies', 'Sitewide content', 'Other'],
 ];
 
 $ensureVocabulary = static function (string $id, string $label): void {
@@ -35,15 +38,19 @@ $ensureVocabulary = static function (string $id, string $label): void {
 $ensureVocabulary('website_page', 'Website page');
 $ensureVocabulary('website_section', 'Website section');
 
-$ensureStorage = static function (string $entityType, string $name, string $targetType): void {
-  if (!FieldStorageConfig::loadByName($entityType, $name)) {
+$ensureStorage = static function (string $entityType, string $name, string $targetType, int $cardinality = 1): void {
+  $storage = FieldStorageConfig::loadByName($entityType, $name);
+  if (!$storage) {
     FieldStorageConfig::create([
       'field_name' => $name,
       'entity_type' => $entityType,
       'type' => 'entity_reference',
-      'cardinality' => 1,
+      'cardinality' => $cardinality,
       'settings' => ['target_type' => $targetType],
     ])->save();
+  }
+  elseif ($storage->getCardinality() !== $cardinality) {
+    $storage->setCardinality($cardinality)->save();
   }
 };
 
@@ -84,19 +91,8 @@ foreach ($pages as $pageName => $sections) {
   }
 }
 
-$ensureNodeField = static function (string $fieldName, string $label, string $vocabulary): void {
-  $ensureStorage = static function () use ($fieldName): void {
-    if (!FieldStorageConfig::loadByName('node', $fieldName)) {
-      FieldStorageConfig::create([
-        'field_name' => $fieldName,
-        'entity_type' => 'node',
-        'type' => 'entity_reference',
-        'cardinality' => 1,
-        'settings' => ['target_type' => 'taxonomy_term'],
-      ])->save();
-    }
-  };
-  $ensureStorage();
+$ensureNodeField = static function (string $fieldName, string $label, string $vocabulary) use ($ensureStorage): void {
+  $ensureStorage('node', $fieldName, 'taxonomy_term', FieldStorageDefinitionInterface::CARDINALITY_UNLIMITED);
 
   foreach (NodeType::loadMultiple() as $bundle => $type) {
     if (!FieldConfig::loadByName('node', $bundle, $fieldName)) {
@@ -117,6 +113,20 @@ $ensureNodeField = static function (string $fieldName, string $label, string $vo
 };
 $ensureNodeField('field_website_page', 'Website page', 'website_page');
 $ensureNodeField('field_website_section', 'Website section', 'website_section');
+
+$assignPlacement = static function (NodeInterface $node, array $placements) use ($pageTerms, $sectionTerms): void {
+  $pages = [];
+  $sections = [];
+  foreach ($placements as [$pageName, $sectionName]) {
+    $pageId = (int) $pageTerms[$pageName]->id();
+    $sectionId = (int) $sectionTerms[$pageName][$sectionName]->id();
+    $pages[$pageId] = ['target_id' => $pageId];
+    $sections[$sectionId] = ['target_id' => $sectionId];
+  }
+  $node->set('field_website_page', array_values($pages));
+  $node->set('field_website_section', array_values($sections));
+  $node->save();
+};
 
 $placement = [
   'hero_stat' => ['Home', 'Homepage'],
@@ -140,6 +150,30 @@ $placement = [
 $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
 foreach (NodeType::loadMultiple() as $bundle => $type) {
   foreach ($nodeStorage->loadByProperties(['type' => $bundle]) as $node) {
+    if ($bundle === 'partner') {
+      $assignPlacement($node, [
+        ['Home', 'Trusted partners'],
+        ['Partner', 'Partner logos'],
+      ]);
+      continue;
+    }
+    if ($bundle === 'team_member') {
+      $aboutSection = ($node->get('field_member_type')->value ?? '') === 'board' ? 'Board' : 'Team';
+      $homeSection = $aboutSection === 'Board' ? 'Board members' : 'Team members';
+      $assignPlacement($node, [
+        ['Home', $homeSection],
+        ['About', $aboutSection],
+      ]);
+      continue;
+    }
+    if ($bundle === 'gallery_item' && ($node->get('field_slug')->value ?? '') === 'dji-0123-forest-hills') {
+      $assignPlacement($node, [
+        ['Gallery', 'Photos'],
+        ['Impact', 'Monitoring, Reporting and Verification'],
+        ['About', 'Overview'],
+      ]);
+      continue;
+    }
     if ($bundle === 'gallery_item' && $node->hasField('field_landscape') && $node->get('field_landscape')->isEmpty()) {
       $landscapeBySlug = [
         'dji-0123-forest-hills' => 'Kenya’s Greater Rift Valley',
@@ -166,20 +200,10 @@ foreach (NodeType::loadMultiple() as $bundle => $type) {
         default => ['Other', 'Sitewide content'],
       };
     }
-    elseif ($bundle === 'team_member') {
-      $sectionName = ($node->get('field_member_type')->value ?? '') === 'board' ? 'Board' : 'Team';
-      $pageName = 'About';
-    }
     elseif ($bundle === 'gallery_item') {
       $sectionName = ($node->get('field_media_type')->value ?? '') === 'video' ? 'Videos' : 'Photos';
-      if (($node->get('field_slug')->value ?? '') === 'dji-0123-forest-hills') {
-        $pageName = 'Impact';
-        $sectionName = 'Monitoring, Reporting and Verification';
-      }
     }
-    $node->set('field_website_page', $pageTerms[$pageName]->id());
-    $node->set('field_website_section', $sectionTerms[$pageName][$sectionName]->id());
-    $node->save();
+    $assignPlacement($node, [[$pageName, $sectionName]]);
   }
 }
 
