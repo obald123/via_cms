@@ -215,15 +215,14 @@ parameters:
   # for more information about the topic in general.
   # Note: By default the configuration is disabled.
   cors.config:
-    enabled: false
-    # Specify allowed headers, like 'x-allowed-header'.
-    allowedHeaders: []
-    # Specify allowed request methods, specify ['*'] to allow all possible ones.
-    allowedMethods: []
+    enabled: true
+    allowedHeaders: ['content-type', 'accept', 'authorization']
+    allowedMethods: ['GET', 'POST', 'OPTIONS']
     # Configure requests allowed from specific origins. Do not include trailing
     # slashes with URLs.
-    allowedOrigins: ['*']
-    # Configure requests allowed from origins, matching against regex patterns.
+    allowedOrigins:
+      - 'https://viafoundation.dtecsoftwaresolutions.com'
+      - 'https://via-foundation.com'
     allowedOriginsPatterns: []
     # Sets the Access-Control-Expose-Headers header.
     exposedHeaders: false
