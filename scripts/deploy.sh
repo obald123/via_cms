@@ -88,12 +88,36 @@ echo "==> add-content-placement.php"
 echo "==> setup-airtable-webhook.php"
 ./vendor/bin/drush php:script scripts/setup-airtable-webhook.php
 
+echo "==> ensure-cors-origins.php"
+./vendor/bin/drush php:script scripts/ensure-cors-origins.php
+
 echo "==> cache:rebuild"
 ./vendor/bin/drush cache:rebuild
 
+echo "==> invalidate web container and bootstrap caches"
+./vendor/bin/drush php:eval "\Drupal::database()->truncate('cache_container')->execute(); \Drupal::database()->truncate('cache_bootstrap')->execute();"
+
+API_URL="${VIA_API_URL:-https://viacms.dtecsoftwaresolutions.com/api/v1/site-content}"
+echo "==> verifying CORS origins"
+for origin in \
+  "https://viafoundation.dtecsoftwaresolutions.com" \
+  "https://via-foundation.org" \
+  "https://www.via-foundation.org"; do
+  headers=$(curl --silent --show-error --dump-header - --output /dev/null --max-time 30 \
+    --request OPTIONS "$API_URL" \
+    --header "Origin: $origin" \
+    --header "Access-Control-Request-Method: GET" \
+    --header "Access-Control-Request-Headers: accept")
+  if ! printf '%s\n' "$headers" | grep --fixed-strings --ignore-case --quiet "Access-Control-Allow-Origin: $origin"; then
+    echo "CORS check failed for $origin." >&2
+    echo "Add it to web/sites/default/services.yml on this server and rerun deploy.sh." >&2
+    exit 1
+  fi
+  echo "  allowed: $origin"
+done
+
 echo
 echo "==> verifying live API"
-API_URL="${VIA_API_URL:-https://viacms.dtecsoftwaresolutions.com/api/v1/site-content}"
 curl -s "$API_URL" | php -r '
 $d = json_decode(stream_get_contents(STDIN), true);
 if (!$d) { fwrite(STDERR, "Could not parse API response.\n"); exit(1); }

@@ -22,7 +22,10 @@ CORS allow-list is in `web/sites/default/services.yml`. The production frontend
 origins `https://viafoundation.dtecsoftwaresolutions.com`,
 `https://via-foundation.org`, and `https://www.via-foundation.org` are listed
 explicitly; add any further approved origin as another exact HTTPS entry
-(never a wildcard), then rebuild Drupal caches.
+(never a wildcard), then rebuild Drupal caches. The environment-local
+`services.yml` is not deployed by Git; `deploy.sh` adds the required origins to
+that file, rebuilds caches, clears the persistent web container/bootstrap
+caches, and verifies the origins with browser-style preflight requests.
 
 ## Content model
 
@@ -93,8 +96,10 @@ does not require a configuration import.
 8. **CORS** — ensure `web/sites/default/services.yml` allows the exact
    production frontend origins `https://viafoundation.dtecsoftwaresolutions.com`,
    `https://via-foundation.org`, and `https://www.via-foundation.org`. This file
-   is environment-local, so apply the allow-list on production and rebuild
-   Drupal caches.
+   is environment-local and not deployed by Git. `deploy.sh` idempotently adds
+   the required origins to the server's file, rebuilds Drupal caches, invalidates
+   persistent web container/bootstrap caches, and verifies each origin with an
+   OPTIONS preflight.
 9. **Frontend** — set `VITE_DRUPAL_API_URL=https://cms.via-foundation.org` in the
    Vercel project's environment variables and redeploy.
 
