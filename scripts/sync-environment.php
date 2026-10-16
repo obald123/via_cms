@@ -12,7 +12,9 @@
  *    private:// stream wrapper never registers and every résumé/whistleblower
  *    attachment upload fails (see CLAUDE.md's stream-wrapper note). Adds the
  *    line if it's missing, and creates the directory it points at.
- * 1b/1c. The empty settings.php placeholder lines for Gmail outgoing mail and
+ * 1b/1c. The empty settings.php placeholder lines for outgoing mail (Microsoft
+ *    Graph, with Gmail as fallback — inserted before the existing include
+ *    on environments that predate Graph) and
  *    the Airtable project sync. Both are secrets, so only the blank lines are
  *    added here — the values themselves are filled in by hand per
  *    environment, never copied.
@@ -69,7 +71,11 @@ $contents = file_get_contents($settingsPath);
 if ($contents !== FALSE && !str_contains($contents, 'settings.via-mail.php')) {
   $originalPerms = fileperms($settingsPath) & 0777;
   chmod($settingsPath, 0644);
-  $addition = "\n// Outgoing email via Gmail — fill in, see settings.via-mail.php. Added by scripts/sync-environment.php.\n"
+  $addition = "\n// Outgoing email via Microsoft Graph (or Gmail as fallback) — fill in, see settings.via-mail.php. Added by scripts/sync-environment.php.\n"
+    . "\$settings['via_graph_tenant_id'] = '';\n"
+    . "\$settings['via_graph_client_id'] = '';\n"
+    . "\$settings['via_graph_client_secret'] = '';\n"
+    . "\$settings['via_graph_sender'] = '';\n"
     . "\$settings['via_gmail_user'] = '';\n"
     . "\$settings['via_gmail_app_password'] = '';\n"
     . "\$settings['via_notify_email'] = '';\n"
@@ -80,6 +86,30 @@ if ($contents !== FALSE && !str_contains($contents, 'settings.via-mail.php')) {
 }
 elseif ($contents !== FALSE) {
   echo "settings.php already includes settings.via-mail.php — left alone\n";
+}
+
+/* ── 1b'. settings.php: Microsoft Graph lines on an existing email block ── */
+// Environments set up before Graph replaced Gmail already have the block
+// above, so it was left alone. Insert the empty Graph lines just before the
+// include — settings.via-mail.php reads them at include time, so lines
+// appended after it would be silently ignored.
+$contents = file_get_contents($settingsPath);
+$include = "include __DIR__ . '/settings.via-mail.php';";
+if ($contents !== FALSE && str_contains($contents, $include) && !str_contains($contents, 'via_graph_tenant_id')) {
+  $originalPerms = fileperms($settingsPath) & 0777;
+  chmod($settingsPath, 0644);
+  $graphLines = "// Outgoing email via Microsoft Graph — fill in, see settings.via-mail.php. Added by scripts/sync-environment.php.\n"
+    . "\$settings['via_graph_tenant_id'] = '';\n"
+    . "\$settings['via_graph_client_id'] = '';\n"
+    . "\$settings['via_graph_client_secret'] = '';\n"
+    . "\$settings['via_graph_sender'] = '';\n";
+  $position = strpos($contents, $include);
+  file_put_contents($settingsPath, substr($contents, 0, $position) . $graphLines . substr($contents, $position));
+  chmod($settingsPath, $originalPerms);
+  echo "added the Microsoft Graph email lines to settings.php — fill in the credentials\n";
+}
+elseif ($contents !== FALSE && str_contains($contents, 'via_graph_tenant_id')) {
+  echo "settings.php already has the Microsoft Graph email lines — left alone\n";
 }
 
 /* ── 1c. settings.php: Airtable project sync ──────────────────────────── */

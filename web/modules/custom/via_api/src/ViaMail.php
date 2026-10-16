@@ -5,15 +5,16 @@ namespace Drupal\via_api;
 use Drupal\Core\Site\Settings;
 use Drupal\Core\Url;
 use Drupal\via_api\Email\ViaEmailTemplate;
+use Drupal\via_api\Mail\GraphTransport;
 
 /**
  * Sends the site's transactional emails: builds the content spec each one
  * renders from (see spec() below) and hands delivery to Drupal's mail system.
  *
- * Delivery is configured in settings.php — Gmail SMTP with an app password,
- * see the "Outgoing email" block there and CLAUDE.md. Nothing here knows
- * about Gmail directly: with no credentials set, Symfony Mailer's default
- * ("sendmail") transport is used instead. Either way, the actual HTML/text
+ * Delivery is configured in settings.php — Microsoft Graph (VIA's Microsoft
+ * 365 tenant, see Mail\GraphTransport), else Gmail SMTP with an app password,
+ * else Symfony Mailer's default ("sendmail") transport; see
+ * settings.via-mail.php and CLAUDE.md. Either way, the actual HTML/text
  * rendering happens in \Drupal\via_api\Plugin\Mail\ViaHtmlMailer, which is
  * registered as the default mail plugin by build-content-model.php.
  *
@@ -25,10 +26,10 @@ final class ViaMail {
 
   /**
    * Where VIA's own notifications go: $settings['via_notify_email'], falling
-   * back to the site email (which settings.php sets to the Gmail account).
+   * back to the Microsoft Graph sending mailbox, then the site email.
    */
   public static function notifyAddress(): string {
-    return (string) (Settings::get('via_notify_email') ?: \Drupal::config('system.site')->get('mail'));
+    return (string) (Settings::get('via_notify_email') ?: GraphTransport::senderAddress() ?: \Drupal::config('system.site')->get('mail'));
   }
 
   /** Returns TRUE when the mail was handed to the transport successfully. */
@@ -40,7 +41,7 @@ final class ViaMail {
       'via_api', $key, $to, 'en', $params, $replyTo, TRUE
     );
     if (empty($result['result'])) {
-      \Drupal::logger('via_api')->error('Could not send "@key" email to @to — check the Gmail settings in settings.php.', ['@key' => $key, '@to' => $to]);
+      \Drupal::logger('via_api')->error('Could not send "@key" email to @to — check the email settings in settings.php and the mail log entry above.', ['@key' => $key, '@to' => $to]);
       return FALSE;
     }
     return TRUE;

@@ -8,6 +8,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\StringTranslation\TranslatableMarkup;
 use Drupal\Core\Utility\Error;
 use Drupal\via_api\Email\ViaEmailTemplate;
+use Drupal\via_api\Mail\GraphTransport;
 use Drupal\via_api\ViaMail;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -27,6 +28,11 @@ use Symfony\Component\Mime\Email;
  * ('system.mail' interface.default/webform config — a config change, not a
  * settings.php override, so `drush config:set system.mail interface.default
  * test_mail_collector` still works for testing without touching this file).
+ *
+ * Transport: Microsoft Graph (GraphTransport) whenever the via_graph_*
+ * settings are filled in — that is how production sends, through VIA's
+ * Microsoft 365 tenant. Otherwise the mailer_dsn below (Gmail SMTP, or
+ * sendmail with nothing configured), kept for environments without Graph.
  *
  * Transport setup (reading system.mail's mailer_dsn, same config Drupal core's
  * own "Symfony mailer" plugin uses) is copied from
@@ -95,9 +101,12 @@ class ViaHtmlMailer implements MailInterface, ContainerFactoryPluginInterface {
         $headers->addHeader($name, $value);
       }
 
-      $fromAddress = !empty($message['headers']['From'])
-        ? Address::create($message['headers']['From'])->getAddress()
-        : ViaMail::notifyAddress();
+      // Microsoft Graph only sends as its own mailbox, so when it's the
+      // transport the From address is that mailbox, whatever Drupal put in.
+      $fromAddress = GraphTransport::senderAddress()
+        ?? (!empty($message['headers']['From'])
+          ? Address::create($message['headers']['From'])->getAddress()
+          : ViaMail::notifyAddress());
       $email->from(new Address($fromAddress, 'VIA Foundation'));
 
       $email->to($message['to'])->subject($message['subject']);
@@ -112,6 +121,9 @@ class ViaHtmlMailer implements MailInterface, ContainerFactoryPluginInterface {
   }
 
   protected function getMailer(): MailerInterface {
+    if (!isset($this->mailer) && ($graph = GraphTransport::fromSettings())) {
+      $this->mailer = new Mailer($graph);
+    }
     if (!isset($this->mailer)) {
       $dsn = \Drupal::config('system.mail')->get('mailer_dsn');
       $dsnObject = new Dsn(...$dsn);
