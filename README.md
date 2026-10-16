@@ -19,9 +19,10 @@ Vercel) reads from it at runtime.
 Both custom endpoints live in `web/modules/custom/via_api`.
 
 CORS allow-list is in `web/sites/default/services.yml`. The production frontend
-origin `https://viafoundation.dtecsoftwaresolutions.com` is allowed explicitly;
-add any additional approved frontend origin as another exact HTTPS entry (never
-a wildcard), then rebuild Drupal caches.
+origins `https://viafoundation.dtecsoftwaresolutions.com`,
+`https://via-foundation.org`, and `https://www.via-foundation.org` are listed
+explicitly; add any further approved origin as another exact HTTPS entry
+(never a wildcard), then rebuild Drupal caches.
 
 ## Content model
 
@@ -89,10 +90,11 @@ does not require a configuration import.
 6. **Config** — `drush cim` to import the content model, then run the seeder or
    enter content by hand.
 7. **Cron** — add a cPanel cron job running `drush cron` hourly.
-8. **CORS** — ensure `web/sites/default/services.yml` allows
-   `https://viafoundation.dtecsoftwaresolutions.com` and any other approved
-   frontend origins. This file is environment-local, so apply the same allow
-   list on production and rebuild Drupal caches.
+8. **CORS** — ensure `web/sites/default/services.yml` allows the exact
+   production frontend origins `https://viafoundation.dtecsoftwaresolutions.com`,
+   `https://via-foundation.org`, and `https://www.via-foundation.org`. This file
+   is environment-local, so apply the allow-list on production and rebuild
+   Drupal caches.
 9. **Frontend** — set `VITE_DRUPAL_API_URL=https://cms.via-foundation.org` in the
    Vercel project's environment variables and redeploy.
 

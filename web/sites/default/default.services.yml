@@ -223,6 +223,8 @@ parameters:
     allowedOrigins:
       - 'https://viafoundation.dtecsoftwaresolutions.com'
       - 'https://via-foundation.com'
+      - 'https://via-foundation.org'
+      - 'https://www.via-foundation.org'
     allowedOriginsPatterns: []
     # Sets the Access-Control-Expose-Headers header.
     exposedHeaders: false
